@@ -1,7 +1,7 @@
 %-------------------------------------------------------------------------------
 % Flagship Resume in LaTeX — Garv Arora
 % Computer Science Engineer Specializing in Intelligent Robotic Systems
-% Engine: Calibrated Hierarchy & Entry Spacing (100% 1-Page Fit)
+% Engine: Classic Jake's Resume Template Architecture (100% 1-Page Fit)
 % License: MIT
 %-------------------------------------------------------------------------------
 
@@ -17,7 +17,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\usepackage[top=0.24in, bottom=0.24in, left=0.35in, right=0.35in]{geometry}
+\usepackage[top=0.25in, bottom=0.25in, left=0.35in, right=0.35in]{geometry}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -32,14 +32,14 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% Section formatting: Balanced gap above section header (-6pt) and clean gap after rule (-4pt)
+% Section formatting — Classic Jake's Resume Section Rule Styling
 \titleformat{\section}{
   \vspace{-6pt}\scshape\raggedright\large\bfseries
 }{}{0em}{}[\color{black}\titlerule\vspace{-4pt}]
 
-% Custom commands
+% Custom commands — Classic Jake's Resume Template Macros
 \newcommand{\resumeItem}[1]{
-  \item\small{#1 \vspace{-1.2pt}}
+  \item\small{#1 \vspace{-1.5pt}}
 }
 
 \newcommand{\resumeSubheading}[4]{
@@ -47,25 +47,23 @@
     \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textbf{#2} \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-3.5pt}
+    \end{tabular*}\vspace{-4pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
   \vspace{-1.5pt}\item
     \begin{tabular*}{0.98\textwidth}{l@{\extracolsep{\fill}}r}
       \small#1 & \textbf{#2} \\
-    \end{tabular*}\vspace{-3.5pt}
+    \end{tabular*}\vspace{-4pt}
 }
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-% Subheading list: Proportional 2.0pt gap between separate company/project entries
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=2.0pt, parsep=0pt, topsep=0.8pt]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-3.5pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=1.0pt, parsep=0pt, topsep=0.5pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-4pt}}
 
-% Item list: 0.8pt gap between bullets inside an entry
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in, itemsep=0.8pt, parsep=0pt, topsep=0.6pt]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2.5pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in, itemsep=0.8pt, parsep=0pt, topsep=0.5pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-3pt}}
 
 %-------------------------------------------------------------------------------
 \begin{document}
@@ -164,7 +162,8 @@
 \section{Achievements \& Awards}
   \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.8pt, parsep=0pt, topsep=0.5pt]
     \item \small{\textbf{Amazon ML Summer School 2026:} Selected among Top 3,000 out of 1,30,000+ applicants across India ($\sim$2.3\% acceptance rate).}
-    \item \small{\textbf{Rover Competitions (IRC \& IRDC):} Ranked \textbf{13th Globally (IRC 2025)}, \textbf{17th Globally (IRC 2026)}, and \textbf{15th Globally (IRDC 2024)} with Team Vyadh (SEDS VIT).}
+    \item \small{\textbf{International Rover Challenge (IRC):} Ranked \textbf{13th Globally (2025)} and \textbf{17th Globally (2026)} with Team Vyadh (SEDS VIT).}
+    \item \small{\textbf{International Rover Design Challenge (IRDC 2025):} \textbf{Top 5 Finalist} with Team Vyadh (SEDS VIT).}
   \end{itemize}
 
 %-----------CERTIFICATIONS-----------
