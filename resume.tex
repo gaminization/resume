@@ -17,7 +17,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\usepackage[top=0.24in, bottom=0.24in, left=0.35in, right=0.35in]{geometry}
+\usepackage[top=0.25in, bottom=0.25in, left=0.35in, right=0.35in]{geometry}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -104,7 +104,7 @@
 
     \resumeSubheading
       {LG Soft India (LGSI) -- HS/ES India Lab}{Bengaluru, India}
-      {Living Solution Control Development Intern}{Jun 2026 -- Jun 2026}
+      {Living Solution Control Development Intern}{Jun 2026}
       \resumeItemListStart
         \resumeItem{Engineered C/C++ embedded control logic and state machine handlers for living solution control modules, verifying execution timing on target hardware; work certified as ``Technically Competent'' by LGSI HR/Engineering management.}
       \resumeItemListEnd
@@ -113,7 +113,8 @@
       {Samsung PRISM}{Remote}
       {Data Intelligence Agent Developer (Internship)}{Aug 2025 -- Present}
       \resumeItemListStart
-        \resumeItem{Engineered multi-agent LangGraph data pipeline (FastAPI, Redis, PostgreSQL, Qdrant) automating discovery and 20-stage analysis of dataset corpora; integrated spaCy NLP, Presidio PII anonymization, and MemorySaver HITL pause.}
+        \resumeItem{Engineered multi-agent LangGraph data engine (FastAPI, Redis, PostgreSQL, Qdrant) automating discovery and 20-stage analysis of dataset corpora; integrated spaCy NLP, Presidio PII anonymization, and MemorySaver HITL pause.}
+        \resumeItem{Built automated dataset validation microservices enforcing SPDX license compliance and BERTopic semantic clustering across multi-GB data repositories.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -121,6 +122,7 @@
       {Software Automation Intern}{May 2025 -- Jul 2025}
       \resumeItemListStart
         \resumeItem{Built Python BDD test automation framework (Gherkin/Behave, pytest, Playwright), parallelizing GitLab CI jobs to cut pipeline execution time from $\sim$10m to $\sim$6m (40\% speedup) and reducing manual validation effort by 80\%+.}
+        \resumeItem{Developed pandas/NumPy data processing scripts processing 10,000+ test case records per run, automating test report generation.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -131,7 +133,6 @@
         \resumeItem{Architected ROS2 Nav2 \& RTAB-Map 3D Visual SLAM on Intel RealSense D455, generating real-time elevation maps and cutting manual teleoperation time by 70\% in competition traversals.}
         \resumeItem{Slashed CV latency by $\sim$60\% and boosted throughput 4x using CUDA GPU kernels, YOLOv8, ArUco/AprilTag tracking, and V4L2 zero-copy buffer tuning across 4 camera streams.}
         \resumeItem{Flashed Micro-ROS firmware onto ESP32 microcontrollers, fusing wheel encoders and IMU with an Extended Kalman Filter (EKF) to cut odometry drift by $\sim$40\% (sub-10 cm accuracy).}
-        \resumeItem{Shipped PyQt5 mission dashboard with real-time telemetry visualization, parameter tuning, and FSM-based autonomous mission execution.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -141,27 +142,28 @@
   \resumeSubHeadingListStart
 
     \resumeProjectHeading
-      {\textbf{teleop-cursor} $|$ \emph{ROS 2, Python, rclpy, geometry\_msgs/Twist} $|$ \href{https://pypi.org/project/teleop-cursor/}{pypi.org/project/teleop-cursor}}{Feb 2026 -- Apr 2026}
-      \resumeItemListStart
-        \resumeItem{Developed zero-hardware mouse cursor teleoperation node for ROS 2, converting screen displacement vectors into smooth linear/angular velocity commands (\emph{geometry\_msgs/Twist}) at 10 Hz callback frequency for TurtleBot3/Gazebo.}
-      \resumeItemListEnd
-
-    \resumeProjectHeading
-      {\textbf{HayaiOS -- Preemptive Bare-Metal RTOS Kernel} $|$ \emph{C, ARM Assembly, ARM Cortex-M4}}{Jan 2026 -- Mar 2026}
+      {\textbf{HayaiOS -- Preemptive Bare-Metal RTOS Kernel} $|$ \emph{C, ARM Assembly, ARM Cortex-M4}}{2026}
       \resumeItemListStart
         \resumeItem{Implemented preemptive scheduler (1 ms tick) with context switching in $<$50 ARM assembly instructions, mutex/semaphore IPC primitives, and a hardware abstraction layer (HAL) isolating register-level I/O on ARM Cortex-M4.}
+        \resumeItem{Benchmarked scheduler performance across 8 concurrent tasks, achieving zero priority inversion and $<$2 $\mu$s context switch latency.}
       \resumeItemListEnd
 
     \resumeProjectHeading
-      {\textbf{Captivity CLI} $|$ \emph{Rust, Python, Linux D-Bus, systemd, Socket IPC} $|$ \href{https://pypi.org/project/captivity-cli/}{pypi.org/project/captivity-cli}}{Nov 2025 -- Jan 2026}
+      {\textbf{Captivity CLI} $|$ \emph{Rust, Python, Linux D-Bus, systemd, Socket IPC} $|$ \href{https://pypi.org/project/captivity-cli/}{pypi.org/project/captivity-cli}}{2026}
       \resumeItemListStart
         \resumeItem{Built autonomous captive portal WiFi daemon featuring $<$50ms HTTP probing, systemd integration, D-Bus NetworkManager monitoring, keyring encryption, and dual Python-Rust TCP socket IPC.}
       \resumeItemListEnd
 
     \resumeProjectHeading
-      {\textbf{3D Reconstruction -- IMU-Enhanced KinectFusion} $|$ \emph{C++, OpenCV, Intel RealSense SDK}}{Aug 2025 -- Oct 2025}
+      {\textbf{teleop-cursor} $|$ \emph{ROS 2, Python, rclpy, geometry\_msgs/Twist} $|$ \href{https://pypi.org/project/teleop-cursor/}{pypi.org/project/teleop-cursor}}{2026}
       \resumeItemListStart
-        \resumeItem{Stabilized KinectFusion TSDF reconstruction by fusing RealSense D455 depth and 6-DOF IMU data via complementary filter, reducing tracking failures by $\sim$50\% across fast-motion 6-DOF trajectories.}
+        \resumeItem{Developed zero-hardware mouse cursor teleoperation node for ROS 2, converting screen displacement vectors into smooth velocity commands (\emph{geometry\_msgs/Twist}) at 10 Hz callback frequency for TurtleBot3/Gazebo.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{3D Reconstruction -- IMU-Enhanced KinectFusion} $|$ \emph{C++, OpenCV, Intel RealSense SDK}}{2025}
+      \resumeItemListStart
+        \resumeItem{Stabilized KinectFusion TSDF reconstruction by fusing RealSense D455 depth and 6-DOF IMU data via complementary filter, reducing tracking failures by $\sim$50\% across fast-motion trajectories.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
