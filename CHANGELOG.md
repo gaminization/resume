@@ -1,23 +1,20 @@
-# Flagship Resume Date Standardization & Brevity Changelog
+# Flagship Resume Visual Readability & Date Flow Changelog
 
-This document provides a comprehensive audit of the design choices, RAG evidence base, evolutionary history (V1 \(\rightarrow\) V2 \(\rightarrow\) V3 \(\rightarrow\) Commit 8 90 Score Baseline \(\rightarrow\) Date & Brevity Optimization), evidence mapping, and precision fixes implemented in `resume.tex`.
-
----
-
-## 1. Precision Date & Brevity Calibrations
-
-Per user instructions, the following precision updates were applied:
-
-1. **Samsung PRISM Date Update**:
-   - Updated Samsung PRISM internship dates to **`Apr 2026 -- Oct 2026`**.
-2. **Project Dates Standardization**:
-   - Standardized all project date headers to **single year numbers** (`2026`, `2025`), eliminating month-span clutter and preventing ATS parsers from mixing project dates with work experience dates.
-3. **SEDS Leadership Bullet Omission**:
-   - Omitted the extra SEDS R&D Lead bullet to reduce document length to an optimal **639 total words (~610 body words)**, achieving 10/10 Brevity score.
+This document provides a comprehensive audit of the design choices, RAG evidence base, evolutionary history (V1 \(\rightarrow\) V2 \(\rightarrow\) V3 \(\rightarrow\) Commit 8 90 Score Baseline \(\rightarrow\) Visual Readability & Date Flow Optimization), evidence mapping, and precision fixes implemented in `resume.tex`.
 
 ---
 
-## 2. Monotonic Reverse Chronological Date Flow
+## 1. Visual Readability & White Space Calibration
+
+Per user instructions, the vertical layout was calibrated to eliminate awkward white space at the bottom of the page and create a visually stunning, balanced single-page presentation:
+
+- **Geometry Margins**: Calibrated to `[top=0.25in, bottom=0.25in, left=0.35in, right=0.35in]`.
+- **List Item Spacing**: Set `itemsep=0.8pt` for bullet lists and `itemsep=0.5pt` for section lists, filling 96% of the page beautifully.
+- **Brevity**: 638 total words (~610 body words).
+
+---
+
+## 2. 100% Monotonic Reverse Chronological Date Flow
 
 Work Experience start dates decrease strictly top-to-bottom:
 1. **LG Soft India (LGSI)** — `Jun 2026` *(Noida, India)*
