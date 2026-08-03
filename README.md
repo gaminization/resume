@@ -6,25 +6,11 @@ This repository contains the flagship production LaTeX source (`resume.tex`), co
 
 ## Deliverable Files
 
-- **`resume.tex`**: Production LaTeX source code built on Jake's template foundation with independent section ordering, consolidated SEDS India entry, and plaintext hyperref configuration.
+- **`resume.tex`**: Production LaTeX source code built on Jake's template foundation with strict reverse-chronological date ordering, independent section structure, and plaintext hyperref configuration.
 - **`resume.pdf`**: Single-page compiled PDF document (`Pages: 1` confirmed).
 - **`Evidence_Mapping.md`**: Complete claim-by-claim attestation matrix linking every resume statement to official certificate URLs, patent publication numbers, PyPI pages, GitHub repositories, and local `my_docs/` verification files.
 - **`README.md`**: Compilation, package, and customization documentation.
-- **`CHANGELOG.md`**: Complete RAG evidence audit, peer resume comparative analysis, and evolutionary changelog from V1 \(\rightarrow\) V2 \(\rightarrow\) V3 \(\rightarrow\) Flagship TeX.
-
----
-
-## Independent Section Structure
-
-`resume.tex` strictly enforces independent, unmerged top-level sections:
-
-1. **Education** (VIT Vellore B.Tech CSE CGPA 8.36 | Gems International School Class X/XII)
-2. **Work Experience** (LG Soft India, SEDS India consolidated, Samsung PRISM, Wissen Baum)
-3. **Projects** (`teleop-cursor`, `HayaiOS`, `Captivity CLI`, `3D Reconstruction`)
-4. **Patents** (Published Patent Application IN202641072249 A1)
-5. **Achievements & Awards** (Amazon ML Summer School 2026 Top 3k/1.3L | International Rover Challenge 13th & 17th Global Ranks)
-6. **Certifications** (AWS Certified AI Practitioner | AWS Certified Cloud Practitioner | Oracle Cloud Data Science & GenAI)
-7. **Technical Skills** (Languages, Robotics & Autonomous Systems, Perception & ML, Embedded & Systems)
+- **`CHANGELOG.md`**: Complete RAG evidence audit, peer resume comparative analysis, and evolutionary changelog from V1 \(\rightarrow\) V2 \(\rightarrow\) V3 \(\rightarrow\) Commit 4 Flagship TeX.
 
 ---
 

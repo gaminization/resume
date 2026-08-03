@@ -17,7 +17,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\usepackage[top=0.25in, bottom=0.25in, left=0.35in, right=0.35in]{geometry}
+\usepackage[top=0.24in, bottom=0.24in, left=0.35in, right=0.35in]{geometry}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -110,21 +110,10 @@
       \resumeItemListEnd
 
     \resumeSubheading
-      {SEDS India (SEDS VIT)}{Vellore, India}
-      {Research \& Development Lead \textnormal{\textit{(Promoted from Developer)}}}{Apr 2024 -- Present}
-      \resumeItemListStart
-        \resumeItem{Promoted to R\&D Lead directing 2 space robotics competition teams (50+ engineers) across Team Vyadh (IRC) and Team Ardra (ISDC); conducted architecture reviews and hardware debugging, resolving 10+ critical pre-competition issues.}
-        \resumeItem{Architected ROS2 Nav2 \& RTAB-Map 3D Visual SLAM pipeline on Intel RealSense D455, generating real-time elevation maps and slashing manual teleoperation time by 70\% during autonomous competition traversals.}
-        \resumeItem{Slashed CV pipeline latency by $\sim$60\% and boosted throughput 4x using CUDA GPU kernels, YOLOv8, ArUco/AprilTag tracking, and Linux V4L2 zero-copy buffer tuning across 4 simultaneous camera streams.}
-        \resumeItem{Flashed Micro-ROS firmware onto ESP32 microcontrollers for distributed sensor polling, fusing wheel encoders and 6-DOF IMU with an Extended Kalman Filter (EKF) to cut odometry drift by $\sim$40\% (sub-10 cm positioning accuracy).}
-        \resumeItem{Shipped PyQt5 mission dashboard with real-time telemetry visualization, parameter tuning, and FSM-based autonomous mission execution.}
-      \resumeItemListEnd
-
-    \resumeSubheading
       {Samsung PRISM}{Remote}
       {Data Intelligence Agent Developer (Internship)}{Aug 2025 -- Present}
       \resumeItemListStart
-        \resumeItem{Developed multi-agent LangGraph data engine (FastAPI, Redis, PostgreSQL, Qdrant) automating discovery, screening, and 20-stage analysis of HuggingFace/Kaggle corpora; integrated spaCy NLP, Presidio PII anonymization, and MemorySaver HITL pause.}
+        \resumeItem{Engineered multi-agent LangGraph data pipeline (FastAPI, Redis, PostgreSQL, Qdrant) automating discovery and 20-stage analysis of dataset corpora; integrated spaCy NLP, Presidio PII anonymization, and MemorySaver HITL pause.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -132,6 +121,17 @@
       {Software Automation Intern}{May 2025 -- Jul 2025}
       \resumeItemListStart
         \resumeItem{Built Python BDD test automation framework (Gherkin/Behave, pytest, Playwright), parallelizing GitLab CI jobs to cut pipeline execution time from $\sim$10m to $\sim$6m (40\% speedup) and reducing manual validation effort by 80\%+.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {SEDS India (SEDS VIT)}{Vellore, India}
+      {Research \& Development Lead \textnormal{\textit{(Promoted from Developer)}}}{Apr 2024 -- Present}
+      \resumeItemListStart
+        \resumeItem{Promoted to R\&D Lead directing 2 space robotics teams (50+ engineers) across Team Vyadh (IRC) and Team Ardra (ISDC); conducted architecture reviews and debugging, resolving 10+ critical pre-competition issues.}
+        \resumeItem{Architected ROS2 Nav2 \& RTAB-Map 3D Visual SLAM on Intel RealSense D455, generating real-time elevation maps and cutting manual teleoperation time by 70\% in competition traversals.}
+        \resumeItem{Slashed CV latency by $\sim$60\% and boosted throughput 4x using CUDA GPU kernels, YOLOv8, ArUco/AprilTag tracking, and V4L2 zero-copy buffer tuning across 4 camera streams.}
+        \resumeItem{Flashed Micro-ROS firmware onto ESP32 microcontrollers, fusing wheel encoders and IMU with an Extended Kalman Filter (EKF) to cut odometry drift by $\sim$40\% (sub-10 cm accuracy).}
+        \resumeItem{Shipped PyQt5 mission dashboard with real-time telemetry visualization, parameter tuning, and FSM-based autonomous mission execution.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -155,7 +155,7 @@
     \resumeProjectHeading
       {\textbf{Captivity CLI} $|$ \emph{Rust, Python, Linux D-Bus, systemd, Socket IPC} $|$ \href{https://pypi.org/project/captivity-cli/}{pypi.org/project/captivity-cli}}{Nov 2025 -- Jan 2026}
       \resumeItemListStart
-        \resumeItem{Built autonomous captive portal WiFi login daemon featuring $<$50ms HTTP 204 probing, systemd background integration, D-Bus NetworkManager monitoring, keyring credential encryption, and dual Python-Rust TCP socket IPC.}
+        \resumeItem{Built autonomous captive portal WiFi daemon featuring $<$50ms HTTP probing, systemd integration, D-Bus NetworkManager monitoring, keyring encryption, and dual Python-Rust TCP socket IPC.}
       \resumeItemListEnd
 
     \resumeProjectHeading
@@ -169,7 +169,7 @@
 %-----------PATENTS-----------
 \section{Patents}
   \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0pt]
-    \item \small{\textbf{Patent Published (App IN202641072249 A1):} \textit{Autonomous Radar-Guided Survivor Detection and Navigation System} --- Fused 24GHz FMCW mmWave radar, ultrasonic array, and IMU dead-reckoning on dual-core ESP32; formulated confidence grid decay $C = \max(0, C - \beta \Delta t)$ for survivor breathing detection under rubble. (Jun 2026)}
+    \item \small{\textbf{Patent Published (App IN202641072249 A1):} \textit{Autonomous Radar-Guided Survivor Detection and Navigation System} --- Fused 24GHz FMCW mmWave radar, ultrasonic array, and IMU dead-reckoning on dual-core ESP32; formulated confidence grid decay $C = \max(0, C - \beta \Delta t)$ for survivor breathing detection under rubble.}
   \end{itemize}
 \vspace{-3pt}
 
