@@ -1,17 +1,17 @@
 # Garv Arora - Flagship LaTeX Resume Package
 
-This repository contains the flagship production LaTeX source (`resume.tex`), compiled single-page PDF (`resume.pdf`), official evidence attestation mapping (`Evidence_Mapping.md`), and comprehensive engineering report (`Resume_Optimization_Report.md`) for **Garv Arora**, restored directly from the **90-score baseline** with split SEDS India entries, updated LGSI Noida location, updated SEDS R&D Lead date range (`Jan 2026 -- Jul 2026`), and optimized for high interview conversion across **Software Engineering (SWE), Robotics, Autonomous Systems, Embedded Systems, Computer Vision, ADAS, and AI/ML Engineering**.
+This repository contains the flagship production LaTeX source (`resume.tex`), compiled single-page PDF (`resume.pdf`), official evidence attestation mapping (`Evidence_Mapping.md`), and comprehensive engineering report (`Resume_Optimization_Report.md`) for **Garv Arora**, engineered with a unified single SEDS India entry (`R&D Lead and Autonomous Systems Developer`, `Apr 2024 -- Jul 2026`), LGSI Noida location, 686 total words (~650 body words), and optimized for high interview conversion across **Software Engineering (SWE), Robotics, Autonomous Systems, Embedded Systems, Computer Vision, ADAS, and AI/ML Engineering**.
 
 ---
 
 ## Deliverable Files
 
-- **`resume.tex`**: Production LaTeX source code restored with split SEDS India entries, LGSI Noida location, `Jan 2026 -- Jul 2026` SEDS Lead date range, 701 total words (~667 body words), 100% unique action verbs, verification hyperlinks, and plaintext hyperref configuration.
+- **`resume.tex`**: Production LaTeX source code built with unified single SEDS India entry (`Apr 2024 -- Jul 2026`), LGSI Noida location, 686 total words (~650 body words), 100% unique action verbs, verification hyperlinks, and plaintext hyperref configuration.
 - **`resume.pdf`**: Single-page compiled PDF document (`Pages: 1` confirmed).
 - **`Resume_Optimization_Report.md`**: Complete Phase 0 Root-Cause Analysis, Multi-ATS Scoring Matrix, Phase 0.5 Version Audit, and Tier-1 Recruiter Evaluation Report.
 - **`Evidence_Mapping.md`**: Claim-by-claim attestation matrix linking every resume statement to official certificate URLs, patent publication numbers, PyPI pages, GitHub repositories, and local `my_docs/` verification files.
 - **`README.md`**: Compilation, package, and customization documentation.
-- **[CHANGELOG.md](file:///home/gaminizer/Projects/resume/CHANGELOG.md)**: Complete evolutionary changelog and audit log.
+- **`CHANGELOG.md`**: Complete evolutionary changelog and audit log.
 
 ---
 
