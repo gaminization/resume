@@ -17,7 +17,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\usepackage[top=0.30in, bottom=0.30in, left=0.38in, right=0.38in]{geometry}
+\usepackage[top=0.25in, bottom=0.25in, left=0.35in, right=0.35in]{geometry}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -34,8 +34,8 @@
 
 % Section formatting
 \titleformat{\section}{
-  \vspace{-7pt}\scshape\raggedright\large\bfseries
-}{}{0em}{}[\color{black}\titlerule\vspace{-4pt}]
+  \vspace{-8pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule\vspace{-5pt}]
 
 % Custom commands
 \newcommand{\resumeItem}[1]{
@@ -66,10 +66,10 @@
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=1pt, parsep=0pt, topsep=0pt]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-3pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-4pt}}
 
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in, itemsep=1pt, parsep=0pt, topsep=0pt]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in, itemsep=0.5pt, parsep=0pt, topsep=0pt]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
 
 %-------------------------------------------------------------------------------
@@ -77,8 +77,8 @@
 
 %----------HEADER----------
 \begin{center}
-    \textbf{\Huge \scshape Garv Arora} \\ \vspace{2pt}
-    \small \textbf{Computer Science Engineer $|$ Intelligent Robotic Systems \& Software} \\ \vspace{1.5pt}
+    \textbf{\Huge \scshape Garv Arora} \\ \vspace{1pt}
+    \small \textbf{Computer Science Engineer $|$ Intelligent Robotic Systems \& Software} \\ \vspace{1pt}
     \small +91 88008-12254 $|$ 
     \href{mailto:garvarora0205@gmail.com}{garvarora0205@gmail.com} $|$ 
     \href{https://linkedin.com/in/gaminization}{linkedin.com/in/gaminization} $|$ 
@@ -98,28 +98,6 @@
       {Class XII: 76.4\% $|$ Class X: 89.3\%}{Nov 2016 -- Apr 2023}
   \resumeSubHeadingListEnd
 
-%-----------PATENTS \& KEY HONORS-----------
-\section{Patents \& Key Honors}
-  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=1pt, parsep=0pt, topsep=0pt]
-    \item \small{\textbf{Patent Published (App IN202641072249 A1):} \textit{Autonomous Radar-Guided Survivor Detection and Navigation System} --- Fused 24GHz FMCW mmWave radar, ultrasonic array, and IMU dead-reckoning on dual-core ESP32; formulated confidence grid decay $C = \max(0, C - \beta \Delta t)$ for survivor breathing detection under rubble. (Jun 2026)}
-    \item \small{\textbf{Amazon ML Summer School 2026:} Selected among Top 3,000 out of 1,30,000+ applicants across India ($\sim$2.3\% acceptance rate).}
-    \item \small{\textbf{International Rover Challenge (IRC):} Ranked \textbf{13th Globally (2025)} and \textbf{17th Globally (2026)} with Team Vyadh (SEDS VIT).}
-    \item \small{\textbf{Certifications:} AWS Certified AI Practitioner $|$ AWS Certified Cloud Practitioner $|$ Oracle Cloud Data Science \& GenAI Professional.}
-  \end{itemize}
-\vspace{-3pt}
-
-%-----------TECHNICAL SKILLS-----------
-\section{Technical Skills}
- \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0pt]
-  \small{\item{
-    \textbf{Languages}{: C, C++, Python, Rust, ARM Assembly, Java, JavaScript, SQL, Bash, Verilog} \\
-    \textbf{Robotics \& Autonomous Systems}{: ROS2 (Nav2, MoveIt2), RTAB-Map (3D SLAM), Micro-ROS, EKF/UKF, PID/MPC, Sensor Fusion, mmWave Radar} \\
-    \textbf{Perception \& Machine Learning}{: OpenCV, YOLOv8, MediaPipe, Intel RealSense SDK, PyTorch, TensorFlow, scikit-learn, CUDA, Transformers} \\
-    \textbf{Embedded \& Systems}{: ARM Cortex-M, ESP32, FreeRTOS, I2C/SPI/UART, Bare-Metal C/Assembly, Linux Kernel/D-Bus, Docker, Git, CI/CD, AWS}
-  }}
- \end{itemize}
-\vspace{-3pt}
-
 %-----------WORK EXPERIENCE-----------
 \section{Work Experience}
   \resumeSubHeadingListStart
@@ -133,9 +111,13 @@
 
     \resumeSubheading
       {SEDS India (SEDS VIT)}{Vellore, India}
-      {Research \& Development Lead}{Jan 2026 -- Present}
+      {Research \& Development Lead \textnormal{\textit{(Promoted from Developer)}}}{Apr 2024 -- Present}
       \resumeItemListStart
         \resumeItem{Promoted to R\&D Lead directing 2 space robotics competition teams (50+ engineers) across Team Vyadh (IRC) and Team Ardra (ISDC); conducted architecture reviews and hardware debugging, resolving 10+ critical pre-competition issues.}
+        \resumeItem{Architected ROS2 Nav2 \& RTAB-Map 3D Visual SLAM pipeline on Intel RealSense D455, generating real-time elevation maps and slashing manual teleoperation time by 70\% during autonomous competition traversals.}
+        \resumeItem{Slashed CV pipeline latency by $\sim$60\% and boosted throughput 4x using CUDA GPU kernels, YOLOv8, ArUco/AprilTag tracking, and Linux V4L2 zero-copy buffer tuning across 4 simultaneous camera streams.}
+        \resumeItem{Flashed Micro-ROS firmware onto ESP32 microcontrollers for distributed sensor polling, fusing wheel encoders and 6-DOF IMU with an Extended Kalman Filter (EKF) to cut odometry drift by $\sim$40\% (sub-10 cm positioning accuracy).}
+        \resumeItem{Shipped PyQt5 mission dashboard with real-time telemetry visualization, parameter tuning, and FSM-based autonomous mission execution.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -150,16 +132,6 @@
       {Software Automation Intern}{May 2025 -- Jul 2025}
       \resumeItemListStart
         \resumeItem{Built Python BDD test automation framework (Gherkin/Behave, pytest, Playwright), parallelizing GitLab CI jobs to cut pipeline execution time from $\sim$10m to $\sim$6m (40\% speedup) and reducing manual validation effort by 80\%+.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {SEDS India (SEDS VIT)}{Vellore, India}
-      {Autonomous Systems Developer}{Apr 2024 -- Jan 2026}
-      \resumeItemListStart
-        \resumeItem{Architected ROS2 Nav2 \& RTAB-Map 3D Visual SLAM pipeline on Intel RealSense D455, generating real-time elevation maps and slashing manual teleoperation time by 70\% during autonomous competition traversals.}
-        \resumeItem{Slashed CV pipeline latency by $\sim$60\% and boosted throughput 4x using CUDA GPU kernels, YOLOv8, ArUco/AprilTag tracking, and Linux V4L2 zero-copy buffer tuning across 4 simultaneous camera streams.}
-        \resumeItem{Flashed Micro-ROS firmware onto ESP32 microcontrollers for distributed sensor polling, fusing wheel encoders and 6-DOF IMU with an Extended Kalman Filter (EKF) to cut odometry drift by $\sim$40\% (sub-10 cm positioning accuracy).}
-        \resumeItem{Shipped PyQt5 mission dashboard with real-time telemetry visualization, parameter tuning, and FSM-based autonomous mission execution.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -193,6 +165,40 @@
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
+
+%-----------PATENTS-----------
+\section{Patents}
+  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0pt]
+    \item \small{\textbf{Patent Published (App IN202641072249 A1):} \textit{Autonomous Radar-Guided Survivor Detection and Navigation System} --- Fused 24GHz FMCW mmWave radar, ultrasonic array, and IMU dead-reckoning on dual-core ESP32; formulated confidence grid decay $C = \max(0, C - \beta \Delta t)$ for survivor breathing detection under rubble. (Jun 2026)}
+  \end{itemize}
+\vspace{-3pt}
+
+%-----------ACHIEVEMENTS \& AWARDS-----------
+\section{Achievements \& Awards}
+  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0pt]
+    \item \small{\textbf{Amazon ML Summer School 2026:} Selected among Top 3,000 out of 1,30,000+ applicants across India ($\sim$2.3\% acceptance rate).}
+    \item \small{\textbf{International Rover Challenge (IRC):} Ranked \textbf{13th Globally (2025)} and \textbf{17th Globally (2026)} with Team Vyadh (SEDS VIT).}
+  \end{itemize}
+\vspace{-3pt}
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0pt]
+    \item \small{\textbf{AWS Certifications:} \href{https://cp.certmetrics.com/amazon/en/public/verify/credential/c4c58cf840b94cecade967170c4e6eb1}{AWS Certified AI Practitioner} $|$ \href{https://cp.certmetrics.com/amazon/en/public/verify/credential/bc3e81176da04bd6ab3dcff612193814}{AWS Certified Cloud Practitioner}}
+    \item \small{\textbf{Oracle Cloud Certifications:} \href{https://catalog-education.oracle.com/pls/certview/sharebadge?id=C3199CDA4E4B76D94AEAE70CFCA292011795FEFB3BCD93A18A1454E57C60B0AA}{Certified Data Science Professional} $|$ \href{https://catalog-education.oracle.com/pls/certview/sharebadge?id=EF9A070356E9FB420B39ED42ACCD6CC9326E5653AE07F025C334A2F0238D4652}{Certified Generative AI Professional}}
+  \end{itemize}
+\vspace{-3pt}
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0pt]
+  \small{\item{
+    \textbf{Languages}{: C, C++, Python, Rust, ARM Assembly, Java, JavaScript, SQL, Bash, Verilog} \\
+    \textbf{Robotics \& Autonomous Systems}{: ROS2 (Nav2, MoveIt2), RTAB-Map (3D SLAM), Micro-ROS, EKF/UKF, PID/MPC, Sensor Fusion, mmWave Radar} \\
+    \textbf{Perception \& Machine Learning}{: OpenCV, YOLOv8, MediaPipe, Intel RealSense SDK, PyTorch, TensorFlow, scikit-learn, CUDA, Transformers} \\
+    \textbf{Embedded \& Systems}{: ARM Cortex-M, ESP32, FreeRTOS, I2C/SPI/UART, Bare-Metal C/Assembly, Linux Kernel/D-Bus, Docker, Git, CI/CD, AWS}
+  }}
+ \end{itemize}
 
 %-------------------------------------------
 \end{document}
