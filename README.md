@@ -1,17 +1,36 @@
 # Garv Arora - Flagship LaTeX Resume Package
 
-This repository contains the flagship production LaTeX source (`resume.tex`), compiled single-page PDF (`resume.pdf`), official evidence attestation mapping (`Evidence_Mapping.md`), and comprehensive engineering report (`Resume_Optimization_Report.md`) for **Garv Arora**, engineered with air-padded zero-collision vertical line spacing, Gesture-Controlled 5-DOF Robotic Arm project inclusion, TEDx Speaker achievement, reverse-chronologically sorted projects, single-page fit (`Pages: 1`), and optimized for high interview conversion across **Software Engineering (SWE), Robotics, Autonomous Systems, Embedded Systems, Computer Vision, ADAS, and AI/ML Engineering**.
+This repository contains the flagship production LaTeX source (`resume.tex`), compiled single-page PDF (`resume.pdf`), verification attestation matrix (`docs/Evidence_Mapping.md`), and comprehensive engineering report (`docs/Resume_Optimization_Report.md`) for **Garv Arora**, engineered with air-padded zero-collision vertical line spacing, Gesture-Controlled 5-DOF Robotic Arm project inclusion, TEDx Speaker achievement, reverse-chronologically sorted projects, single-page fit (`Pages: 1`), and optimized for high interview conversion across **Software Engineering (SWE), Robotics, Autonomous Systems, Embedded Systems, Computer Vision, ADAS, and AI/ML Engineering**.
 
 ---
 
-## Deliverable Files
+## Repository Structure
 
-- **`resume.tex`**: Production LaTeX source code built on the high-scoring baseline with calibrated zero-collision line spacing, Gesture-Controlled 5-DOF Robotic Arm project inclusion, Patents & Publications section header, TEDx Speaker achievement, single-year project dates (`2026`, `2025`), 634 total words (~600 body words), verification hyperlinks, and plaintext hyperref configuration.
-- **`resume.pdf`**: Single-page compiled PDF document (`Pages: 1` confirmed).
-- **`Resume_Optimization_Report.md`**: Complete Phase 0 Root-Cause Analysis, Multi-ATS Scoring Matrix, Phase 0.5 Version Audit, and Tier-1 Recruiter Evaluation Report.
-- **`Evidence_Mapping.md`**: Claim-by-claim attestation matrix linking every resume statement to official certificate URLs, patent publication numbers, PyPI pages, GitHub repositories, and local `my_docs/` verification files.
-- **`README.md`**: Compilation, package, and customization documentation.
-- **`CHANGELOG.md`**: Complete evolutionary changelog and audit log.
+```
+resume/
+├── resume.tex                       # Core production LaTeX source
+├── resume.pdf                       # Compiled production single-page PDF (Pages: 1)
+├── tectonic                         # Portable TeX compilation engine
+├── LICENSE                          # MIT License
+├── README.md                        # Primary repository documentation
+├── CHANGELOG.md                     # Engineering & design revision changelog
+│
+├── docs/                            # Documentation & verification hub
+│   ├── Evidence_Mapping.md          # Claim-by-claim attestation matrix
+│   ├── Resume_Optimization_Report.md# Comprehensive ATS & recruiter evaluation report
+│   ├── Garv_Arora_Resume_Master.md  # Plaintext markdown resume source
+│   ├── my_docs/                     # Verification credentials & source files
+│   └── reviews/                     # Peer review feedback & scorecards
+│
+├── archive/                         # Legacy versions & historical baselines
+│   ├── 90score.tex                  # Historical 90-score baseline reference
+│   ├── older_resumes/               # Historical resume iterations & chat logs
+│   ├── jakes_template/              # Original Jake's Resume template reference
+│   └── others_resumes/              # Benchmark reference resumes
+│
+└── scripts/                         # Build tools & alternative generators
+    └── generate_pdf.py              # Alternative HTML/Weasyprint PDF generator
+```
 
 ---
 
@@ -31,10 +50,20 @@ This guarantees:
 
 ## How to Compile
 
+To compile the single-page PDF locally using the included Tectonic engine:
+
 ```bash
 ./tectonic resume.tex
 ```
-*or*
+
+*or via standard TeX Live / pdfLaTeX:*
+
 ```bash
 pdflatex resume.tex
 ```
+
+---
+
+## License
+
+Distributed under the [MIT License](LICENSE).
