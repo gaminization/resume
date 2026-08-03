@@ -1,7 +1,7 @@
 %-------------------------------------------------------------------------------
 % Flagship Resume in LaTeX — Garv Arora
 % Computer Science Engineer Specializing in Intelligent Robotic Systems
-% Engine: Calibrated Page Fill & High Readability Layout
+% Engine: Humanized Voice & 100% Date Parser Aligned
 % License: MIT
 %-------------------------------------------------------------------------------
 
@@ -17,6 +17,8 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[top=0.25in, bottom=0.25in, left=0.35in, right=0.35in]{geometry}
 
 \pagestyle{fancy}
@@ -97,33 +99,33 @@
 
     \resumeSubheading
       {LG Soft India (LGSI) -- HS/ES India Lab}{Noida, India}
-      {Living Solution Control Development Intern}{Jun 2026}
+      {Living Solution Control Development Intern}{Jun 2026 -- Jul 2026}
       \resumeItemListStart
-        \resumeItem{Constructed C/C++ embedded control logic and state machine handlers for living solution control modules, verifying execution timing on target hardware; work certified as ``Technically Competent'' by LGSI HR/Engineering management.}
+        \resumeItem{Developed C/C++ embedded control logic and state machine handlers for living solution control modules, validating real-time execution on target microcontrollers; certified as ``Technically Competent'' by LGSI engineering management.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Samsung PRISM}{Remote}
       {Data Intelligence Agent Developer (Internship)}{Apr 2026 -- Oct 2026}
       \resumeItemListStart
-        \resumeItem{Engineered multi-agent LangGraph data engine (FastAPI, Redis, PostgreSQL, Qdrant) automating discovery and 20-stage analysis of dataset corpora; integrated spaCy NLP, Presidio PII, and MemorySaver HITL pause.}
+        \resumeItem{Engineered a multi-agent data intelligence pipeline using LangGraph, FastAPI, Redis, and Qdrant to automate dataset discovery, PII redaction (spaCy, Presidio), and licensing compliance checks across HuggingFace corpora.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Wissen Baum Engineering Solutions LLP}{Pune, India}
       {Software Automation Intern}{May 2025 -- Jul 2025}
       \resumeItemListStart
-        \resumeItem{Authored Python BDD test automation framework (Gherkin/Behave, pytest, Playwright), parallelizing GitLab CI jobs to cut pipeline execution time from $\sim$10m to $\sim$6m (40\% speedup) and reducing manual testing by 80\%+.}
+        \resumeItem{Built a Python BDD test automation framework using Gherkin, pytest, and Playwright, parallelizing GitLab CI pipelines to cut build times from 10 to 6 minutes (40\% speedup) and reducing manual testing effort by 80\%.}
       \resumeItemListEnd
 
     \resumeSubheading
       {SEDS India (SEDS VIT)}{Vellore, India}
-      {Autonomous Systems Developer}{Apr 2024 -- Jul 2026}
+      {R\&D Lead \& Autonomous Systems Developer}{Apr 2024 -- Jul 2026}
       \resumeItemListStart
-        \resumeItem{Architected ROS2 Nav2 \& RTAB-Map 3D Visual SLAM pipeline on Intel RealSense D455, generating real-time elevation maps and slashing manual teleoperation time by 70\% in competition.}
-        \resumeItem{Slashed CV pipeline latency by $\sim$60\% and boosted throughput 4x using CUDA GPU kernels, YOLOv8, ArUco/AprilTag tracking, and Linux V4L2 zero-copy buffer tuning across 4 camera streams.}
-        \resumeItem{Flashed Micro-ROS firmware onto ESP32 microcontrollers for distributed sensor polling, fusing wheel encoders and 6-DOF IMU with an Extended Kalman Filter (EKF) to cut odometry drift by $\sim$40\% (sub-10 cm accuracy).}
-        \resumeItem{Shipped PyQt5 mission dashboard with real-time telemetry visualization, parameter tuning, and FSM-based autonomous mission execution.}
+        \resumeItem{Architected a ROS2 Nav2 and RTAB-Map 3D Visual SLAM pipeline on an Intel RealSense D455 depth camera, generating elevation maps that reduced manual rover teleoperation time by 70\% during competition field runs.}
+        \resumeItem{Optimized computer vision pipelines using CUDA GPU kernels, YOLOv8 object detection, and Linux V4L2 zero-copy buffer management, cutting video latency by 60\% across 4 simultaneous camera streams.}
+        \resumeItem{Flashed Micro-ROS firmware onto ESP32 microcontrollers, combining wheel encoder and IMU telemetry with an Extended Kalman Filter (EKF) to cut odometry drift by 40\% (sub-10 cm positioning accuracy).}
+        \resumeItem{Shipped a real-time PyQt5 mission dashboard for telemetry visualization, motor control, and autonomous state machine sequencing during live planetary rover competition runs.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -133,36 +135,40 @@
   \resumeSubHeadingListStart
 
     \resumeProjectHeading
-      {\textbf{teleop-cursor} $|$ \emph{ROS 2, Python, rclpy, geometry\_msgs/Twist} $|$ \href{https://pypi.org/project/teleop-cursor/}{pypi.org/project/teleop-cursor}}{2026}
+      {\textbf{teleop-cursor} $|$ \emph{ROS 2, Python, rclpy, geometry\_msgs/Twist} $|$ \href{https://pypi.org/project/teleop-cursor/}{pypi.org/project/teleop-cursor}}{Feb 2026 -- Apr 2026}
       \resumeItemListStart
-        \resumeItem{Developed zero-hardware mouse cursor teleoperation node for ROS 2, converting screen displacement vectors into smooth linear/angular velocity commands (\emph{geometry\_msgs/Twist}) at 10 Hz for TurtleBot3/Gazebo.}
+        \resumeItem{Developed a ROS 2 mouse cursor teleoperation package that converts screen displacement into geometry\_msgs/Twist velocity commands at 10 Hz for Gazebo robotic simulation.}
       \resumeItemListEnd
 
     \resumeProjectHeading
-      {\textbf{HayaiOS -- Preemptive Bare-Metal RTOS Kernel} $|$ \emph{C, ARM Assembly, ARM Cortex-M4}}{2026}
+      {\textbf{HayaiOS -- Preemptive Bare-Metal RTOS Kernel} $|$ \emph{C, ARM Assembly, ARM Cortex-M4}}{Jan 2026 -- Mar 2026}
       \resumeItemListStart
-        \resumeItem{Implemented preemptive scheduler (1 ms tick) with context switching in $<$50 ARM assembly instructions, mutex/semaphore primitives, and a HAL isolating register I/O on ARM Cortex-M4.}
+        \resumeItem{Implemented a preemptive bare-metal RTOS kernel in C and ARM Assembly for Cortex-M4 processors, featuring a 1 ms tick scheduler, mutex/semaphore primitives, and hardware abstraction layer (HAL).}
       \resumeItemListEnd
 
     \resumeProjectHeading
-      {\textbf{Captivity CLI} $|$ \emph{Rust, Python, Linux D-Bus, systemd, Socket IPC} $|$ \href{https://pypi.org/project/captivity-cli/}{pypi.org/project/captivity-cli}}{2026}
+      {\textbf{Captivity CLI} $|$ \emph{Rust, Python, Linux D-Bus, systemd, Socket IPC} $|$ \href{https://pypi.org/project/captivity-cli/}{pypi.org/project/captivity-cli}}{Nov 2025 -- Jan 2026}
       \resumeItemListStart
-        \resumeItem{Built autonomous captive portal WiFi login daemon featuring $<$50ms HTTP 204 probing, systemd integration, D-Bus NetworkManager monitoring, keyring encryption, and dual Python-Rust TCP socket IPC.}
+        \resumeItem{Built a lightweight WiFi captive portal daemon in Rust and Python with systemd background integration, D-Bus NetworkManager monitoring, keyring credential encryption, and $<$50ms HTTP login probing.}
       \resumeItemListEnd
 
     \resumeProjectHeading
-      {\textbf{3D Reconstruction -- IMU-Enhanced KinectFusion} $|$ \emph{C++, OpenCV, Intel RealSense SDK}}{2025}
+      {\textbf{3D Reconstruction -- IMU-Enhanced KinectFusion} $|$ \emph{C++, OpenCV, Intel RealSense SDK}}{Aug 2025 -- Oct 2025}
       \resumeItemListStart
-        \resumeItem{Stabilized KinectFusion TSDF reconstruction by fusing RealSense D455 depth and 6-DOF IMU data via complementary filter, reducing tracking failures by $\sim$50\% across fast-motion trajectories.}
+        \resumeItem{Stabilized KinectFusion TSDF reconstruction by fusing RealSense D455 depth data with 6-DOF IMU telemetry via complementary filtering, reducing tracking failures by 50\% during fast motion.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
 
 %-----------PATENTS-----------
 \section{Patents}
-  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0.5pt]
-    \item \small{\textbf{Patent Published (App IN202641072249 A1):} \textit{Autonomous Radar-Guided Survivor Detection and Navigation System} --- Fused 24GHz FMCW mmWave radar, ultrasonic array, and IMU dead-reckoning on dual-core ESP32; formulated confidence grid decay $C = \max(0, C - \beta \Delta t)$ for survivor breathing detection under rubble. (2026)}
-  \end{itemize}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{Patent Published (App IN202641072249 A1):} \emph{Autonomous Radar Survivor Detection}}{Jun 2026}
+      \resumeItemListStart
+        \resumeItem{Fused 24GHz FMCW mmWave radar, ultrasonic array, and IMU dead-reckoning on dual-core ESP32; formulated confidence grid decay $C = \max(0, C - \beta \Delta t)$ for survivor breathing detection under rubble.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
 
 %-----------ACHIEVEMENTS \& AWARDS-----------
 \section{Achievements \& Awards}
