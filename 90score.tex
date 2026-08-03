@@ -1,7 +1,7 @@
 %-------------------------------------------------------------------------------
 % Flagship Resume in LaTeX — Garv Arora
 % Computer Science Engineer Specializing in Intelligent Robotic Systems
-% Engine: 90-Score Baseline (Calibrated for 95+ Target)
+% Engine: 90-Score Baseline (Restored & Calibrated)
 % License: MIT
 %-------------------------------------------------------------------------------
 
@@ -17,7 +17,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\usepackage[top=0.25in, bottom=0.25in, left=0.35in, right=0.35in]{geometry}
+\usepackage[top=0.24in, bottom=0.24in, left=0.35in, right=0.35in]{geometry}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -48,13 +48,6 @@
       \textbf{#1} & \textbf{#2} \\
       \textit{\small#3} & \textit{\small #4} \\
     \end{tabular*}\vspace{-4pt}
-}
-
-\newcommand{\resumeSubRole}[2]{
-  \vspace{1.5pt}
-  \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
-    \textit{\small#1} & \textit{\small #2} \\
-  \end{tabular*}\vspace{-4pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
@@ -103,24 +96,17 @@
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {LG Soft India (LGSI) -- HS/ES India Lab}{Bengaluru, India}
+      {LG Soft India (LGSI) -- HS/ES India Lab}{Noida, India}
       {Living Solution Control Development Intern}{Jun 2026}
       \resumeItemListStart
         \resumeItem{Constructed C/C++ embedded control logic and state machine handlers for living solution control modules, verifying execution timing on target hardware; work certified as ``Technically Competent'' by LGSI HR/Engineering management.}
       \resumeItemListEnd
 
     \resumeSubheading
-      {SEDS Projects VIT $|$ SEDS India}{Vellore, India}
-      {Research \& Development Lead \textnormal{\textit{(Promoted from Developer)}}}{Jan 2026 -- Present}
+      {SEDS India (SEDS VIT)}{Vellore, India}
+      {Research \& Development Lead}{Jan 2026 -- Jul 2026}
       \resumeItemListStart
         \resumeItem{Promoted to R\&D Lead directing 2 space robotics competition teams (50+ engineers) across Team Vyadh (IRC) and Team Ardra (ISDC); conducted architecture reviews and hardware debugging, resolving 10+ critical pre-competition issues.}
-      \resumeItemListEnd
-      \resumeSubRole{Autonomous Systems Developer}{Apr 2024 -- Jan 2026}
-      \resumeItemListStart
-        \resumeItem{Architected ROS2 Nav2 \& RTAB-Map 3D Visual SLAM pipeline on Intel RealSense D455, generating real-time elevation maps and slashing manual teleoperation time by 70\% in competition.}
-        \resumeItem{Slashed CV pipeline latency by $\sim$60\% and boosted throughput 4x using CUDA GPU kernels, YOLOv8, ArUco/AprilTag tracking, and Linux V4L2 zero-copy buffer tuning across 4 camera streams.}
-        \resumeItem{Flashed Micro-ROS firmware onto ESP32 microcontrollers for distributed sensor polling, fusing wheel encoders and 6-DOF IMU with an Extended Kalman Filter (EKF) to cut odometry drift by $\sim$40\% (sub-10 cm accuracy).}
-        \resumeItem{Shipped PyQt5 mission dashboard with real-time telemetry visualization, parameter tuning, and FSM-based autonomous mission execution.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -135,6 +121,16 @@
       {Software Automation Intern}{May 2025 -- Jul 2025}
       \resumeItemListStart
         \resumeItem{Authored Python BDD test automation framework (Gherkin/Behave, pytest, Playwright), parallelizing GitLab CI jobs to cut pipeline execution time from $\sim$10m to $\sim$6m (40\% speedup) and reducing manual testing by 80\%+.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {SEDS India (SEDS VIT)}{Vellore, India}
+      {Autonomous Systems Developer}{Apr 2024 -- Jan 2026}
+      \resumeItemListStart
+        \resumeItem{Architected ROS2 Nav2 \& RTAB-Map 3D Visual SLAM pipeline on Intel RealSense D455, generating real-time elevation maps and slashing manual teleoperation time by 70\% in competition.}
+        \resumeItem{Slashed CV pipeline latency by $\sim$60\% and boosted throughput 4x using CUDA GPU kernels, YOLOv8, ArUco/AprilTag tracking, and Linux V4L2 zero-copy buffer tuning across 4 camera streams.}
+        \resumeItem{Flashed Micro-ROS firmware onto ESP32 microcontrollers for distributed sensor polling, fusing wheel encoders and 6-DOF IMU with an Extended Kalman Filter (EKF) to cut odometry drift by $\sim$40\% (sub-10 cm accuracy).}
+        \resumeItem{Shipped PyQt5 mission dashboard with real-time telemetry visualization, parameter tuning, and FSM-based autonomous mission execution.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
