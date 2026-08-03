@@ -1,7 +1,7 @@
 %-------------------------------------------------------------------------------
 % Flagship Resume in LaTeX — Garv Arora
 % Computer Science Engineer Specializing in Intelligent Robotic Systems
-% Engine: Calibrated Hierarchy & Micro-Spacing Layout (100% 1-Page Fit)
+% Engine: Calibrated Hierarchy & Entry Spacing (100% 1-Page Fit)
 % License: MIT
 %-------------------------------------------------------------------------------
 
@@ -17,7 +17,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\usepackage[top=0.25in, bottom=0.25in, left=0.35in, right=0.35in]{geometry}
+\usepackage[top=0.24in, bottom=0.24in, left=0.35in, right=0.35in]{geometry}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -59,13 +59,13 @@
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-% Subheading list: 1.8pt gap between company/project entries for distinct visual grouping
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=1.8pt, parsep=0pt, topsep=1.0pt]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-3pt}}
+% Subheading list: Proportional 2.0pt gap between separate company/project entries
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=2.0pt, parsep=0pt, topsep=0.8pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-3.5pt}}
 
-% Item list: 0.8pt gap between bullets inside an entry for effortless reading
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in, itemsep=0.8pt, parsep=0pt, topsep=0.8pt]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
+% Item list: 0.8pt gap between bullets inside an entry
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in, itemsep=0.8pt, parsep=0pt, topsep=0.6pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2.5pt}}
 
 %-------------------------------------------------------------------------------
 \begin{document}
@@ -156,27 +156,27 @@
 
 %-----------PATENTS-----------
 \section{Patents}
-  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=1.0pt, parsep=0pt, topsep=0.6pt]
+  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.8pt, parsep=0pt, topsep=0.5pt]
     \item \small{\textbf{Patent Published (App IN202641072249 A1):} \textit{Autonomous Radar-Guided Survivor Detection and Navigation System} --- Fused 24GHz FMCW mmWave radar, ultrasonic array, and IMU dead-reckoning on dual-core ESP32; formulated confidence grid decay $C = \max(0, C - \beta \Delta t)$ for survivor breathing detection under rubble. (2026)}
   \end{itemize}
 
 %-----------ACHIEVEMENTS \& AWARDS-----------
 \section{Achievements \& Awards}
-  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=1.0pt, parsep=0pt, topsep=0.6pt]
+  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.8pt, parsep=0pt, topsep=0.5pt]
     \item \small{\textbf{Amazon ML Summer School 2026:} Selected among Top 3,000 out of 1,30,000+ applicants across India ($\sim$2.3\% acceptance rate).}
-    \item \small{\textbf{International Rover Challenge (IRC):} Ranked \textbf{13th Globally (2025)} and \textbf{17th Globally (2026)} with Team Vyadh (SEDS VIT).}
+    \item \small{\textbf{Rover Competitions (IRC \& IRDC):} Ranked \textbf{13th Globally (IRC 2025)}, \textbf{17th Globally (IRC 2026)}, and \textbf{15th Globally (IRDC 2024)} with Team Vyadh (SEDS VIT).}
   \end{itemize}
 
 %-----------CERTIFICATIONS-----------
 \section{Certifications}
-  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=1.0pt, parsep=0pt, topsep=0.6pt]
+  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.8pt, parsep=0pt, topsep=0.5pt]
     \item \small{\textbf{AWS Certifications:} \href{https://cp.certmetrics.com/amazon/en/public/verify/credential/c4c58cf840b94cecade967170c4e6eb1}{AWS Certified AI Practitioner} $|$ \href{https://cp.certmetrics.com/amazon/en/public/verify/credential/bc3e81176da04bd6ab3dcff612193814}{AWS Certified Cloud Practitioner}}
     \item \small{\textbf{Oracle Cloud Certifications:} \href{https://catalog-education.oracle.com/pls/certview/sharebadge?id=C3199CDA4E4B76D94AEAE70CFCA292011795FEFB3BCD93A18A1454E57C60B0AA}{Certified Data Science Professional} $|$ \href{https://catalog-education.oracle.com/pls/certview/sharebadge?id=EF9A070356E9FB420B39ED42ACCD6CC9326E5653AE07F025C334A2F0238D4652}{Certified Generative AI Professional}}
   \end{itemize}
 
 %-----------TECHNICAL SKILLS-----------
 \section{Technical Skills}
- \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.8pt, parsep=0pt, topsep=0.6pt]
+ \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0.5pt]
   \small{\item{
     \textbf{Languages}{: C, C++, Python, Rust, ARM Assembly, Java, JavaScript, SQL, Bash, Verilog} \\
     \textbf{Robotics \& Autonomous Systems}{: ROS2 (Nav2, MoveIt2), RTAB-Map (3D SLAM), Micro-ROS, EKF/UKF, PID/MPC, Sensor Fusion, mmWave Radar} \\
