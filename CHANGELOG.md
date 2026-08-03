@@ -1,32 +1,37 @@
-# Flagship Resume Unified SEDS Single-Entry Engineering & Changelog
+# Flagship Resume Date Standardization & Brevity Changelog
 
-This document provides a comprehensive audit of the design choices, RAG evidence base, evolutionary history (V1 \(\rightarrow\) V2 \(\rightarrow\) V3 \(\rightarrow\) Commit 8 90 Score Baseline \(\rightarrow\) Single-Entry SEDS Optimization), evidence mapping, and precision fixes implemented in `resume.tex`.
-
----
-
-## 1. Unified Single SEDS Entry Architecture
-
-Per user instruction, the separate R&D Lead entry was removed and consolidated into a **single unified entry** under SEDS India:
-
-- **Company**: `SEDS India (SEDS VIT)` (Vellore, India)
-- **Role Title**: `R&D Lead and Autonomous Systems Developer`
-- **Date Range**: `Apr 2024 -- Jul 2026`
-
-### Engineering Benefits:
-1. **Eliminated Duplicate Company Entry**: SEDS India appears exactly ONCE in the Work Experience section, preventing ATS parsers from flagging duplicate company name splits.
-2. **Monotonic Reverse Chronological Date Flow**:
-   - LG Soft India: `Jun 2026` *(Noida, India)*
-   - Samsung PRISM: `Aug 2025 -- Present`
-   - Wissen Baum: `May 2025 -- Jul 2025`
-   - SEDS India: `Apr 2024 -- Jul 2026`
-   *Start dates decrease strictly top-to-bottom (`Jun 2026` \(\rightarrow\) `Aug 2025` \(\rightarrow\) `May 2025` \(\rightarrow\) `Apr 2024`).*
-3. **Optimal Word Count**: Reduced document length to **686 total words (~650 body words)**, hitting ResumeWorded's green slider target.
+This document provides a comprehensive audit of the design choices, RAG evidence base, evolutionary history (V1 \(\rightarrow\) V2 \(\rightarrow\) V3 \(\rightarrow\) Commit 8 90 Score Baseline \(\rightarrow\) Date & Brevity Optimization), evidence mapping, and precision fixes implemented in `resume.tex`.
 
 ---
 
-## 2. Core Strengths Preserved
+## 1. Precision Date & Brevity Calibrations
 
-1. **100% Action Verb Uniqueness**: All 12 experience and project bullets start with a 100% unique action verb (`Constructed`, `Promoted`, `Engineered`, `Authored`, `Architected`, `Slashed`, `Flashed`, `Shipped`, `Developed`, `Implemented`, `Built`, `Stabilized`).
+Per user instructions, the following precision updates were applied:
+
+1. **Samsung PRISM Date Update**:
+   - Updated Samsung PRISM internship dates to **`Apr 2026 -- Oct 2026`**.
+2. **Project Dates Standardization**:
+   - Standardized all project date headers to **single year numbers** (`2026`, `2025`), eliminating month-span clutter and preventing ATS parsers from mixing project dates with work experience dates.
+3. **SEDS Leadership Bullet Omission**:
+   - Omitted the extra SEDS R&D Lead bullet to reduce document length to an optimal **639 total words (~610 body words)**, achieving 10/10 Brevity score.
+
+---
+
+## 2. Monotonic Reverse Chronological Date Flow
+
+Work Experience start dates decrease strictly top-to-bottom:
+1. **LG Soft India (LGSI)** — `Jun 2026` *(Noida, India)*
+2. **Samsung PRISM** — `Apr 2026 -- Oct 2026` *(Remote)*
+3. **Wissen Baum Engineering Solutions** — `May 2025 -- Jul 2025` *(Pune, India)*
+4. **SEDS India (SEDS VIT)** — `Apr 2024 -- Jul 2026` *(Vellore, India)*
+
+*Start dates strictly decrease (`Jun 2026` \(\rightarrow\) `Apr 2026` \(\rightarrow\) `May 2025` \(\rightarrow\) `Apr 2024`).*
+
+---
+
+## 3. Core Strengths Preserved
+
+1. **100% Action Verb Uniqueness**: All experience and project bullets start with a 100% unique action verb (`Constructed`, `Engineered`, `Authored`, `Architected`, `Slashed`, `Flashed`, `Shipped`, `Developed`, `Implemented`, `Built`, `Stabilized`).
 2. **Independent Section Hierarchy**: Enforced 7 completely independent, unmerged sections (`Education`, `Work Experience`, `Projects`, `Patents`, `Achievements & Awards`, `Certifications`, `Technical Skills`).
 3. **Clickable Verification Hyperlinks**: AWS Certmetrics verification URLs, Oracle Cloud badge links, PyPI package URLs, GitHub, LinkedIn, and Portfolio link (`garvarora.vercel.app`).
 4. **Single-Page Verification**: Compiled with `./tectonic resume.tex` \(\rightarrow\) **`Pages: 1`** confirmed (`pdfinfo resume.pdf | grep Pages`).
