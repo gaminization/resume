@@ -1,0 +1,204 @@
+%-------------------------
+% Resume in LaTeX
+% Author: Garv Arora
+% Based off of: https://github.com/sb2nov/resume
+% License: MIT
+%------------------------
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage[top=0.28in, bottom=0.28in, left=0.42in, right=0.42in]{geometry}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule\vspace{-6pt}]
+
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands — identical spacing logic to Jake's template
+
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubRole}[2]{
+  \vspace{4pt}
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textit{\small#1} & \textit{\small #2} \\
+  \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{
+  \begin{itemize}[leftmargin=0.15in, label={}, itemsep=4pt, parsep=0pt, topsep=2pt]
+}
+\newcommand{\resumeProjectListStart}{
+  \begin{itemize}[leftmargin=0.15in, label={}, itemsep=3pt, parsep=0pt, topsep=2pt]
+}
+\newcommand{\resumeProjectListEnd}{\end{itemize}}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+\newcommand{\resumeItemListStart}{
+  \begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=1pt]
+}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-1pt}}
+\newcommand{\resumeProjectItemListEnd}{\end{itemize}\vspace{-2pt}}
+
+%-------------------------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Garv Arora} \\ \vspace{2pt}
+    \small\textit{Robotics \& Embedded Systems Engineer $|$ Autonomous Systems $|$ ADAS} \\ \vspace{2pt}
+    \small Vellore, India $|$
+    +91 88008-12254 $|$
+    \href{mailto:garvarora0205@gmail.com}{garvarora0205@gmail.com} $|$
+    \href{https://linkedin.com/in/gaminization}{linkedin.com/in/gaminization} $|$
+    \href{https://github.com/gaminization}{github.com/gaminization}
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Summary}
+\vspace{1pt}
+\small{Autonomous systems engineer specializing in ROS2 navigation, real-time sensor fusion, and ARM bare-metal firmware --- with 2+ years shipping competition-grade robotics software for planetary rover and drone platforms. Placed 12th (IRC~2025) and 16th (IRC~2026) globally among 100+ international teams. Equally at home writing CUDA-accelerated perception pipelines and flashing firmware to microcontrollers. Looking for roles in robotics software, embedded systems, or ADAS where the systems actually move.}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Vellore Institute of Technology $|$ Vellore, India}{CGPA: 8.37 / 10.0}
+      {Bachelor of Technology -- Computer Science \& Engineering (Specialization: IoT)}{August 2023 -- July 2027}
+    \resumeSubheading
+      {Gems International School $|$ Gurugram, India}{Class 10: 89.3\% $|$ Class 12: 76.4\%}
+      {Central Board of Secondary Education (CBSE)}{November 2016 -- April 2023}
+  \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt, parsep=0pt, topsep=1pt]
+  \small{\item{
+    \textbf{Languages}{: C, C++, Python, Java, JavaScript, SQL, Bash, Verilog, C\#, HTML/CSS} \\
+    \textbf{Robotics \& Autonomous Systems}{: ROS2, Nav2, MoveIt2, RTAB-Map, Micro-ROS, SLAM, EKF/UKF, PID Control, Point Cloud Processing, mmWave Radar} \\
+    \textbf{Perception \& ML}{: OpenCV, YOLOv8, MediaPipe, Intel RealSense SDK, PyTorch, TensorFlow, scikit-learn, CUDA, HuggingFace Transformers} \\
+    \textbf{Embedded \& Infrastructure}{: ARM Cortex-M, ESP32, I2C/SPI/UART, FreeRTOS, Docker, Git, GitLab CI/CD, Linux, AWS, PyQt, MongoDB}
+  }}
+\end{itemize}
+
+%-----------WORK EXPERIENCE-----------
+\section{Work Experience}
+  \resumeSubHeadingListStart
+
+    %--- SEDS: stacked roles ---
+    \resumeSubheading
+      {SEDS Projects VIT $|$ SEDS India}{April 2024 -- Present}
+      {Research \& Development Lead \textnormal{\textit{}}}{January 2026 -- Present}
+      \resumeItemListStart
+        \resumeItem{Promoted to R\&D Lead overseeing 2 competition teams (50+ engineers) --- Team Ardra (ISDC) and Team Vyadh (IRC/IRDC) --- under SEDS India, the national apex body for space engineering students.}
+        \resumeItem{Guided 3 sub-team leads through navigation architecture reviews and hardware integration debugging, resolving 10+ critical pre-competition issues across both teams.}
+      \resumeItemListEnd
+      \resumeSubRole{Autonomous Systems Developer}{April 2024 -- January 2026}
+      \resumeItemListStart
+        \resumeItem{Architected a full ROS2 navigation stack (Nav2, RTAB-Map Visual SLAM, RealSense D455) generating real-time 3D elevation maps, cutting manual teleoperation time by 70\% in competition.}
+        \resumeItem{Slashed CV pipeline latency by $\sim$60\% and raised throughput 4x via CUDA, YOLOv8, ArUco/AprilTag detection, and Linux V4L2 tuning across 4 simultaneous camera streams.}
+        \resumeItem{Flashed Micro-ROS firmware to ESP32 microcontrollers for distributed data acquisition; fused IMU and encoder data with an EKF, cutting odometry drift by $\sim$40\% and enabling sub-10 cm autonomous positioning.}
+        \resumeItem{Shipped a PyQt5 autonomous mission dashboard with real-time telemetry visualization, parameter tuning, and FSM-based mission sequencing for autonomous competition runs.}
+      \resumeItemListEnd
+
+    %--- Wissen Baum ---
+    \resumeSubheading
+      {Wissen Baum Engineering Solutions}{May 2025 -- July 2025}
+      {Software Automation Intern}{Pune, India}
+      \resumeItemListStart
+        \resumeItem{Authored a BDD test suite (Python, Behave, pytest) covering 40+ scenarios, raising regression coverage from 0\% to 100\% on 3 core product flows in 6 weeks.}
+        \resumeItem{Accelerated GitLab CI/CD by parallelizing 3 stages (Playwright + Cypress), trimming run time $\sim$35\% (18 min to 12 min); replaced manual QA with a pandas/NumPy script processing 10,000+ rows per run.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeProjectListStart
+
+    \resumeProjectHeading
+      {\textbf{mmWave Earthquake Survivor Detection Robot} $|$ \emph{ROS2, Python, Hi-Link LD2410C, ESP32}}{2026}
+      \resumeItemListStart
+        \resumeItem{Interfaced an LD2410C mmWave radar with ROS2 to detect survivor breathing signatures through 30 cm of rubble; fused radar point-cloud with IMU odometry for autonomous debris navigation, flagging coordinates with $<$15 cm error.}
+      \resumeProjectItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Gesture-Controlled 5-DOF Robotic Arm} $|$ \emph{C++, Arduino, MPU6050, Flex Sensors}}{2026}
+      \resumeItemListStart
+        \resumeItem{Mapped real-time MPU6050 orientation and 2 flex sensor readings to 5-DOF servo commands with $<$50 ms latency; trained gesture classifier on 200+ samples, achieving 94\% accuracy across 8 gestures.}
+      \resumeProjectItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{HayaiOS -- Bare-Metal RTOS} $|$ \emph{C, ARM Assembly, ARM Cortex-M4}}{2026}
+      \resumeItemListStart
+        \resumeItem{Implemented preemptive scheduler (1 ms tick), context switching in $<$50 assembly instructions, mutex/semaphore primitives, and a full HAL isolating all register-level I/O on ARM Cortex-M4.}
+      \resumeProjectItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{3D Reconstruction -- IMU-Enhanced KinectFusion} $|$ \emph{C++, OpenCV, Intel RealSense SDK}}{2025}
+      \resumeItemListStart
+        \resumeItem{Stabilized KinectFusion TSDF reconstruction by fusing RealSense D455 depth and IMU via complementary filter, reducing tracking failures by $\sim$50\% across a 6-DOF fast-motion test trajectory.}
+      \resumeProjectItemListEnd
+
+  \resumeProjectListEnd
+
+%-----------CERTIFICATIONS & ACHIEVEMENTS-----------
+\section{Certifications \& Achievements}
+\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt, parsep=0pt, topsep=0pt]
+  \small{\item{
+    \textbf{IRC 2025}{: 12th globally (100+ teams)} $|$
+    \textbf{IRC 2026}{: 16th globally} $|$
+    \textbf{IRDC 2025}{: Top 5 Finalist} \\
+    \textbf{Oracle Cloud Infrastructure 2025:}
+    \href{https://catalog-education.oracle.com/pls/certview/sharebadge?id=EF9A070356E9FB420B39ED42ACCD6CC9326E5653AE07F025C334A2F0238D4652}{Generative AI Professional}
+    $|$
+    \href{https://catalog-education.oracle.com/pls/certview/sharebadge?id=C3199CDA4E4B76D94AEAE70CFCA292011795FEFB3BCD93A18A1454E57C60B0AA}{Data Science Professional}
+  }}
+\end{itemize}
+
+%-------------------------------------------
+\end{document}

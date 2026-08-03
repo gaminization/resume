@@ -1,0 +1,62 @@
+# What Actually Gets Freshers ₹50 LPA+ Offers — Research Report
+
+**Source note:** I couldn't find actual leaked/shared resume PDFs from named ₹50 LPA+ freshers (people don't publicly post the literal document once they're hired — the "resume dump" culture is mostly pre-offer, on r/resumes/Blind, from people still job-hunting). What I *could* find and verify: real 2025–26 IIT/university placement data with package breakdowns, quant-firm recruiting guides, a real Blind thread from someone who got a working answer from a recruiter on what got them an interview at Jane Street, and industry analyses of what separates the ₹50L+ tier from the ₹15–25L tier at the same colleges. This report is built from that.
+
+---
+
+## 1. Where ₹50 LPA+ fresher offers actually come from
+
+This matters because "50 LPA+ fresher resume" isn't one category — it's two very different recruiting pipelines with different resume expectations:
+
+**Pipeline A — Quant/HFT trading firms** (Jane Street, Optiver, DE Shaw, Da Vinci Derivatives, Two Sigma, Citadel Securities, Hudson River Trading, IMC, Akuna Capital): these are where the *highest* fresher numbers cluster. At IIT Bombay specifically, "HFT roles consistently hitting ₹80 LPA – ₹1.2 Cr domestically" per 2026 placement data. IIT Hyderabad's top offer (₹2.5 Cr) was Optiver, Netherlands. Da Vinci Derivatives offered IIT Bombay CSE students ₹2.2 Cr for an Amsterdam role.
+
+**Pipeline B — Day-one bands at top product companies**: Google, Microsoft, Amazon, Flipkart, Ola, DE Shaw (as a tech employer, not just quant) offering ₹30–50 LPA day-one bands at top IITs as of 2026 data.
+
+The resume that gets you into Pipeline A looks meaningfully different from the resume that gets you into Pipeline B — see sections 3 and 4.
+
+## 2. The institute-name premium is real but shrinking — and everyone in the industry is saying so now
+
+A 2026 placement analysis states this almost bluntly: *"The IIT premium is real — but the same recruiters now hire AI/ML, MLOps and product engineers from non-IIT campuses, GCCs and senior roles in startups at ₹35–65 LPA mid-level. The bottleneck is not the institute name; it is shipped, production-grade AI/ML/cloud projects on GitHub."*
+
+This is the single most important finding for anyone not at a top-5 IIT: the ceiling isn't closed to you, but the bar shifts from "get past the brand-name filter" to "have a live, real, non-toy project a recruiter can actually go open." A tutorial-following clone project does not clear this bar; something with real users, real data volume, or a genuinely hard technical problem solved end-to-end does.
+
+## 3. For quant/HFT resumes: competitive programming credentials function as a golden ticket
+
+This is the most concrete, actionable, and verifiable finding in this whole report. A real 2021 Blind thread has someone asking how people get Jane Street interviews without a referral (Jane Street famously doesn't run a referral-bonus program). The real answer given: *"Just apply to Jane Street website (there's no referral program). Put the Codeforces link on your resume. You'll get an interview."*
+
+The pattern across every quant-adjacent thread I found is consistent:
+- **Codeforces rating, LeetCode percentile, HackerRank percentile** — listed explicitly, with the number, not just "proficient in DSA." One competitive programmer's real self-description that opened doors at Google/DE Shaw/Jane Street-tier companies: *"360+ LeetCode questions. 99.5 percentile LeetCode contest ranking. 99 percentile HackerRank ranking. 2200 on Codeforces (98.5 percentile)."*
+- **Math/stats depth** matters as much as CS depth for quant roles specifically — Optiver explicitly recruits from Math, Physics, Actuarial Studies, and even Philosophy backgrounds, not just CS.
+- **The process has real, acknowledged opacity even at the very top.** One candidate with *"3 FAANG internships and top 5 undergrad CS school"* got rejected from Jane Street's new-grad process with no clear explanation given even by an insider responding in the same thread — worth knowing honestly rather than assuming a perfect formula exists. Even elite-tier resumes get inexplicable no's at this level; volume of applications and controlled expectations matter.
+
+## 4. For top product-company day-one offers: CPI/CGPA threshold + differentiators, not CPI alone
+
+A resume-strategy source specifically analyzing IIT-tier applicants names the actual differentiator set recruiters look for once the CPI gate is cleared: *"Recruiters look for differentiators like research papers, GSoC, or high-end internships."* Google Summer of Code (open-source, externally verified, real production codebases) is named specifically — it functions as a trust signal because it's judged by a third party (the open-source org), not self-reported.
+
+CPI **8+** is described as table stakes at top-IIT recruiting specifically — not because it correlates with job performance, but because it's the fastest cut criterion when a company gets thousands of applications and needs to shrink the pool before human review even starts.
+
+## 5. The bullet-writing standard doesn't change at this tier — it just gets harder to fake
+
+The same "impact statement, not duty statement" rule from the general fresher research applies, but the bar for what counts as impressive impact is calibrated way up. A resume-strategy source's actual example set for this tier:
+- "Designed and delivered [feature] used by 50K+ users; improved retention by 15%."
+- "Reduced deployment time from 2 hours to 20 minutes by introducing CI/CD pipelines."
+- "Led cross-functional team of 5; shipped 3 major releases in 12 months."
+
+The scale words are doing real work here — "50K+ users," "2 hours to 20 minutes," "3 major releases" — this is the same STAR/quantification rule as any fresher resume, just with numbers that would be unusual for a typical campus project and therefore have to come from something real: an actual internship, a genuinely used open-source tool, or a startup gig, not a solo assignment.
+
+## 6. Non-IIT paths to ₹50L+ exist but skew toward a different kind of story
+
+LPU (a private university, explicitly not an IIT/NIT/IIM) has produced several ₹50L–2.5Cr offers in recent years — but the pattern in the ones with real detail is notably different from the quant/CP story above: **international internships** (Singapore, Japan, US) and a **specific technical niche employer** (a robotics and automation company, not a generalist tech recruiter) rather than a pure DSA/CP credentials story. This suggests a second viable path for students outside the IIT/CP pipeline: depth in a specific applied-engineering niche plus international exposure, rather than trying to out-compete IIT students at competitive programming.
+
+---
+
+## Cross-source synthesis — what this actually means for a resume
+
+1. **Decide which pipeline you're actually building toward before optimizing the resume** — a quant/HFT resume and a product-company resume reward different things (CP ratings + math depth vs. GSoC/research/high-end internships + shipped-product metrics).
+2. **If competitive programming is part of your story, the actual rating/percentile number needs to be on the resume, not a vague "strong in DSA."** This is the single most concrete, differentiated finding here versus the general fresher-resume research from before.
+3. **"Shipped, production-grade, on GitHub" is repeatedly named as the actual bar** — above generic personal projects — for candidates trying to compete without a top-tier brand name backing them.
+4. **GSoC and research papers function as third-party-verified trust signals** in a way self-reported project descriptions can't — worth pursuing specifically because they're externally judged, not just resume claims.
+5. **The process has genuine opacity at the very top tier**, confirmed by an insider's own admission on a real thread — this isn't a reason to stop optimizing, but it is a reason not to over-interpret a single rejection or a single success as proof of a universal formula.
+6. **A non-IIT path to this tier exists** and looks different: niche technical depth + international exposure, rather than trying to win the CP/CGPA game against IIT-tier competition directly.
+
+*Sources: 2026 IIT placement data aggregators (OwnYourCareer, CollegeDekho, Careers360), Jane Street/Optiver/quant recruiting guides (EverythingQuant), real dated Blind threads (2020–2023) on quant referrals and competitive-programming-driven interviews, LPU official placement press coverage, and IIT-tier resume-strategy analysis (ResumeGyani). Compiled July 2026.*
