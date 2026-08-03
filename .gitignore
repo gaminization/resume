@@ -334,3 +334,8 @@ tectonic
 tectonic.tar.gz
 test.pdf
 test.tex
+
+## Ignore external/peer reference resumes:
+others_resumes/
+archive/others_resumes/
+
