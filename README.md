@@ -1,6 +1,6 @@
 # Garv Arora - Flagship LaTeX Resume Package
 
-This repository contains the flagship production LaTeX source (`resume.tex`), compiled single-page PDF (`resume.pdf`), official evidence attestation mapping (`Evidence_Mapping.md`), and comprehensive engineering report (`Resume_Optimization_Report.md`) for **Garv Arora**, engineered with zero-collision vertical line spacing, IRDC 2025 Top 5 Finalist achievement inclusion, 613 total words (~580 body words), single-page fit (`Pages: 1`), and optimized for high interview conversion across **Software Engineering (SWE), Robotics, Autonomous Systems, Embedded Systems, Computer Vision, ADAS, and AI/ML Engineering**.
+This repository contains the flagship production LaTeX source (`resume.tex`), compiled single-page PDF (`resume.pdf`), official evidence attestation mapping (`Evidence_Mapping.md`), and comprehensive engineering report (`Resume_Optimization_Report.md`) for **Garv Arora**, engineered with air-padded zero-collision vertical line spacing, IRDC 2025 Top 5 Finalist achievement inclusion, 613 total words (~580 body words), single-page fit (`Pages: 1`), and optimized for high interview conversion across **Software Engineering (SWE), Robotics, Autonomous Systems, Embedded Systems, Computer Vision, ADAS, and AI/ML Engineering**.
 
 ---
 
