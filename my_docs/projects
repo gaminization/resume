@@ -1,0 +1,18 @@
+Gesture-Controlled 5-DOF Robotic Arm | C++, Arduino, MPU6050, Flex Sensors 2026
+• Mapped MPU6050 orientation and 2 flex sensors to 5-DOF servo commands (<50 ms latency); trained classifier on 200+
+samples, 94% accuracy across 8 gestures.
+HayaiOS – Bare-Metal RTOS | C, ARM Assembly, ARM Cortex-M4 2026
+• Implemented a preemptive scheduler (1 ms tick), context switching in <50 assembly instructions, mutex/semaphore primitives,
+and a full HAL isolating register-level I/O on ARM Cortex-M4.
+3D Reconstruction – IMU-Enhanced KinectFusion | C++, OpenCV, Intel RealSense SDK 2025
+• Stabilized KinectFusion TSDF reconstruction by fusing RealSense D455 depth and IMU via complementary filter, reducing
+tracking failures by ∼50% across a 6-DOF trajectory
+Gesture-Controlled 5-DOF Robotic Arm | C++, Arduino, MPU6050, Flex Sensors 2026
+• Mapped real-time MPU6050 orientation and 2 flex sensor readings to 5-DOF servo commands with <50 ms latency; trained
+gesture classifier on 200+ samples, achieving 94% accuracy across 8 gestures.
+HayaiOS – Bare-Metal RTOS | C, ARM Assembly, ARM Cortex-M4 2026
+• Implemented preemptive scheduler (1 ms tick), context switching in <50 assembly instructions, mutex/semaphore primitives, and
+a full HAL isolating all register-level I/O on ARM Cortex-M4.
+3D Reconstruction – IMU-Enhanced KinectFusion | C++, OpenCV, Intel RealSense SDK 2025
+• Stabilized KinectFusion TSDF reconstruction by fusing RealSense D455 depth and IMU via complementary filter, reducing
+tracking failures by ∼50% across a 6-DOF fast-motion test trajectory.

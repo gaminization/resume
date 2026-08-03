@@ -1,0 +1,140 @@
+
+🖱️ teleop-cursor
+Intuitive Desktop Cursor Teleoperation for ROS 2 Mobile Robots
+
+ROS 2 Python License PyPI
+
+Transform real-time desktop mouse cursor movements into canonical ROS 2 velocity commands (geometry_msgs/msg/Twist) for physical and simulated mobile robots.
+
+Quickstart • Architecture • Control Mapping • Simulation • Documentation
+📌 Overview
+
+teleop-cursor provides an ultra-lightweight, zero-hardware teleoperation node for ROS 2 (rclpy). Instead of requiring dedicated joysticks or cumbersome keyboard combinations, teleop-cursor tracks your screen cursor position relative to display center, translating cursor displacement vectors into smooth linear ( v x ) and angular ( ω z ) velocity commands published directly to the /cmd_vel topic.
+
+Whether you are testing autonomous mobile robots (AMRs), validating navigation pipelines in Gazebo, or demonstrating robot movements, teleop-cursor turns any standard workstation display into a responsive teleoperation interface.
+⚡ Key Features
+
+    🚀 Instant Teleoperation: Zero hardware joysticks required—teleoperate directly using your mouse or trackpad.
+    🔄 Dominant Axis Switching: Automatically calculates magnitude deltas ( Δ X , Δ Y ) to distinguish between turning and driving forward/backward.
+    🤖 ROS 2 Native: Built on rclpy and standard geometry_msgs/msg/Twist payloads, ensuring 100% compatibility with TurtleBot3, Nav2, and custom robot controllers.
+    🎯 Dynamic Resolution Handling: Dynamically queries monitor dimensions using pyautogui, auto-centering controls on any resolution (1080p, 4K, ultrawide).
+    ⏱️ Real-Time Stream: Operates at a steady 10 Hz control callback frequency with minimal CPU overhead.
+    📦 pip Installable: Available on PyPI — install with a single pip install teleop-cursor command.
+
+🏗️ Architecture
+
+The diagram below demonstrates how host screen cursor events flow through the system to actuate simulated or physical ROS 2 robots:
+Loading
+
+For complete mathematical details and signal transformations, see docs/ARCHITECTURE.md.
+🎮 Control Mapping
+
+The host display is divided into four primary directional control regions anchored to screen center ( X c , Y c ) :
+
+                  ▲  FORWARD (+vx = 0.2 m/s)
+                  │  [|ΔY| >= |ΔX|]
+                  │
+   LEFT ◄─────────┼─────────► RIGHT
+(ωz = +1.0 rad/s) │         (ωz = -1.0 rad/s)
+ [|ΔX| > |ΔY|]    │          [|ΔX| > |ΔY|]
+                  │
+                  ▼  BACKWARD (-vx = -0.2 m/s)
+                     [|ΔY| >= |ΔX|]
+
+Motion Decision Matrix
+Cursor Displacement 	Robot Action 	linear.x (m/s) 	angular.z (rad/s)
+Top Half ($ 	\Delta Y 	\ge 	\Delta X
+Bottom Half ($ 	\Delta Y 	\ge 	\Delta X
+Left Side ($ 	\Delta X 	> 	\Delta Y
+Right Side ($ 	\Delta X 	> 	\Delta Y
+🚀 Quickstart
+Prerequisites
+
+Ensure you have a working installation of ROS 2 (Humble, Iron, Jazzy, or Rolling) and Python 3.10+:
+
+# Source your ROS 2 environment
+source /opt/ros/$ROS_DISTRO/setup.bash
+
+Option A — PyPI Install (Recommended)
+
+pip install teleop-cursor
+teleop-cursor
+
+Option B — Local Editable Install
+
+git clone https://github.com/gaminization/teleop-cursor.git
+cd teleop-cursor
+pip install -e .
+teleop-cursor
+
+Option C — ROS 2 colcon Workspace Build
+
+mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/src
+git clone https://github.com/gaminization/teleop-cursor.git
+cd ~/ros2_ws && colcon build --packages-select teleop_cursor
+source install/setup.bash
+ros2 run teleop_cursor teleop-cursor
+
+Option D — Direct Script
+
+git clone https://github.com/gaminization/teleop-cursor.git
+cd teleop-cursor
+python3 cursor.py
+
+Move your mouse across your screen to stream velocity commands to your robot!
+🧪 Gazebo Simulation
+
+To test teleop-cursor with TurtleBot3 inside Gazebo:
+
+# Terminal 1: Launch Gazebo Simulation World
+export TURTLEBOT3_MODEL=waffle
+ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+
+# Terminal 2: Run via pip CLI
+teleop-cursor
+
+# Or via ros2 run (after colcon build)
+ros2 run teleop_cursor teleop-cursor
+
+For complete simulation launching and debugging guides, see docs/DEVELOPMENT.md.
+⚙️ Configuration & Parameters
+
+The node parameters in cursor.py can be easily tuned:
+Parameter 	Type 	Default 	Description
+max_linear_speed 	float 	0.2 	Maximum linear speed limit ( v x ) in meters/second
+max_angular_speed 	float 	1.0 	Maximum angular speed limit ( ω z ) in radians/second
+timer frequency 	float 	0.1 (10 Hz) 	Publish rate period in seconds
+📂 Repository Structure
+
+teleop-cursor/
+├── teleop_cursor/        # Pip-installable Python package
+│   ├── __init__.py       # Package initialisation & exports
+│   └── cursor.py         # CursorFollowNode ROS 2 node implementation
+├── resource/             # ROS 2 ament_index resource marker
+│   └── teleop_cursor
+├── cursor.py             # Backward-compatible script wrapper
+├── package.xml           # ROS 2 ament_python package manifest
+├── pyproject.toml        # PEP 517/518 build system & metadata
+├── setup.py              # Setuptools config (colcon + pip)
+├── LICENSE               # MIT Open Source License
+├── README.md             # Primary repository landing page
+├── CHANGELOG.md          # Version history & release notes
+├── CONTRIBUTING.md       # Open-source contribution & PR guide
+├── TIMELINE.md           # Project roadmap & release milestones
+├── SECURITY.md           # Security & physical robot safety policies
+└── docs/
+    ├── ARCHITECTURE.md   # Deep-dive architecture & transformation math
+    └── DEVELOPMENT.md    # Developer setup, testing & simulation guide
+
+📖 Documentation Directory
+
+    📐 Technical Architecture: Deep dive into signal processing math, coordinate frame transformations, sequence diagrams, and message definitions.
+    💻 Developer Guide: Workspace setup, colcon building, linting rules (black/flake8), and ROS 2 debugging utilities.
+    🤝 Contributing Guidelines: Standard PR workflows, Conventional Commit requirements, and issue reporting.
+    🗺️ Project Timeline & Roadmap: Milestone progression, release history, and feature roadmap (proportional control, deadband overlay).
+    📜 Changelog: Formal release logs adhering to Keep a Changelog.
+    🔒 Security Policy: Safety standards for teleoperating physical mobile hardware.
+
+📄 License
+
+This project is open-source software licensed under the MIT License.

@@ -1,0 +1,25 @@
+SEDS Projects VIT | SEDS India April 2024 – Present
+Research & Development Lead January 2026 – Present
+• Promoted to R&D Lead overseeing 2 competition teams (50+ engineers) — Team Ardra (ISDC) and Team Vyadh (IRC/IRDC)
+— under SEDS India, the national apex body for space engineering students.
+• Guided 3 sub-team leads through navigation architecture reviews and hardware integration debugging, resolving 10+ critical
+pre-competition issues across both teams.
+Autonomous Systems Developer April 2024 – January 2026
+• Architected a full ROS2 navigation stack (Nav2, RTAB-Map Visual SLAM, RealSense D455) generating real-time 3D elevation
+maps, cutting manual teleoperation time by 70% in competition.
+• Slashed CV pipeline latency by ∼60% and raised throughput 4x via CUDA, YOLOv8, ArUco/AprilTag detection, and Linux
+V4L2 tuning across 4 simultaneous camera streams.
+• Flashed Micro-ROS firmware to ESP32 microcontrollers for distributed data acquisition; fused IMU and encoder data with an
+EKF, cutting odometry drift by ∼40% and enabling sub-10 cm autonomous positioning.
+• Shipped a PyQt5 autonomous mission dashboard with real-time telemetry visualization, parameter tuning, and FSM-based
+mission sequencing for autonomous competition runs.
+
+Being a part of Team Vyadh at SEDS VIT Projects has been an extraordinary journey of growth, learning, and innovation. As a member of the autonomous subdomain, I contribute to the development of our Mars Rover, focusing on its perception and navigation systems. This role has allowed me to explore a wide range of cutting-edge technologies, including ArUco markers, AprilTags, OpenCV, and YOLOv8, which are instrumental in enabling the rover to identify and interpret its environment effectively.
+
+Beyond computer vision, my work has introduced me to essential robotics concepts and tools like PID control systems, ROS (Robot Operating System), Gazebo, and Turtlebot. These systems have provided me with hands-on experience in developing and testing algorithms for robotic mobility, sensor integration, and autonomous decision-making. Learning about teleoperation systems has further enhanced my understanding of how remote control and automation intersect.
+
+Among my most notable contributions to Team Vyadh is developing the arrow detection code. This feature plays a pivotal role in guiding the rover through predefined paths, ensuring accurate and efficient navigation. Writing and optimizing this code required meticulous attention to detail and the ability to integrate computer vision techniques seamlessly with the rover’s control mechanisms. It was a rewarding challenge that pushed me to think critically and innovate under constraints.
+
+What excites me most about being part of Team Vyadh is the opportunity to work at the intersection of technology and problem-solving. Each project pushes the boundaries of my technical expertise while teaching me the importance of teamwork and collaboration. Whether debugging complex algorithms or brainstorming solutions with teammates, every moment reinforces my passion for robotics.
+
+It’s a journey that inspires me to keep learning, innovating, and exploring the limitless possibilities of technology.

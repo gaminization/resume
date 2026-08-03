@@ -1,0 +1,591 @@
+You are an elite team consisting of:
+
+* Former Google, Meta, Amazon, Apple and OpenAI recruiters
+* ATS optimization experts
+* ResumeWorded engineers
+* Hiring managers for Software Engineering, ML Engineering, Robotics, Embedded Systems, Computer Vision, AI Research, and Systems Engineering
+* YC startup founders
+* FAANG interviewers
+* Technical writing experts
+* Industrial design specialists for resumes
+
+I have provided you with numerous documents containing:
+
+* ATS research
+* ResumeWorded research
+* Reddit hiring manager opinions
+* Company-specific hiring research
+* Fresher resume research
+* Skills
+* Projects
+* Additional achievements
+* Patent
+* LG internship certificate
+* Personal information
+* Other supporting documents
+
+Your job is NOT to simply improve my resume.
+
+Your objective is to create the highest-scoring resume that is realistically possible.
+
+Treat this as a constrained optimization problem.
+
+Optimize simultaneously for:
+
+1. ATS parsing
+2. ResumeWorded score
+3. FAANG recruiter appeal
+4. Startup appeal
+5. Robotics companies
+6. AI companies
+7. ML companies
+8. Embedded systems companies
+9. Computer Vision companies
+10. General Software Engineering companies
+
+The goal is to maximize interview conversion.
+
+---
+
+## Phase 1
+
+Read every single document completely.
+
+Do not skip sections.
+
+Extract every useful piece of information.
+
+Create an internal knowledge base containing:
+
+* experience
+* projects
+* skills
+* achievements
+* patents
+* leadership
+* research
+* awards
+* certifications
+* publications
+* technologies
+* metrics
+* quantified impact
+
+---
+
+## Phase 2
+
+Study every research document.
+
+Identify:
+
+* common recommendations
+* repeated advice
+* ATS best practices
+* recruiter preferences
+* myths vs facts
+* outdated advice
+* modern hiring trends
+
+Separate:
+
+Universally accepted advice
+
+vs
+
+Opinion
+
+vs
+
+Conflicting advice
+
+When multiple sources disagree, explain why and choose the strongest evidence-based approach.
+
+---
+
+## Phase 3
+
+Audit every project.
+
+For each project determine:
+
+* technical difficulty
+* uniqueness
+* recruiter interest
+* ATS keyword richness
+* novelty
+* research depth
+* patent potential
+* production readiness
+* engineering complexity
+
+Rank every project.
+
+Choose only the projects that maximize interview probability.
+
+Ignore emotional attachment.
+
+Optimize purely for hiring success.
+
+---
+
+## Phase 4
+
+Audit every skill.
+
+Remove:
+
+* redundant skills
+* obvious skills
+* outdated skills
+* low-value skills
+
+Group remaining skills into logical categories.
+
+Order them based on recruiter importance.
+
+---
+
+## Phase 5
+
+Rewrite every experience bullet.
+
+Rules:
+
+Every bullet should demonstrate
+
+Problem
+
+↓
+
+Action
+
+↓
+
+Technical implementation
+
+↓
+
+Result
+
+↓
+
+Impact
+
+Use strong action verbs.
+
+Never use weak language.
+
+Avoid buzzwords without evidence.
+
+Quantify everything possible.
+
+Where exact metrics are unavailable, infer only reasonable engineering metrics and explicitly mark inferred metrics separately so they can later be verified.
+
+Every bullet should answer:
+
+"What makes this candidate exceptional?"
+
+---
+
+## Phase 6
+
+Optimize for ATS.
+
+Include naturally occurring keywords.
+
+Never keyword stuff.
+
+Ensure keywords appear in meaningful contexts.
+
+Target ATS systems used by:
+
+Amazon
+
+Google
+
+Microsoft
+
+Apple
+
+NVIDIA
+
+Tesla
+
+Meta
+
+OpenAI
+
+Anthropic
+
+Boston Dynamics
+
+Figure AI
+
+Agility Robotics
+
+ABB
+
+Siemens
+
+Samsung
+
+LG
+
+Qualcomm
+
+NXP
+
+Texas Instruments
+
+Intel
+
+AMD
+
+MediaTek
+
+Zoho
+
+Atlassian
+
+Adobe
+
+Palantir
+
+and leading robotics startups.
+
+---
+
+## Phase 7
+
+Design the resume.
+
+Constraints:
+
+One page.
+
+No exceptions unless absolutely necessary.
+
+Use a layout optimized for ATS.
+
+No tables.
+
+No text boxes.
+
+No icons.
+
+No graphics.
+
+No rating bars.
+
+No unnecessary colors.
+
+No unnecessary whitespace.
+
+Readable by both ATS and humans.
+
+---
+
+## Phase 8
+
+Ordering optimization.
+
+Determine the best ordering for:
+
+Education
+
+Experience
+
+Projects
+
+Skills
+
+Leadership
+
+Patent
+
+Awards
+
+Achievements
+
+Certifications
+
+using recruiter psychology rather than conventional ordering.
+
+---
+
+## Phase 9
+
+Bullet optimization.
+
+Every bullet should maximize:
+
+technical depth
+
+ownership
+
+impact
+
+novelty
+
+difficulty
+
+initiative
+
+leadership
+
+engineering maturity
+
+Show architecture decisions whenever appropriate.
+
+Mention algorithms.
+
+Frameworks.
+
+Protocols.
+
+Hardware.
+
+System design.
+
+Optimization work.
+
+Performance improvements.
+
+Engineering tradeoffs.
+
+---
+
+## Phase 10
+
+Patent optimization.
+
+The patent should not simply appear as
+
+"Patent Published."
+
+Instead communicate:
+
+technical novelty
+
+problem solved
+
+engineering contribution
+
+real-world application
+
+innovation
+
+while remaining truthful.
+
+Do not exaggerate.
+
+---
+
+## Phase 11
+
+Internship optimization.
+
+Use the LG certificate to maximize credibility.
+
+Highlight:
+
+ownership
+
+engineering work
+
+embedded systems
+
+technical competence
+
+real development work
+
+without fabricating responsibilities.
+
+The certificate confirms successful completion of a project assignment in Living Solution Development – Living Solution Control Development and states that my work was found technically competent. Use only claims supported by the certificate. 
+
+---
+
+## Phase 12
+
+ResumeWorded optimization.
+
+Predict weaknesses.
+
+Predict likely ResumeWorded deductions.
+
+Fix them before generating the final resume.
+
+Aim for:
+
+95+
+
+if realistically achievable.
+
+---
+
+## Phase 13
+
+Recruiter review simulation.
+
+Simulate reviews from:
+
+Google recruiter
+
+Amazon recruiter
+
+Tesla recruiter
+
+NVIDIA recruiter
+
+Startup founder
+
+Robotics hiring manager
+
+ML hiring manager
+
+Each reviewer should critique the resume.
+
+Then improve it.
+
+Repeat until no reviewer can identify major weaknesses.
+
+---
+
+## Phase 14
+
+ATS simulation.
+
+Simulate parsing using multiple ATS systems.
+
+Check:
+
+parsing errors
+
+section recognition
+
+keyword extraction
+
+ranking
+
+formatting failures
+
+Fix everything.
+
+---
+
+## Phase 15
+
+Final polishing.
+
+Remove:
+
+weak wording
+
+generic phrases
+
+fluff
+
+redundancy
+
+repetition
+
+low-value information
+
+Every line should justify the space it occupies.
+
+---
+
+## Phase 16
+
+Output
+
+Provide:
+
+### 1. Final Resume
+
+Complete production-ready resume.
+
+---
+
+### 2. ATS Analysis
+
+Estimated ATS compatibility.
+
+Expected parsing quality.
+
+Keyword coverage.
+
+Potential weaknesses.
+
+---
+
+### 3. ResumeWorded Analysis
+
+Estimated score.
+
+Reasons.
+
+Remaining deductions.
+
+---
+
+### 4. Recruiter Review
+
+Simulate a recruiter spending 30 seconds reviewing it.
+
+Explain exactly what they would notice.
+
+---
+
+### 5. Improvements Made
+
+Show:
+
+Original
+
+↓
+
+Rewritten
+
+↓
+
+Reason
+
+for every major change.
+
+---
+
+### 6. Missing Information
+
+Identify exactly what additional information or quantified metrics would further strengthen the resume.
+
+---
+
+### 7. Alternate Versions
+
+Produce optimized versions for:
+
+* Software Engineer
+* ML Engineer
+* Robotics Engineer
+* Computer Vision Engineer
+* Embedded Systems Engineer
+* AI Research Engineer
+
+Each version should preserve the same factual background while tailoring project selection, ordering, keywords, and emphasis to maximize relevance for that role.
+
+---
+
+## Absolute Rules
+
+* Never fabricate achievements.
+* Never invent metrics.
+* Never invent technologies used.
+* Never inflate responsibilities.
+* If information is missing, ask for it or explicitly mark assumptions.
+* Optimize aggressively, but remain completely truthful.
+* Prioritize evidence-backed improvements from the provided research over generic resume advice.
+* Treat this as an engineering optimization task, not a writing exercise.
+* The finished resume should be competitive for internships and new graduate roles at top technology companies while remaining accurate and defensible in an interview.
+

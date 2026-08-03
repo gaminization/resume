@@ -1,0 +1,1547 @@
+other projects:
+Acer Nitro 7-AN715-51-OpenCore-Hackintosh
+
+macOS Sequoia OpenCore license license
+
+macOS Version: macOS Sequoia (15.x) / macOS Sonoma (14.x) [Original base: macOS Catalina 10.15.5]
+
+OpenCore Version: 1.0.0 Official Release
+
+MacOS on ACER NITRO 7 AN715-51 (Intel Core i7-9750H Coffee Lake Refresh)
+
+macOS Sequoia System Overview
+Updates 🔄
+
+    2026-08-03 (OpenCore 1.0.0 Upgrade & Personalization):
+        Upgraded bootloader from OpenCore 0.5.9 (Catalina 2020) to OpenCore 1.0.0 Official Release.
+        Updated target macOS compatibility to macOS Sequoia (15.x) and macOS Sonoma (14.x).
+        Updated screenshots for macOS Sequoia (15.x).
+        Personalized CPU specs to Intel Core i7-9750H (6 Cores / 12 Threads) with native SSDT-PLUG.aml + CPUFriend.kext + CPUFriendDataProvider.kext energy-efficient power profile.
+        Updated Wi-Fi & Bluetooth to Intel Wireless-AC 9560 160MHz (AirportItlwm.kext, IntelBluetoothFirmware.kext, IntelBTPatcher.kext, BlueToolFixup.kext).
+        Verified Ethernet compatibility for both Qualcomm Atheros Killer E2500 (AtherosE2200Ethernet.kext) and Realtek RTL8111 (RealtekRTL8111.kext).
+        Disables discrete NVIDIA GeForce GTX 1660 Ti via SSDT-DDGPU.aml & -wegnoegpu boot argument (saving ~15W power and fixing thermal throttling).
+        Upgraded ELAN I2C Trackpad (VoodooI2C.kext v2.8 + VoodooI2CHID.kext + VoodooI2CELAN.kext).
+        Added custom USB Mapping via USBToolBox.kext + UTBMap.kext.
+        Added NVMeFix.kext (v1.1.1) for autonomous NVMe power state management (APST) on dual WDC SN520 SSDs.
+        Added my_hackintosh/tools/ maintenance scripts (validate_config.py & update_smbios.py).
+        Streamlined repository structure: removed obsolete Clover/Catalina leftovers and linked external reference documentation repositories.
+        Generated brand new MacBookPro16,1 SMBIOS serials (Serial: C02F7TZ0MD6N, MLB: C02106303GUN9PR1H, SystemUUID: E6F2F893-DAE9-4267-9AA4-E66AF9710255).
+        Backed up original 2020 fork state in git branch prev_fork and raw research files in branch extra_files.
+
+    2020-05-30:
+        Update to 10.15.5.
+        Update SSDTs from official guide.
+        Disable framebuffer 1&2 (fixes screen glitch).
+        Fix high power usage after sleep.
+
+    2020-05-19:
+        Initial release by Swapnil Mesh (@mesh17 / @swapnilxd).
+
+Reference Guides & Resources 🔗
+
+    Official Dortania OpenCore Install Guide: https://dortania.github.io/OpenCore-Install-Guide/
+    Dortania Coffee Lake Laptop Guide: https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html
+    Daliansky OC-Little ACPI Hotpatch Guide: https://github.com/daliansky/OC-little
+    Daliansky OpenCore Guide (Chinese): https://github.com/daliansky/OpenCore-Install-Guide
+    Original Acer Nitro 7 Hackintosh Repository: https://github.com/mesh17/Acer-Nitro-7-AN715-51-OpenCore-Hackintosh
+    BIOS Unlock Guide: Win-Raid Acer Nitro AN715-51 Unlock Guide
+
+System Information 💻
+Part 	Functional 	Model / Details
+Machine 	✅ 	Acer Nitro 7 AN715-51
+BIOS 	✅ 	1.29 Insyde-Unlocked (or Stock BIOS)
+CPU 	✅ 	Intel Core i7-9750H CPU @ 2.60GHz (6 Cores / 12 Threads)
+RAM 	✅ 	16GB / 32GB DDR4 2666MHz SODIMM
+SSD 	✅ 	Dual WDC PC SN520 512GB NVMe SSDs (NVMeFix.kext enabled)
+iGPU 	✅ 	Intel UHD Graphics 630 1536 MB (Metal 3)
+WLAN 	✅ 	Intel Wireless-AC 9560 160MHz (or Broadcom DW1560 BCM94352Z)
+Bluetooth 	✅ 	Intel Wireless Bluetooth (or Broadcom 20702)
+Ethernet 	✅ 	Killer E2500 PCI-E Gigabit Ethernet (AtherosE2200Ethernet.kext & RealtekRTL8111.kext)
+Webcam 	✅ 	Integrated HD 720P Webcam
+Audio 	✅ 	Realtek High Definition Audio ALC255 (layout-id = 29)
+Microphone 	✅ 	Integrated Digital Array Microphone
+Internal Screen 	✅ 	LG LP156WFG-SPF3 15.6" 1920x1080 FHD 144Hz IPS Display
+Trackpad 	✅ 	ELAN0504 I2C Precision Touchpad
+Keyboard 	✅ 	Standard PS/2 Keyboard + Fn Brightness Keys
+dGPU 	🚫 	NVIDIA GeForce GTX 1660 Ti 6GB GDDR6 (Disabled via SSDT-DDGPU)
+Perfectly Working Features ✨
+
+    Native Hardware NVRAM
+    Intel UHD Graphics 630 Acceleration (Metal 3)
+    Screen Brightness Control
+    Screen Brightness Memorization After Reboot
+    Native Screen Refresh Rate Settings (144Hz)
+    USB 3.1 Gen 1 & Custom USB Map (USBToolBox.kext + UTBMap.kext)
+    Web Camera & Digital Array Microphone
+    Battery Percentage & Charging Indicator (SMCBatteryManager.kext)
+    Sleep & Wake (SSDT-GPRW.aml instant wake fix)
+    Sensors (CPU, GPU & Fan Temperature Sensors)
+    CPU Turbo Boost & Dynamic Power Management (CPUFriend.kext + CPUFriendDataProvider.kext)
+    ELAN I2C Precision Trackpad Gestures (VoodooI2C.kext v2.8)
+    Keyboard Fn Hotkeys (BrightnessKeys.kext + SSDT-BKeyQ11Q12-Acer.aml)
+    Intel Wi-Fi 5GHz & Bluetooth 5.0 (AirportItlwm.kext + BlueToolFixup.kext)
+    NVMe Power Management & Thermal Control (NVMeFix.kext)
+    Siri, Sidecar, and iServices Ready
+
+        The above functions are tested and verified on Acer Nitro 7 AN715-51.
+        Whether native 144Hz refresh rate adjustment is available depends on the model and production batch of the screen panel.
+        HiDPI can be enabled using additional tools like One Key HiDPI if needed.
+        MacBookPro16,1 SMBIOS provides full CPU power management and sensor reporting for 9th Gen Coffee Lake Refresh.
+
+Issues & Solutions 🔧
+macOS Tools & Utilities
+
+    Hackintool: The Swiss army knife of vanilla Hackintoshing
+    How to download a full 'Install macOS' app: Terminal Software Update Guide
+    Repository Validation Helper: Validate your OpenCore setup anytime by running:
+
+    python3 my_hackintosh/tools/validate_config.py
+
+Generate Your Own SMBIOS 🔑
+
+For setting up SMBIOS info, we use CorpNewt's GenSMBIOS tool (https://github.com/corpnewt/GenSMBIOS) or our automated helper my_hackintosh/tools/update_smbios.py.
+
+Because of the 9th Gen Coffee Lake Refresh i7-9750H processor, we choose the MacBookPro16,1 SMBIOS model:
+
+Output format:
+
+Type: MacBookPro16,1
+Serial: C02F7TZ0MD6N
+Board Serial (MLB): C02106303GUN9PR1H
+SmUUID: E6F2F893-DAE9-4267-9AA4-E66AF9710255
+
+Inject via helper script:
+
+python3 my_hackintosh/tools/update_smbios.py <Serial> <MLB> <SmUUID>
+
+Reminder: Verify serial status on Apple Check Coverage page.
+
+    Note: Backup of original 2020 fork SMBIOS serials is saved in my_hackintosh/hardware_specs/old_smbios_backup.txt.
+
+Hardware Component Configuration 🛠️
+Monitor Tools
+
+    Intel® Power Gadget
+    IO Registry Explorer
+    iStat Menus
+    HWSensors
+
+NTFS Writer
+
+    Mounty for NTFS
+
+Audio
+
+    KEXT required: AppleALC.kext (v1.9.0)
+    Make sure you inject audio layout-id = 29 or 71 in OpenCore config.plist (using layout-id = 3 may get distorted audio).
+
+ELAN Trackpad (TPAD)
+
+    Kexts: VoodooI2C.kext (v2.8) + VoodooI2CHID.kext + VoodooI2CELAN.kext.
+    Requires SSDT-XOSI.aml + _OSI to XOSI ACPI patch in config.plist to simulate Windows 10 for GPIO pin routing.
+
+Wi-Fi & Bluetooth
+
+    Wi-Fi: Native Intel Wireless-AC 9560 160MHz supported via AirportItlwm.kext (v2.2.0) or itlwm.kext. (Broadcom BCM94352Z / DW1560 also supported if replaced).
+    Bluetooth: Supported via IntelBluetoothFirmware.kext (v2.4.0) + IntelBTPatcher.kext + BlueToolFixup.kext (for macOS Monterey 12.x through Sequoia 15.x).
+
+Ethernet (Killer E2500 / Realtek)
+
+    Killer E2500 (Qualcomm Atheros PCI ID 1969:e0b1): Supported via AtherosE2200Ethernet.kext.
+    Realtek Gigabit Ethernet (PCI ID 10ec:8168): Supported via RealtekRTL8111.kext.
+
+GPU Setup
+iGPU (Intel UHD 630)
+
+This repository contains configuration for FHD (1920x1080) 144Hz display. If using a 4K display, change the values below:
+
+    Change dpcd-max-link-rate in Root/DeviceProperties/Add/PciRoot(0x0)/Pci(0x2,0x0) from 0A000000 to 14000000
+    Change UIScale in Root/NVRAM/Add/4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14 from 01 to 02
+
+Enable subpixel antialiasing for the FHD screen:
+
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+
+    HDMI Port Technical Explanation:
+        Long story short, HDMI output won't work on macOS. Why? Because all display output ports (HDMI & Type-C DisplayPort) are hardwired directly to the NVIDIA discrete GPU in the Acer Nitro hardware topology. You can confirm this by opening the NVIDIA Control Panel in Windows under PhysX settings: all external display outputs are wired to the NVIDIA card, while the eDP internal laptop screen is wired to the Intel iGPU. Since the NVIDIA card is unsupported in macOS and is disabled via SSDT-DDGPU.aml and -wegnoegpu, HDMI display output cannot function under macOS.
+
+dGPU (NVIDIA GTX 1660 Ti)
+
+    NVIDIA GTX 1660 Ti (Turing architecture) is unsupported in macOS and is completely powered off via SSDT-DDGPU.aml & -wegnoegpu.
+    Reference: Apple and Nvidia Are Over: NVIDIA drops CUDA support for macOS.
+
+Power Management & Battery
+
+    On idle, the laptop uses 0.50W to 0.60W power — extremely stable battery performance.
+    Power management for X86PlatformPlugin is handled natively by SSDT-PLUG.aml + CPUFriend.kext + CPUFriendDataProvider.kext custom profile tuned for i7-9750H.
+
+Intel Power Gadget
+Intel Power Gadget macOS Sequoia
+Repository Structure & Git Branches 📂
+
+Acer-Nitro-7-AN715-51-Hackintosh/
+├── EFI/                        # Main OpenCore 1.0.0 Production EFI
+│   ├── BOOT/
+│   │   └── BOOTx64.efi
+│   └── OC/
+│       ├── ACPI/               # SSDT-EC, SSDT-PLUG, SSDT-PNLF, SSDT-DDGPU, SSDT-XOSI, etc.
+│       ├── Drivers/            # OpenRuntime, HfsPlus, ResetNvramEntry
+│       ├── Kexts/              # Modern 2026 Release Kexts (CPUFriend, NVMeFix, Atheros, Realtek)
+│       ├── Tools/              # OpenShell.efi, CleanNvram.efi
+│       └── config.plist        # Validated OpenCore 1.0.0 config
+├── my_hackintosh/              # Specs & Hardware Documentation
+│   ├── hardware_specs/         # Device Manager specs, screenshots & SMBIOS backups
+│   ├── acpi_dumps/             # Original DSDT dumps & SSDTTime results
+│   ├── bios_mods/              # Acer Insyde 1.29 unlocked BIOS docs & files
+│   └── tools/                  # validate_config.py & update_smbios.py helpers
+├── screenshots/                # Modern macOS Sequoia & IPG Screenshots
+└── README.md
+
+Git Branches:
+
+    master (Default): Clean, lightweight OpenCore 1.0.0 production EFI for macOS Sequoia / Sonoma.
+    extra_files: Archive of raw DSDT dumps and tool archives.
+    prev_fork: Preserves original 2020 OpenCore 0.5.9 / macOS Catalina 10.15.5 repository state.
+
+Credits 👏
+
+    Swapnil Mesh (@mesh17 / @swapnilxd) — Original Repository Author & Creator of Acer-Nitro-7-AN715-51-OpenCore-Hackintosh
+    acidanthera for providing almost all kexts and drivers (OpenCorePkg, Lilu, VirtualSMC, WhateverGreen, AppleALC, NVMeFix, CPUFriend, Brcm/Intel drivers)
+    OpenIntelWireless for AirportItlwm and IntelBluetoothFirmware
+    alexandred for providing VoodooI2C
+    headkaze for providing the very useful Hackintool
+    daliansky for providing the awesome hotpatch guide OC-little and hackintosh solutions XiaoMi-Pro-Hackintosh 黑果小兵的部落阁
+    RehabMan for providing numbers of hotpatches and hotpatch guides
+    tiger511 for custom I2C kexts
+    corpnewt for CPUFriendFriend, GenSMBIOS, ProperTree, and SSDTTime
+    And all other authors mentioned or not mentioned in this repo
+
+License 📜
+
+    This work is issued under the Anti 996 License and MIT License.
+
+
+
+🚀 System Setup Scripts
+
+The ultimate, fully automated, secure, and idempotent workstation setup for developers, researchers, and gamers.
+
+Release Arch Linux Ubuntu Windows 11 License
+Shell Script PowerShell PRs Welcome
+
+📖 Overview
+
+Welcome to the System Setup Scripts repository! This project contains a collection of robust, modular, and highly optimized setup scripts designed to bootstrap a fresh OS installation into a fully-fledged development, AI, robotics, and gaming powerhouse.
+
+Currently tailored around the Lenovo LOQ (RTX 5060 / i7-13700HX), these scripts are dynamic enough to handle various hardware configurations gracefully.
+✨ Key Features
+
+    🧩 Highly Modular: Choose exactly what you need via an interactive graphical menu.
+    🛡️ Security Hardened: Built-in firewall configuration, SSH hardening, and AppArmor profiles.
+    🔄 Idempotent Execution: Safe to re-run. Checkpoint tracking resumes exactly where it left off.
+    🚀 AI & Robotics Ready: Out-of-the-box support for ROS 2 (Humble), PyTorch, CUDA, and Ollama.
+    🎨 Beautifully Configured: Installs Wayland/X11 Desktop Environments (Hyprland, Niri, Qtile) with stunning themes.
+    🔍 Self-Testing Architecture: Pre-flight checks and post-stage validation ensure everything works optimally.
+
+🚀 Quick Start
+
+Tip
+
+Ensure your system is fully updated and you have git installed before running these scripts. Do not run these as root directly; the script will ask for sudo privileges when necessary.
+
+Select your operating system to get started:
+🐧 Arch Linux
+
+Supports Arch, Manjaro, Garuda, EndeavourOS, ArcoLinux, and CachyOS.
+
+git clone https://github.com/yourusername/system-setup-scripts.git
+cd system-setup-scripts
+chmod +x arch-setup.sh
+./arch-setup.sh
+
+🟠 Ubuntu / Debian
+
+Supports Ubuntu 22.04+, Pop!_OS 22.04+, Debian 12+, and Linux Mint.
+
+git clone https://github.com/yourusername/system-setup-scripts.git
+cd system-setup-scripts
+chmod +x ubuntu-setup.sh
+./ubuntu-setup.sh
+
+🪟 Windows 11
+
+Uses Winget, Scoop, Chocolatey, and WSL2 for Linux workloads.
+
+# Open PowerShell as Administrator
+git clone https://github.com/yourusername/system-setup-scripts.git
+cd system-setup-scripts
+Set-ExecutionPolicy Bypass -Scope Process -Force
+.\windows-setup.ps1
+
+📦 Available Modules
+
+Both the Linux and Windows scripts allow you to select which modules to install via a dynamic GUI. Enable them all for a complete setup, or mix and match:
+Module Category 	Components Included 	Available On
+🛠️ Core System 	CLI tools, fonts, zsh/bash configs, pacman/apt optimizations 	🐧 🪟
+🖥️ Desktop Environment 	Qtile, Hyprland, Niri, SDDM, Waybar, RoFi, themes 	🐧
+🎮 NVIDIA & CUDA 	Proprietary drivers, CUDA toolkit, cuDNN, Container Toolkit 	🐧 🪟
+🎵 Audio 	Pipewire full stack 	🐧
+🤖 ROS2 & Robotics 	ROS2 Humble, Gazebo, Navigation2, Realsense SDK, Colcon 	🐧
+🔌 Embedded Dev 	Arduino IDE, PlatformIO, ESP-IDF, STM32 tools, KiCad 	🐧 🪟
+🏎️ Simulation 	CoppeliaSim, Webots, Foxglove Studio 	🐧 🪟
+👁️ CV & Machine Learning 	OpenCV, PyTorch, TensorFlow, Pandas, Jupyter 	🐧 🪟
+🧠 AI & LLMs 	Ollama with LLaMA 3, CodeLlama, and Mistral 	🐧 🪟
+💻 Dev Tools 	VSCode, Docker, LazyGit, Node.js, Go, Rust, C/C++ 	🐧 🪟
+🕹️ Gaming 	Steam, Lutris, Heroic Games Launcher, Gamemode 	🐧 🪟
+🎨 Multimedia 	OBS Studio, VLC, GIMP, Blender, DaVinci Resolve 	🐧 🪟
+💬 Communication 	Discord, Slack, Telegram, Zoom, Obsidian 	🐧 🪟
+🌐 Virtualisation 	QEMU, KVM, Virt-Manager, VirtualBox 	🐧 🪟
+🔒 Security Hardening 	UFW/Firewalld, AppArmor, SSHD configs, Sysctl 	🐧
+✨ Eye Candy 	Visual tweaks, Fastfetch configs 	🐧 🪟
+🔗 Dotfiles 	Automated linking of reference dotfiles 	🐧 🪟
+🛠️ Usage Flags
+
+Run the scripts with these optional flags to change their behavior:
+Flag 	Description
+(No Flag) 	Opens the interactive module selection menu.
+--full 	Installs all modules automatically.
+--minimal 	Installs only Core, NVIDIA, ROS2, AI, and Dev tools.
+--resume 	Resumes installation from the last failed/stopped checkpoint.
+--check 	Validates an existing installation without installing anything new.
+--dry-run 	Prints the installation plan without making any changes.
+--force 	Forces re-installation of packages even if they exist.
+📚 Documentation
+
+Dive deeper into the project architecture and guidelines:
+
+    Development Guide: Learn how the scripts work, how state is managed, and how to add new modules.
+    Contributing Guidelines: See how to submit pull requests and report issues.
+    Changelog: Read about the latest features and updates up to version 9.0.
+    Security Policies: Understand the security hardening features and vulnerability reporting.
+
+🤝 Contributing
+
+We welcome contributions! Whether it's adding support for a new distro, writing a new module, or fixing a bug, please check out our Contributing Guidelines first.
+📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+About
+No description, website, or topics provided.
+Resources
+Readme
+MIT license
+Contributing
+Contributing
+Security policy
+Security policy
+Activity
+Stars
+0 stars
+Watchers
+0 watching
+Forks
+0 forks
+Releases
+No releases published
+Create a new release
+Packages
+No packages published
+Publish your first package
+Contributors
+1 (1)
+
+    @gaminization
+    gaminizationGarv Arora
+
+Languages
+
+    Shell91%PowerShell9%
+
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+
+    Terms
+    Privacy
+    Security
+    Status
+    Community
+    Docs
+    Contact
+
+
+
+Catters 🐱
+
+Catters is a Unity 3D game project. The repository is structured as a standard Unity project at the root level, making it easy to open, edit, and replicate directly in Unity.
+🎮 Download & Play
+
+    Latest APK Release: You can download the latest pre-compiled APK directly from the GitHub Releases page.
+    Direct Link: Download catters.apk from Releases.
+
+📸 Gameplay Screenshot
+
+Catters gameplay – cat running through a snowy 3D environment
+
+Original APK running on Android – a cat races through a snowy corridor avoiding red obstacles.
+🚀 Opening in Unity
+
+To open and work on the project in Unity Editor:
+
+    Prerequisites:
+        Unity 2021.3 LTS (or recommended compatible Unity Hub version).
+        Android Build Support module enabled (if building APK).
+
+    Open Project:
+        Open Unity Hub.
+        Click Add -> Add project from disk.
+        Select the root directory of this repository (Catters).
+        Click Open.
+
+    Project Layout:
+
+    Catters/
+    ├── Assets/              # Unity project source files, scripts, scenes, models
+    ├── Packages/            # Unity package configuration (manifest.json)
+    ├── ProjectSettings/     # Unity project settings
+    ├── recovery/            # Recovery tools, extracted APK data, and extra artifacts
+    └── README.md            # Project documentation
+
+🛠️ Recovery Artifacts (recovery/)
+
+The recovery/ directory contains additional tools, extracted APK data, and recovery resources used to reconstruct the project:
+
+    catters.apk: Backup copy of the recovered Android application package.
+    extracted_apk/: Unpacked APK assets and resources.
+    recoverytool/: Scripts and utilities used during project recovery.
+    Applications/: Auxiliary tools and decompiler executables.
+    cattersrecovered/: Intermediate extraction outputs and AssetRipper / AssetStudio logs.
+
+📄 License
+
+This repository is licensed under the MIT License.
+
+AeroLink — Flight Management System
+
+C++11 MIT License Platform Architecture
+
+A streamlined, terminal-based flight booking and reservation management system written in C++. AeroLink features an intuitive CLI interface for passenger authentication, flight booking across international routes, dynamic seat grid allocation, and automated boarding pass receipt logging.
+✈️ Key Features
+
+    🔐 User Authentication: Account registration, credential validation, and password recovery.
+    🗺️ Flight Booking: Direct flight selection from Bangalore, Delhi, or Mumbai to major international destinations.
+    💺 Dynamic Seat Matrix: Real-time 20-seat interactive grid driven by C++ pointer arithmetic.
+    🎟️ Boarding Pass Logging: ASCII-formatted printable boarding pass receipts auto-saved to local transaction logs.
+    🔄 Ticket Management: Seat reassignment, flight modification, and instant ticket cancellation.
+
+🖥️ Terminal UI Preview
+
+(C) An AeroLink Production
+
+         -=\`\
+     |\ ___\\__
+   -=\ '''''''' ')
+      ~~~~~/ /~~
+        -==/ /
++--------------------------------------+
+             AeroLink
++--------------------------------------+
+
+> Welcome Traveller!!
+> The weather seems wonderful for an adventure, doesn't it?
+
++--------------------------------------+
+[1] Book/Register Flights
+[2] Get Ticket and Charges
+[3] Modify Flight Details
+[4] Show Seats Matrix
+[5] Exit
++--------------------------------------+
+
+Interactive Seat Selection Grid
+
+=====================
+  FLIGHT SEAT BOOKING
+
+[1]  [2]  [3]  [4]  [5]
+
+[6]  [7]  [8]  [9]  [10]
+
+[11] [0]  [13] [14] [15]
+
+[16] [17] [18] [19] [20]
+
+0's are already booked, thanks for the cooperation :)
+=====================
+
+🔄 System Flowchart
+
+Unable to render rich display
+
+flowchart TD
+    A[Launch AeroLink] --> B{Account Exists?}
+    B -- No --> C[Sign Up / Register]
+    B -- Forgot --> D[Password Recovery]
+    B -- Yes --> E[Login Authentication]
+    C --> E
+    D --> E
+    E --> F[Main Menu]
+    F --> G[Book / Register Flights]
+    F --> H[View Boarding Pass & Bill]
+    F --> I[Modify / Cancel Booking]
+    F --> J[Display Seat Matrix]
+    G --> K[Select Route & Seat Number]
+    K --> L[Save Booking & Generate Ticket]
+    L --> F
+    I --> M[Release / Change Seat]
+    M --> F
+    F --> N[Exit Application]
+
+🚀 Quick Start Guide
+Prerequisites
+
+    A standard C++ compiler (g++, clang++, or MSVC) supporting C++11 or higher.
+
+Build and Run
+
+    Clone the Repository:
+
+    git clone https://github.com/your-username/flight-management-system.git
+    cd flight-management-system
+
+    Compile using g++:
+
+    g++ -std=c++11 -Wall src/main.cpp -o flight_app
+
+    Launch the Application:
+        Linux / macOS:
+
+        ./flight_app
+
+        Windows:
+
+        flight_app.exe
+
+📁 Repository Structure
+
+flight-management-system/
+├── src/                     # C++ Source Code
+│   ├── main.cpp             # Main application entry point & control loop
+│   ├── UI.cpp               # Console UI ASCII templates & menus
+│   └── SC.cpp               # Seat grid pointer controller & search/replace
+├── data/                    # Local Persistence Storage
+│   ├── Database.txt         # Plaintext user credentials store
+│   └── records.txt          # Saved ticket transaction receipts
+├── docs/                    # Documentation & References
+│   ├── ARCHITECTURE.md      # Detailed technical architecture & specifications
+│   ├── Aerolink CPP Flight Project.pdf # Original PDF project documentation
+│   └── UI Templates.txt     # ASCII art templates reference
+├── LICENSE                  # MIT License
+└── README.md                # Master repository overview
+
+📜 License
+
+This project is licensed under the MIT License.
+
+The Tic Tac Toe Game
+
+The Tic-Tac-Toe game code is developed in C and integrates advanced data structures, creating a robust and feature-rich application that goes beyond traditional implementations. The code includes complex data structures such as linked lists, tries, red-black trees, hash maps, and even prepares the groundwork for implementing additional structures like graphs. These structures serve multiple functions including tracking moves, managing users, securing data, and displaying high scores. The code is designed to handle both player-versus-player (PvP) and player-versus-computer (PvC) gameplay with a focus on usability and persistence.
+
+Tic Tac Toe Working Demo
+Advanced Data Structures in Use
+1. Linked List for Move History
+
+    Description: Player moves are stored in a linked list, facilitating an "undo" feature by allowing easy traversal and reversal of moves. Each move is recorded as a node in the list, containing the row, column, and player symbol, with a pointer to the next move.
+    Benefits: This structure is ideal for dynamic data management, as moves are sequential and can vary in length. The linked list enables the program to efficiently undo moves, enhancing the player’s control over the game.
+
+2. Trie for Move Sequences
+
+    Description: The code uses a trie to store sequences of moves as strings. This structure supports analyzing and finding common move patterns in previously played games, offering potential insights into recurring strategies.
+    Benefits: Each TrieNode holds pointers to children nodes representing each possible move on the board. This helps in fast retrieval of common sequences and paves the way for advanced analysis, which could enhance AI or strategic features in future development.
+
+3. Red-Black Tree for Player High Scores
+
+    Description: High scores, based on the number of matches won, are stored in a red-black tree. Each player node in the tree contains a username, win count, and links to left, right, and parent nodes, ensuring the structure remains balanced and sorted.
+    Benefits: Red-black trees maintain a sorted order, enabling efficient access to high scores, adding a competitive element by dynamically sorting users based on their game performance.
+
+4. Hash Map for User Management and Security
+
+    Description: User data, including usernames, hashed passwords, and security questions, is stored in a hash map. The hash function provides constant-time lookup for user data, crucial for login validation, account creation, and password resets.
+    Benefits: Hashing functions secure sensitive data like passwords, while linear probing resolves hash collisions. By avoiding external libraries like OpenSSL, the code demonstrates a manual approach to handling password security within C’s standard capabilities.
+
+5. Graph Structure for AI Pathfinding (Planned)
+
+    Description: Although not fully implemented, the groundwork for a graph structure to represent game states is established. A graph of all possible Tic-Tac-Toe states could improve AI pathfinding, allowing the computer to access state information and plan optimal moves more effectively.
+
+Key Features and Functionalities
+1. Menu-Driven System with User Login
+
+    The system is menu-driven, providing options for player login, password reset, game mode selection (PvP or PvC), and high-score display. After successful login, the program addresses players by their usernames, adding a personalized touch to the interface.
+    The ability to store and retrieve user data across sessions enhances the continuity of user experience, as high scores and account details persist each time the application is run.
+
+2. Password Reset and Security Questions
+
+    In the event of forgotten passwords, users can reset their password by answering a security question, which is stored alongside their profile in the hash map.
+    This feature improves account security and user experience, allowing users to retrieve accounts without administrator intervention.
+
+3. PvP and PvC Game Modes
+
+    The code allows users to play either against each other or an AI in PvC mode. For PvC, the computer’s move logic is implemented using the Minimax algorithm, ensuring optimal play by evaluating the best moves recursively.
+    In PvP, players take turns until a win or draw condition is met. The game uses a position system where players enter numbers 1-9 to place their moves, providing a more intuitive interface.
+
+4. AI Logic Using Minimax Algorithm
+
+    The AI employs the Minimax algorithm to evaluate and make moves based on board conditions. This algorithm recursively considers potential moves, choosing the one that maximizes its chance of winning.
+    The Minimax implementation provides challenging gameplay for users, as the AI is designed to block winning moves and prioritize optimal placements.
+
+5. Dynamic High Score Tracking
+
+    High scores are dynamically managed and displayed based on wins. Using the red-black tree ensures that scores remain sorted and accessible, allowing players to see where they stand relative to others.
+    The tree structure not only sorts but also balances the nodes, ensuring consistent performance in high-score retrieval even as the player base grows.
+
+6. File Storage for Persistent Data
+
+    The code writes user data, including high scores, to a file, enabling persistence between game sessions. Upon startup, data is loaded, ensuring that player progress and rankings remain available.
+    This file storage enhances the user experience by preserving game state and avoiding data loss, which would occur if all information were stored in-memory only.
+
+Building and Running
+Using Makefile
+
+make build   # Compile the application
+make run     # Build and launch the game
+make clean   # Remove compiled binaries
+
+Manual Compilation
+
+gcc -Wall -Wextra -std=c11 tick_tack_toe.c -o tick_tack_toe
+./tick_tack_toe
+
+Challenges Faced
+Planning Stage
+
+    Choosing and Implementing Complex Data Structures: Deciding on suitable structures like the red-black tree and trie was challenging, as they required balancing functionality with performance. Planning for efficient retrieval and insertion, especially for the high-score feature, required extensive analysis. Implementing an undo feature for moves required careful consideration of the linked list structure.
+    Securing User Data with Hashing: Security considerations were paramount, especially without relying on external libraries. Planning how to hash and store passwords in a secure and manageable way was complex, given the risks of hash collisions and vulnerabilities.
+    Creating an Intuitive Interface: Designing a system that addresses players by usernames and uses numbers 1-9 for move positions required careful planning to enhance usability while keeping the code efficient and straightforward.
+
+Coding Stage
+
+    Memory Management in Dynamic Data Structures: Managing memory allocation and deallocation, especially with linked structures like the linked list for moves and the trie for move sequences, required attention to avoid memory leaks.
+    Collision Handling in Hash Map: Collisions in the hash map posed challenges, particularly in managing multiple users with similar usernames. The code uses linear probing to address these collisions.
+    Red-Black Tree Balancing: Coding the red-black tree balancing mechanisms, including rotations and color adjustments, was complex. Ensuring the tree remained balanced after insertions and deletions was essential.
+    Optimizing AI Performance: The Minimax algorithm needed optimization to avoid performance issues and keep gameplay responsive.
+    File I/O for Persistent Storage: Implementing file I/O to save and retrieve user data and high scores introduced challenges related to data serialization.
+
+Comparison to Basic Implementations
+
+This implementation stands out from basic Tic-Tac-Toe applications due to its advanced features and use of complex data structures:
+
+    User Management and Persistence: Basic versions lack user accounts, password security, and data persistence. This application securely manages multiple users and saves high scores across sessions.
+    AI with Minimax: Simple Tic-Tac-Toe games typically do not feature an intelligent AI. Here, the Minimax-based AI presents a real challenge, making the PvC mode engaging and competitive.
+    Enhanced High-Score System: Instead of an unsorted or static list, the red-black tree maintains a dynamically updated, sorted list of players based on wins.
+    Advanced Move Tracking and Undo Feature: The linked list implementation for move tracking and the trie for move sequences introduce complexity and depth, supporting undo functionality and move sequence storage.
+
+Conclusion
+
+This Tic-Tac-Toe application in C demonstrates a comprehensive approach to game and data management through sophisticated data structures, security features, and user interface design. While the code presents challenges, particularly in terms of memory management, security, and efficiency, its feature set and extensibility make it a unique and advanced application.
+
+CHRONOS: Closed-Loop Hybrid Reservoir Optimization & Navigation Operating System
+
+CHRONOS Header Python Version License: MIT Control Theory Status
+
+An Advanced Model Predictive Control (MPC) & Dynamic System Identification Engine for Autonomous Valve Management in Naturally Flowing Oil Wells.
+
+Architecture Overview • Development Guide
+📌 Executive Summary
+
+CHRONOS (Closed-loop Hybrid Reservoir Optimization and Navigation Operating System) is an enterprise-grade autonomous control platform engineered for continuous optimization of naturally flowing oil wells. Operating oil production wells requires balancing crude oil extraction rate against rigid physical constraints—such as Wellhead Pressure ( W H P ), Flowline Pressure ( F L P ), and Bottomhole Pressure ( B H P ). Manual or heuristic valve adjustments often result in constraint overshoot, production loss, or severe reservoir instability.
+
+CHRONOS addresses this challenge through a closed-loop Receding-Horizon Model Predictive Control (MPC) architecture coupled with First-Order Plus Dead Time (FOPDT) dynamic system identification. By dynamically evaluating state trajectories over a rolling prediction horizon ( H = 3  hours ) and embedding a robust 3 safety back-off margin, CHRONOS guarantees safe operating limit compliance while maximizing oil throughput.
+✨ Key Capabilities & Features
+
+    ⚙️ FOPDT Dynamic Model Identification: Automated parameter estimation ( K , τ , b ) using non-linear least-squares optimization (scipy.optimize.curve_fit) derived from open-loop step-test data.
+    🎯 Receding-Horizon MPC Engine: Fast, candidate-evaluating predictive optimizer that balances target tracking against choke move penalties to prevent valve chattering.
+    🛡️ Robust Safety Back-Off Margin: Built-in 3 constraint tightening on upper and lower bounds ( W H P , F L P , B H P ) to guarantee safety under model-plant mismatch and process noise.
+    🔄 Autonomous Saturation Management: Intelligent handling of unreachable oil rate targets (Scenario C) by safely saturating production at the maximum feasible envelope limit without boundary violations.
+    📊 Comprehensive Analytics & Diagnostics: Integrated plotting and metrics reporting suite evaluating Mean Absolute Error ( MAE ), Root Mean Square Error ( RMSE ), and constraint violation counts.
+
+📐 System Architecture
+
+CHRONOS seamlessly integrates high-fidelity physical simulation, dynamic data identification, and closed-loop predictive control:
+🛢️ Physical System & Governing Dynamics
+1. State Variables & Physical Quantities
+
+The well state vector x ( t ) ∈ R 4 and control input u ( t ) ∈ R 1 are defined as:
+
+    u ( t ) : Choke Valve Opening Percentage () ∈ [ 0 , 100 ]
+    Q ( t ) : Crude Oil Production Rate ( bbl/hr )
+    W H P ( t ) : Wellhead Pressure ( psi )
+    F L P ( t ) : Flowline Pressure ( psi )
+    B H P ( t ) : Bottomhole Pressure ( psi )
+
+2. Discrete FOPDT State Equation
+
+For each state variable y ∈ Q , W H P , F L P , B H P , dynamic progression over interval Δ t = 1.0  hr is governed by:
+
+y [ k + 1 ] = y [ k ] + Δ t τ y ( K y ⋅ u [ k ] + b y − y [ k ] )
+
+Where K y represents the static gain, τ y is the time constant (hours), and b y is the baseline intercept.
+3. Safe Operating Envelope
+Parameter 	Unit 	Minimum Limit 	Maximum Limit 	Back-Off Safety Margin ( 3 )
+Choke Opening ( u ) 		0.0 	100.0 	± 5.0 max ramp
+Oil Production ( Q ) 	bbl/hr 	0.0 	Unconstrained 	Objective Target
+Wellhead Pressure ( W H P ) 	psi 	140.0 	345.0 	[ 146.15 , 338.85 ]
+Flowline Pressure ( F L P ) 	psi 	95.0 	235.0 	[ 99.20 , 230.80 ]
+Bottomhole Pressure ( B H P ) 	psi 	2600.0 	3320.0 	[ 2621.60 , 3298.40 ]
+📈 Performance Benchmarks & Scenario Metrics
+
+CHRONOS was rigorously validated across three standard operating scenarios. In all cases, zero constraint violations were observed:
+Performance Metric 	Scenario A: Cold Startup 	Scenario B: Dynamic Tracking 	Scenario C: Infeasible Target
+Initial Choke / State 	5.0 	30.0 	30.0
+Target Profile ( Q target ) 	120.0  bbl/hr 	100 → 150  bbl/hr 	250.0  bbl/hr (Unreachable)
+Final Actual Production ( Q ) 	122.61  bbl/hr 	154.89  bbl/hr 	175.69  bbl/hr (Safe Max)
+Mean Absolute Error (MAE) 	15.035  bbl/hr 	6.045  bbl/hr 	86.245  bbl/hr (Saturated)
+Root Mean Square Error (RMSE) 	31.664  bbl/hr 	12.311  bbl/hr 	89.234  bbl/hr
+Final Tracking Gap 	− 2.014  bbl/hr 	− 5.228  bbl/hr 	+ 74.556  bbl/hr
+Constraint Violations 	0 	0 	0 (Safely Bounded)
+Max Single-Step Choke Move 	5.0 	5.0 	5.0
+
+Note
+
+In Scenario C, the user requested an unachievable target of 250  bbl/hr . Rather than risking well stability or violating B H P / W H P lower limits, CHRONOS automatically saturated choke position to settle safely at 175.69  bbl/hr with 0 constraint breaches.
+🚀 Quickstart & Usage
+1. Environment Prerequisites
+
+Ensure Python 3.9+ is installed. Install required packages:
+
+pip install numpy pandas scipy matplotlib
+
+2. Execute Full Control Pipeline
+
+Run the open-loop step test, fit the dynamic FOPDT model, and simulate closed-loop scenarios:
+
+# Step 1: Open-loop step test execution
+python src/step_test.py
+
+# Step 2: FOPDT dynamic model identification
+python src/model_id.py
+
+# Step 3: Closed-loop MPC scenario simulation
+python src/run_scenarios.py
+
+Generated outputs will be saved to data/ (.csv, .json) and plots/ (.png).
+📂 Repository Layout
+
+CHRONOS/
+├── README.md                 # Primary documentation landing page
+├── ARCHITECTURE.md           # Detailed control system & mathematical spec
+├── DEVELOPMENT.md            # Engineering guide, workflows & testing
+├── LICENSE                   # MIT Open Source License
+├── package.json              # Documentation presentation tooling
+├── data/                     # Identified parameters & scenario metrics
+│   ├── model_params.json     # Identified FOPDT gains (K, tau, b)
+│   ├── scenario_metrics.json # Benchmark performance metrics
+│   ├── step_test.csv         # Open-loop calibration data
+│   └── scenario_[A|B|C].csv  # Closed-loop trajectory logs
+├── plots/                    # High-resolution benchmark visual plots
+│   ├── step_test_response.png
+│   ├── model_identification_fit.png
+│   └── scenario_[A|B|C].png
+├── provided_docs/            # Baseline dataset & presentation resources
+└── src/                      # Core control system python packages
+    ├── simulator.py          # Physical well simulator (MOCK interface)
+    ├── step_test.py          # Open-loop step excitation routine
+    ├── model_id.py           # FOPDT parameter optimization engine
+    ├── mpc_controller.py     # Brute-force receding-horizon MPC
+    └── run_scenarios.py      # Closed-loop evaluation harness
+
+📚 Documentation Index
+
+    📑 Architecture Specification: Mathematical modeling, MPC cost function, prediction horizons, and safety enforcers.
+    🛠️ Development Guide: Codebase setup, calibration workflow, and verification harness.
+
+Released under the MIT License 
+
+ Edge-Based Heart Rate Variability & Stress Monitoring
+Real-Time Autonomous Physiological Analytics & Autonomic Stress Classification on Embedded Microcontrollers
+
+License: MIT Language: C++17 Framework: Arduino / PlatformIO Sensor: MAX30102 PPG Display: SSD1306 OLED Sampling: 100Hz IIR Memory: Zero Malloc
+📌 Table of Contents
+
+    Executive Overview
+    Key Features
+    Hardware Schematic & Pinout
+    Algorithmic Signal Processing Pipeline
+    Mathematical Foundation
+    OLED Display Interface Layout
+    Quick Start Guide
+    Serial Telemetry Output
+    Repository Architecture
+    Documentation Index
+    License
+
+🩺 Executive Overview
+
+Edge-Based Heart Rate Variability Monitoring is an embedded biomedical sensing and digital signal processing (DSP) system designed for real-time physiological stress tracking directly on resource-constrained edge microcontrollers (ESP32, STM32, Arduino).
+
+By capturing raw Photoplethysmogram (PPG) infrared optical signals using the MAX30102 sensor at 100 Hz, applying a 1st-order IIR low-pass filter, detecting inter-beat intervals ( R R intervals), and computing the Root Mean Square of Successive Differences (RMSSD), the system classifies autonomic nervous system activity into discrete stress levels (Relaxed, Moderate, High Stress) in real time.
+
+ +------------------+     I2C @ 400kHz     +-------------------+     OLED Display (128x64)
+ | MAX30102 Sensor  |  ----------------->  |   Microcontroller |  ------------------------> [ HR: 74 BPM ]
+ |  (Raw IR PPG)    |                      | (ESP32/Arduino)   |                            [ RMSSD: 42.5 ms ]
+ +------------------+                      +-------------------+                            [ Status: RELAXED ]
+                                                     |
+                                                     v (115200 Baud Serial Telemetry)
+
+✨ Key Features
+
+    ⚡ Low-Latency Edge Processing: Executes 100 Hz optical sampling, IIR filtering, and peak detection without external cloud dependencies.
+    🧹 1st-Order IIR Low-Pass Signal Filter: Cutoff frequency ≈ 5 , Hz ( α = 0.24 ) removes high-frequency muscle artifacts and ambient light flicker.
+    🎯 Adaptive Physiological Peak Gate: Validates beat intervals against human physiological limits ( 300 , ms ≤ R R ≤ 2000 , ms , equivalent to 30 -- 200 , BPM ).
+    📈 Real-Time RMSSD Computation: Maintains a sliding 30-beat circular buffer ( R R interval history) for rolling HRV calculation.
+    📊 Autonomic Stress Classifier: Categorizes user stress into Relaxed ( RMSSD > 40 , ms ), Moderate ( 25 < RMSSD ≤ 40 , ms ), and High Stress ( RMSSD ≤ 25 , ms ).
+    📺 OLED Real-Time UI Dashboard: 2 Hz refresh rate on SSD1306 monochrome screen with high-contrast inverted status badges and buffer sample indicator.
+    🔒 Zero Dynamic Memory Allocation: Static memory footprint guarantees long-term embedded stability with zero risk of heap fragmentation.
+
+🔌 Hardware Schematic & Pinout
+
+The system connects all peripheral IC modules via a shared I2C bus operating at 400 , kHz fast mode.
+
+Electrical Circuit Schematic Diagram
+⚡ Circuit Wiring Schematic
+
+                      +-------------------+
+                      |   ESP32 / MCU     |
+                      |                   |
+                      |        3V3 -------+--------+-----------+
+                      |        GND -------+----+---|-------+   |
+                      |                   |    |   |       |   |
+                      |     GPIO21 (SDA) -+----+---|--[R1]-+   | (4.7k Pull-up)
+                      |     GPIO22 (SCL) -+----+---|--[R2]-+   | (4.7k Pull-up)
+                      +-------------------+    |   |       |   |
+                                               |   |       |   |
+                         +---------------------+   |       |   |
+                         |                         |       |   |
+                         |  +----------------------+       |   |
+                         |  |                              |   |
+            +------------v--v---------+         +----------v---v----------+
+            | MAX30102 Optical Sensor |         | SSD1306 OLED (128x64)   |
+            |                         |         |                         |
+            |  [1] VCC  <-------------|---------|-------- [1] VCC         |
+            |  [2] GND  <-------------|---------|-------- [2] GND         |
+            |  [3] SDA  <-------------+---------|-------- [3] SDA         |
+            |  [4] SCL  <-----------------------+-------- [4] SCL         |
+            +-------------------------+         +-------------------------+
+
+📌 Pin Mapping Matrix
+Component Pin 	MAX30102 Sensor 	SSD1306 OLED (128x64) 	ESP32 Pin 	Arduino Uno / Nano 	STM32 Blue Pill
+VCC 	3.3V 	3.3V / 5V 	3.3V 	3.3V / 5V 	3.3V
+GND 	GND 	GND 	GND 	GND 	GND
+SDA 	SDA 	SDA 	GPIO 21 	A4 	PB7
+SCL 	SCL 	SCL 	GPIO 22 	A5 	PB6
+INT 	INT (Optional) 	N/A 	Unused / GPIO 19 	Unused / D2 	Unused
+
+Warning
+
+The MAX30102 sensor operates at 3.3V logic level. Connecting the MAX30102 VCC pin directly to 5V power rails will permanently damage the optical sensor IC.
+🔄 Algorithmic Signal Processing Pipeline
+
+The system processes optical PPG raw infrared values through a deterministic sequence:
+🧮 Mathematical Foundation
+1. Low-Pass Filter Equation (IIR)
+
+To isolate the cardiac PPG waveform from high-frequency electromagnetic and motion noise: y [ n ] = α ⋅ x [ n ] + ( 1 − α ) ⋅ y [ n − 1 ] where α = 0.24 at f s = 100 , Hz , providing a − 3 , dB cutoff frequency f c ≈ 5 , Hz .
+2. Root Mean Square of Successive Differences (RMSSD)
+
+RMSSD quantifies short-term parasympathetic vagal activity: RMSSD = 1 N − 1 ∑ i = 1 N − 1 ( R R i + 1 − R R i ) 2 where N = min ( rrCount , 30 ) represents the sample size within the circular window.
+3. Autonomic Stress Decision Boundaries
+
+        High Stress            Moderate Stress              Relaxed
+   [====================|========================|=========================> RMSSD (ms)
+   0                   25                       40
+
+🖥️ OLED Display Interface Layout
+
+The display uses an Adafruit SSD1306 driver to present telemetry at 2 , Hz .
+
++-----------------------------------+
+| HRV Stress Monitor                |  <- Top Header (Text Size 1)
+|-----------------------------------|  <- Horizontal Divider Line
+| HR: 74 BPM                        |  <- Live Heart Rate (Size 2 Number)
+| RMSSD: 42.5 ms                    |  <- HRV Value (Size 1)
+| Stress: [ RELAXED ]               |  <- Inverted Highlighted Badge
+| Samples: 30/30                    |  <- Circular Buffer Window Fill
++-----------------------------------+
+
+🚀 Quick Start Guide
+Prerequisites
+
+    Arduino IDE 2.x or PlatformIO IDE / CLI.
+    Installed Libraries (via Arduino Library Manager):
+        SparkFun MAX3010x Pulse and Proximity Sensor Library (MAX30105.h)
+        Adafruit SSD1306 (Adafruit_SSD1306.h)
+        Adafruit GFX Library (Adafruit_GFX.h)
+
+Flashing via Arduino IDE
+
+    Connect microcontroller via USB.
+    Clone the repository:
+
+    git clone https://github.com/gaminization/Edge-Based-Heart-Rate-Variability-Monitoring.git
+    cd Edge-Based-Heart-Rate-Variability-Monitoring
+
+    Open hrv_stress_monitor.ino.
+    Select your Target Board (e.g., ESP32 Dev Module or Arduino Uno) and COM Port.
+    Click Upload ( → ). Open Serial Monitor at 115200 Baud.
+
+📊 Serial Telemetry Output
+
+When running, the microcontroller outputs CSV-formatted telemetry log lines:
+
+HRV Stress Monitor — Starting...
+MAX30102 initialized at 100 Hz.
+System ready. Place finger on sensor.
+RR_ms=812  BPM=73
+RR_ms=805  BPM=74  RMSSD=7.0ms   State=High Stress
+RR_ms=830  BPM=73  RMSSD=18.5ms  State=High Stress
+RR_ms=790  BPM=74  RMSSD=29.2ms  State=Moderate
+RR_ms=845  BPM=72  RMSSD=41.8ms  State=Relaxed
+
+📂 Repository Architecture
+
+Edge-Based-Heart-Rate-Variability-Monitoring/
+├── hrv_stress_monitor.ino       # Core Arduino/C++ firmware application
+├── README.md                     # Main repository documentation & guide
+├── ARCHITECTURE.md               # Hardware/Software DSP architectural specification
+├── LICENSE                       # MIT License
+└── docs/
+    └── assets/
+        └── schematic_diagram.png # Clean electronic circuit schematic diagram
+
+📖 Documentation Index
+
+For detailed technical references, inspect the architectural specification:
+Document 	Description
+🏗️ ARCHITECTURE.md 	In-depth DSP mathematical derivations, state machine diagrams, and RAM layout.
+📄 License
+
+This repository is licensed under the MIT License. See LICENSE for details.
+
+Spider-Man: Endless City Runner
+
+Python Version Pygame Engine License MIT Build Status Status
+
+An action-packed, side-scrolling 2D endless runner game built using Python and Pygame. Control Spider-Man as he leaps across New York rooftops, shoots webs, and defends the city against the Green Goblin!
+🎮 Gameplay Preview
+
+Spider-Man Gameplay Demo
+
+Live action preview: Spider-Man running, performing physics-based jumps, and blasting web shooters at incoming Green Goblins.
+📑 Table of Contents
+
+    Overview
+    Key Features
+    Controls
+    Quick Start & Installation
+    Game Mechanics
+    Architecture & Design
+    Repository Structure
+    Documentation Index
+    License
+
+🕷️ Overview
+
+Spider-Man: Endless City Runner is a high-octane 2D arcade runner developed with Python and Pygame. Players take on the role of Spider-Man sprinting through an infinite cityscape. Maneuver past aerial threats, dodge incoming hazards, fire high-velocity web shots, and survive as the game's difficulty scales dynamically over time.
+✨ Key Features
+
+    ⚡ Fluid Running Animations: Multi-frame animated sprite cycles for realistic running motion.
+    🚀 Quadratic Jump Physics: Custom physics curve powering smooth, natural jump arcs.
+    🕸️ Web Shooting Action: Shoot projectile webs on demand to destroy aerial Green Goblin threats.
+    🏙️ Endless Parallax Scrolling: Seamlessly sliding city skyline background.
+    📈 Dynamic Speed Scaling: Exponential velocity acceleration as time progresses for increasing challenge.
+    ❤️ Lives & Score Tracker: Real-time HUD tracking current health/lives and cumulative score.
+
+🎮 Controls
+Action 	Key / Input 	Description
+Jump 	SPACE 	Perform a parabolic jump to clear obstacles or low enemies
+Shoot Web 	RIGHT ARROW 	Launch a web projectile forward to strike Green Goblin
+Quit Game 	ESC / Close Window 	Exit the application safely
+🚀 Quick Start & Installation
+Prerequisites
+
+Ensure you have Python 3.10+ installed on your system.
+
+python3 --version
+
+Installation
+
+    Clone the Repository:
+
+    git clone https://github.com/your-username/spider-man_pygame.git
+    cd spider-man_pygame
+
+    Set Up Virtual Environment (Recommended):
+
+    python3 -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+    Install Dependencies:
+
+    pip install pygame pillow
+
+    Launch the Game:
+
+    python3 main.py
+
+⚙️ Game Mechanics
+1. Jump Physics Curve
+
+Jump motion utilizes a parabolic quadratic velocity formula: Δ y = − ( j 2 10 ) × n Where j (jump_count) steps from 15 to -15, producing smooth acceleration upward and downward gravity simulation.
+2. Collision Matrix
+🏗️ Architecture & Design
+📁 Repository Structure
+
+spider-man_pygame/
+├── assets/
+│   ├── Spidey1.png            # Sprite frame 1 (Running)
+│   ├── Spidey2.png            # Sprite frame 2 (Running)
+│   ├── Spidey3.png            # Sprite frame 3 (Running)
+│   ├── Spidey4.png            # Sprite frame 4 (Running)
+│   ├── gobby.png              # Green Goblin enemy sprite
+│   ├── spideyweb.png          # Web projectile sprite
+│   ├── bullet.png             # Alternative web projectile graphic
+│   ├── bomb1.png - bomb4.png  # Pumpkin bomb animation frames
+│   ├── background1.jpg        # City skyline background (Primary)
+│   ├── background2.jpg        # City skyline background (Alternate)
+│   ├── gameplay.gif           # Animated demonstration GIF
+│   └── gameplay_preview.png   # High-resolution screenshot
+├── main.py                    # Main executable game loop & engine logic
+├── ARCHITECTURE.md            # In-depth system design document
+├── DEVELOPMENT.md             # Developer environment & code architecture guide
+└── LICENSE                    # MIT Open Source License
+
+📚 Documentation Index
+Document 	Description
+📖 ARCHITECTURE.md 	Technical architecture, entity classes, rendering loop, and collision matrix
+🛠️ DEVELOPMENT.md 	Complete developer setup, codebase breakdown, and extension guide
+📄 License
+
+This project is open source under the terms of the MIT License.
+Built with ❤️ using Python & Pygame. Spider-Man and related characters are property of Marvel Entertainment. 
+
+EATS-RTOS: Energy-Adaptive Task Scheduling for FreeRTOS on ESP32
+
+EATS-RTOS Banner
+
+FreeRTOS ESP32 Language License Energy Reduction Emergency Latency
+
+A cross-layer, protocol-aware power management framework for IoT endpoints running FreeRTOS on ESP32 dual-core microcontrollers.
+
+Key Features • Architecture • Benchmarks • Quick Start • Repository Structure
+📌 Problem Statement & Solution Overview
+
+Embedded IoT devices operate under severe energy constraints: radio-frequency communication (WiFi, BLE) requires peak CPU throughput, yet inter-transmission idle intervals constitute over 78% of device operating lifetime.
+
+Standard FreeRTOS deployments on ESP32 hold the CPU clock frequency statically at 240 MHz, dissipating 160–200 mA even while waiting on basic timer interrupts.
+
+Baseline (Static 240 MHz):  [   180 mA Idle   ][ 320 mA WiFi ][   180 mA Idle   ] (High Power Floor)
+EATS-RTOS (Adaptive DVFS):  [ 30 mA (40MHz)   ][ 264mA WiFi  ][ 30 mA (40MHz)   ] (~81.4% Energy Savings)
+
+EATS-RTOS solves this energy waste by:
+
+    Dynamic Voltage & Frequency Scaling (DVFS/DFS): Automatically scaling CPU frequency between 40 , MHz (Idle), 80 , MHz (BLE), and 240 , MHz (WiFi).
+    Workload-Sensitive Priority Weighting: Computing priority boost factors dynamically from transmission payload length and duration.
+    Core-Affinity Partitioning: Isolating WiFi/BLE stacks on Core 0 while real-time sensor processing runs on Core 1.
+    Hard Real-Time Emergency Guarantees: Implementing an emergency ceiling override providing sub-5ms alarm latency.
+
+✨ Key Features
+
+    ⚡ Protocol-Aware DVFS Engine: Seamless clock scaling down to 40 MHz idle setpoint ( 76.3 drop in idle current draw).
+    🧮 Workload-Sensitive Dynamic Priority: Priority function π i ( t ) = π base ( i ) + w ( protocol , workload ) with logarithmic payload scaling.
+    🛡️ Priority Inversion Protection: Mutex priority inheritance (configUSE_MUTEXES = 1) preventing unbounded task blocking.
+    🚨 Fast-Path Emergency Override: Priority 20 ceiling override for emergency flame sensors, bypassing supervisory loop delay.
+    ⏱️ Negligible DVFS Overhead: Bounded 12 , μ s switching cost ( 0.0006 overhead relative to management period).
+    📊 Automated Plotting & Metrics: Integrated Python data analytics suite generating publication-quality graphs.
+
+🏗️ System Architecture
+
+For complete mathematical derivations and core affinity layouts, see docs/ARCHITECTURE.md.
+📊 Benchmark Results
+
+Experimental evaluation on an ESP32-WROOM-32D multi-sensor IoT endpoint over a 30-second observation window:
+Performance Metric 	Baseline FreeRTOS (Static 240 MHz) 	EATS-RTOS (DVFS + Protocol Sched) 	Improvement
+Mean Operating Current 	191.4 , mA 	35.8 , mA 	81.3 Drop
+Idle State Current 	182.0 , mA 	30.1 , mA 	83.5 Drop
+Peak WiFi Current 	320.1 , mA 	264.3 , mA 	17.4 Drop
+Total Energy (30s Window) 	18 , 830 , mJ 	3 , 391 , mJ 	82.0 Energy Saved
+WiFi Burst Duration 	500  to  650 , ms 	230  to  280 , ms 	53.6 Burst Compression
+Emergency Response Time 	150  to  200 , ms 	< 5 , ms 	> 30 × Speedup
+Benchmark Visualization Figures
+Figure 1: Current Draw Profile 	Figure 2: Protocol Energy Breakdown
+Figure 1 	Figure 2
+Figure 3: DVFS CPU Frequency Trace 	Figure 4: Cumulative Energy Trajectory
+Figure 3 	Figure 4
+
+For detailed empirical analysis, visit docs/BENCHMARKS.md.
+🚀 Quick Start Guide
+1. Flash Firmware
+
+    Open firmware/optimized/optimized_freertos_fixed.ino in Arduino IDE or PlatformIO.
+    Select ESP32 Dev Module, set CPU Frequency to 240MHz.
+    Upload to target board and open Serial Monitor at 115200 baud.
+
+2. Run Benchmark Data Visualizer
+
+# Clone repository
+git clone https://github.com/gaminization/EATS-RTOS.git
+cd EATS-RTOS
+
+# Install dependencies and run visualizer script
+pip install pandas matplotlib numpy scipy
+python3 tools/plot_energy_comparison.py
+
+For complete step-by-step setup guides, consult DEVELOPMENT.md.
+📁 Repository Structure
+
+EATS-RTOS/
+├── README.md                          # Main repository overview
+├── DEVELOPMENT.md                     # Build instructions & developer guide
+├── LICENSE                            # MIT License
+├── EATS_RTOS_full_report.md           # Full IEEE paper report
+│
+├── docs/                              # Technical documentation & visual assets
+│   ├── ARCHITECTURE.md                # Task energy models & DVFS specifications
+│   ├── BENCHMARKS.md                  # Empirical benchmarking report
+│   └── assets/                        # Benchmark plots & energy report
+│       ├── figure_1_current_vs_time.png
+│       ├── figure_2_energy_breakdown.png
+│       ├── figure_3_dvfs_cpu_current.png
+│       ├── figure_4_cumulative_energy.png
+│       └── energy_stats_report.txt
+│
+├── firmware/                          # ESP32 FreeRTOS C++ source files
+│   ├── baseline/                      # Static 240MHz baseline implementation
+│   │   └── baseline_freertos_fixed.ino
+│   └── optimized/                     # EATS-RTOS protocol-aware implementation
+│       └── optimized_freertos_fixed.ino
+│
+├── data/                              # Current sampling telemetry datasets
+│   ├── baseline.csv                   # 240MHz baseline current readings
+│   └── optimized.csv                  # EATS-RTOS current readings
+│
+└── tools/                             # Python processing & graphing toolchain
+    └── plot_energy_comparison.py      # Automated benchmark visualizer
+
+📜 License
+
+This project is licensed under the MIT License — see the LICENSE file for details.
+
+VISOR
+Visual-Inertial Scene Observation & Reconstruction
+
+C++ Standard OpenCV Intel RealSense OpenMP License
+
+High-performance C++17 real-time 3D TSDF volumetric scene reconstruction engine powered by Intel RealSense D455 depth hardware and IMU sensor fusion.
+
+Key Features • Architecture • Prerequisites • Quick Start • Interactive Controls • Documentation
+📌 Project Overview
+
+VISOR (Visual-Inertial Scene Observation & Reconstruction) is an optimized 3D scanning and scene reconstruction framework designed for autonomous robotics, rover navigation, and high-fidelity 3D spatial mapping.
+
+By coupling Intel RealSense D455 depth hardware, Intel-optimized spatial/temporal noise filters, OpenCV KinFu (Kinect Fusion), and a Complementary IMU Filter, VISOR provides dense, low-drift 3D point cloud generation in real time.
+⚡ Key Features
+Feature 	Standard KinFu (kinfu.cpp) 	IMU-Enhanced KinFu (enhanced_kinfu.cpp)
+Depth Sensor Stream 	848x480 @ 30 FPS 	848x480 @ 30 FPS
+Intel Post-Processing Chain 	Decimation, Spatial, Temporal, Hole Fill 	Decimation, Spatial, Temporal, Hole Fill
+IMU Sensor Fusion 	❌ 	✅ (Accel + Gyro Complementary Filter)
+Adaptive Distance Clipping 	Static (0.2m - 1.5m) 	Dynamic (1.2m Active / 1.5m Static)
+Tracking Loss Recovery 	Immediate Reset 	5-Frame Motion Stability Buffer
+HUD Telemetry Overlay 	Minimal Controls 	Pitch, Roll, Motion & Tracking Status
+3D Point Cloud Export 	ASCII .ply 	ASCII .ply
+📐 System Architecture
+
+The VISOR pipeline continuously acquires depth frames and motion vectors from the Intel RealSense D455, processes them through an edge-preserving filter chain and an IMU fusion filter, and feeds the resulting frames into a TSDF (Truncated Signed Distance Function) volumetric grid.
+💻 Prerequisites & Dependencies
+Hardware Requirements
+
+    Camera: Intel RealSense D455 RGB-D Depth Camera.
+    Port: USB 3.2 Gen 1 (recommended for maximum bandwidth).
+
+Software Dependencies
+
+    OS: Linux (Ubuntu 20.04 / 22.04 LTS recommended)
+    Compiler: g++ or clang++ with C++17 support
+    Build System: make or cmake (>= 3.16)
+    Libraries:
+        librealsense2-dev (Intel RealSense SDK 2.0)
+        libopencv-dev (OpenCV 4.x with rgbd and viz modules)
+        libomp-dev (OpenMP parallelization library)
+
+Quick Dependency Installation (Ubuntu/Debian)
+
+sudo apt-get update
+sudo apt-get install -y \
+    build-essential \
+    cmake \
+    libopencv-dev \
+    librealsense2-dev \
+    libomp-dev \
+    pkg-config
+
+🚀 Quick Start
+1. Clone the Repository
+
+git clone https://github.com/gaminization/VISOR.git
+cd VISOR
+
+2. Build executables
+Option A: Using Makefile (Fastest)
+
+make
+
+Option B: Using CMake
+
+cmake -B build
+cmake --build build
+
+3. Run Applications
+Standard KinFu Application
+
+./kinfu_d455_app
+
+IMU-Enhanced KinFu Application (Recommended)
+
+./kinfu_imu_app
+
+🎮 Interactive Controls
+
+While the reconstruction window is focused, use the following hotkeys:
+Key 	Action 	Description
+ESC 	Exit 	Stop processing threads, close windows, and cleanly exit.
+S 	Save Cloud 	Export current TSDF volume as an ASCII point cloud (object_scan.ply / imu_enhanced_scan.ply).
+R 	Reset 	Clear the current TSDF volume grid and restart spatial tracking.
+📁 Repository Structure
+
+VISOR/
+├── docs/                      # Technical documentation & reference specifications
+│   ├── DEVELOPMENT.md         # Engineering architecture & signal math guide
+│   └── kinfu.pdf              # RealSense KinFu reference paper
+├── src/                       # C++ Core Source Code
+│   ├── kinfu.cpp              # Standard D455 KinFu application
+│   └── enhanced_kinfu.cpp     # IMU-Enhanced KinFu application
+├── .gitignore                 # Workspace hygiene
+├── CMakeLists.txt             # Modern CMake build system configuration
+├── LICENSE                    # MIT License
+├── Makefile                   # Fast terminal build automation
+└── README.md                  # Project overview portal
+
+📚 Documentation
+
+Detailed developer documentation and guidelines are available in the repository:
+
+    📖 DEVELOPMENT.md: Signal processing math, IMU equations, TSDF volume tuning, and thread architecture.
+    📄 LICENSE: MIT License details.
+
+📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+fsm_action_demo
+
+A ROS2 (rclpy) action server that behaves like a goal state machine, plus 5 action client nodes simulating different sensors. Uses the pre-existing example_interfaces/action/Fibonacci interface — no custom .action file to define or build, so you can verify it immediately with ros2 interface show example_interfaces/action/Fibonacci.
+Layout
+
+fsm_action_demo/
+├── package.xml
+├── setup.py
+├── setup.cfg
+├── resource/fsm_action_demo
+└── fsm_action_demo/
+    ├── fsm_server.py          # the FSM action server
+    ├── sensor_client_base.py  # shared client logic
+    ├── gps_client.py          # node1
+    ├── ice_client.py          # node2
+    ├── imu_client.py          # node3
+    ├── lava_client.py         # node4
+    ├── airlock_client.py      # node5
+    └── mission_sequencer.py   # drives the exact required goal order
+
+Build
+
+mkdir -p ~/ros2_ws/src
+cp -r fsm_action_demo ~/ros2_ws/src/
+cd ~/ros2_ws
+colcon build --symlink-install --packages-select fsm_action_demo
+source install/setup.bash
+
+Run
+
+Terminal 1 — start the FSM server:
+
+ros2 run fsm_action_demo fsm_server
+
+Terminal 2 — run the full required mission order in one go (GPS, ice, GPS, IMU, lava, GPS, airlock), each waiting for the previous goal's result before the next is sent:
+
+ros2 run fsm_action_demo mission_sequencer
+
+Or run any individual client (each is its own node):
+
+ros2 run fsm_action_demo gps_client --ros-args -p value:=42
+ros2 run fsm_action_demo ice_client
+ros2 run fsm_action_demo imu_client
+ros2 run fsm_action_demo lava_client
+ros2 run fsm_action_demo airlock_client
+
+(Command-line args --value 0-100 and --cancel-after <seconds> are also accepted directly, e.g. ros2 run fsm_action_demo gps_client --value 80.)
+Demonstrating REJECT
+
+Launch 4 clients back-to-back within the same second (queue cap is 3):
+
+ros2 run fsm_action_demo gps_client &
+ros2 run fsm_action_demo ice_client &
+ros2 run fsm_action_demo imu_client &
+ros2 run fsm_action_demo lava_client &   # this one gets REJECTed, queue is full
+
+Demonstrating QUEUEING
+
+Launch 2 clients back-to-back — the second is ACCEPTed but logs show it waiting behind the first before its feedback starts flowing:
+
+ros2 run fsm_action_demo gps_client &
+ros2 run fsm_action_demo ice_client &
+
+Demonstrating CANCEL
+
+ros2 run fsm_action_demo gps_client --cancel-after 4
+
+The client sends a cancel request 4 seconds after its goal is accepted; watch the server log the goal being cancelled mid-execution.
+Verifying the interface
+
+ros2 interface show example_interfaces/action/Fibonacci
+ros2 action list
+ros2 action info /sensor_data
+
+Encoding scheme
+
+example_interfaces/Fibonacci only has one input field (order), so each goal packs two things into it:
+
+order = sensor_id * 1000 + test_value      # test_value in 0-100
+sensor_id: 1=GPS, 2=ice, 3=imu, 4=lava tube, 5=airlock
+
+Feedback/result sequence is the value ramping from 0 up to test_value across 11 steps (~10 seconds at 1 Hz), mirroring the "0-10 over 10 seconds" requirement while still allowing a distinguishable 0-100 test value per goal.
+About
+No description, website, or topics provided.
+Resources
+Readme
+Activity
+Stars
+0 stars
+Watchers
+0 watching
+Forks
+0 forks
+Releases
+No releases published
+Create a new release
+Packages
+No packages published
+Publish your first package
+Contributors
+1 (1)
+
+    @gaminization
+    gaminizationGarv Arora
+
+Languages
+
+    Python100%
+
+Suggested workflows
+
+Based on your tech stack
+
+    Python application logo
+    Python applicationCreate and test a Python application.By GitHub Actions
+    Python package logo
+    Python packageCreate and test a Python package on multiple Python versions.By GitHub Actions
+    SLSA Generic generator logo
+    SLSA Generic generatorGenerate SLSA3 provenance for your existing release workflowsBy Open Source Security Foundation (OpenSSF)
+
+More workflows
+
+AprilTag TurtleBot Alignment (ROS 2)
+
+A ROS 2 package for real-time AprilTag visual marker tracking and autonomous robot alignment. It captures video from a webcam, detects AprilTags using OpenCV and the apriltag Python library, and publishes velocity commands (cmd_vel) to steer and align a mobile robot (e.g., TurtleBot).
+🚀 Features
+
+    Real-Time Visual Tracking: Captures live camera feeds (10 Hz) and detects AprilTag markers.
+    Visual Annotations: Renders bounding boxes, center coordinates, relative pixel displacements, and estimated size overlays.
+    Autonomous Alignment Control:
+        Angular Control (Steering): Rotates left or right when the tag is off-center (|x| > 50px).
+        Linear Control (Distance): Moves forward or backward based on perceived tag pixel size (> 350px or < 250px).
+    ROS 2 Integration: Publishes standard geometry_msgs/msg/Twist messages to /cmd_vel.
+
+🛠️ Prerequisites & Dependencies
+
+Before running this package, ensure you have ROS 2 installed along with the following Python dependencies:
+
+    ROS 2 (Humble, Iron, or newer)
+    Python 3
+    OpenCV: pip install opencv-python
+    NumPy: pip install numpy
+    AprilTag: pip install apriltag
+
+Ensure a compatible USB webcam or camera is connected to /dev/video0.
+📂 Project Structure
+
+apriltag-alignment/
+├── apriltag_turtlebot/
+│   ├── __init__.py
+│   └── apriltag_turtlebot_node.py   # Main ROS 2 Node logic
+├── resource/
+│   └── apriltag_turtlebot
+├── test/                             # Code formatting and style tests
+├── package.xml                       # ROS 2 Package manifest
+├── setup.cfg                         # Package setup configuration
+└── setup.py                          # Entry point configuration
+
+⚙️ Installation & Build Instructions
+
+    Clone or move the package into your ROS 2 workspace src directory:
+
+    cd ~/ros2_ws/src
+    # Ensure apriltag-alignment is placed here
+
+    Build the package using colcon:
+
+    cd ~/ros2_ws
+    colcon build --packages-select apriltag_turtlebot
+
+    Source the workspace overlay:
+
+    source install/setup.bash
+
+🕹️ Running the Node
+
+Launch the node with ros2 run:
+
+ros2 run apriltag_turtlebot apriltag_turtlebot_node
+
+    A window titled AprilTag Detection will open showing the camera stream with visual detection markers.
+    Motion commands will automatically publish to the /cmd_vel topic.
+    Press q in the OpenCV window to exit and shut down the node.
+
+📡 Published ROS 2 Topics
+Topic Name 	Message Type 	Description
+/cmd_vel 	geometry_msgs/msg/Twist 	Velocity commands for linear (x) and angular (z) movement.
+⚙️ Movement Thresholds
+Condition 	Action 	Twist Command
+tag_x < -50px 	Turn Left 	angular.z = 0.5
+tag_x > 50px 	Turn Right 	angular.z = -0.5
+tag_size > 350px 	Move Forward 	linear.x = 0.2
+tag_size < 250px 	Move Backward 	linear.x = -0.2
+
+
+Gaminization Dotfiles
+
+Modular, clean, and customizable Linux configuration files and scripts. Designed for tiling window managers (Qtile), Kitty terminal, Rofi, Dunst, and Zsh/Fish shell workflows.
+🚀 1-Shot Installation & Account Setup
+
+Set up the entire dotfiles repository and configure all your account logins with zero manual editing:
+
+git clone https://github.com/gaminization/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+./install.sh
+
+⚡ What ./install.sh Automatically Does:
+
+    Creates Target Directories: Ensures ~/.config, ~/.local/bin, and ~/Pictures/screenshots exist.
+    Backs Up Existing Configs: Automatically creates a timestamped backup of existing settings in ~/.dotfiles_backup_<timestamp>/.
+    Deploys App Configurations: Instantly deploys qtile, kitty, dunst, starship.toml, fish, neofetch, cava, peaclock, spotifyd, spotify-tui, lxsession-default-apps, nitrogen, pavucontrol.ini, sddm.conf, rtorrent.rc.
+    Interactive Account Logins & Secrets: Prompts interactively for your Spotify account details, Spotify API keys, and weather location, automatically logging into spotifyd and spotify-tui on your local machine while caching credentials in ~/.config/dotfiles_secrets.env (mode 600).
+    Deploys Executable Scripts: Copies all custom scripts (rofi-wifi-menu.sh, changevolume, changebrightness, screenshot, etc.) into ~/.local/bin/ with chmod +x executable rights.
+    Configures Shell & X11 Profiles: Deploys .bashrc, .zshrc, .xinitrc, .xprofile, and .Xresources.
+    Copies Status Icons: Deploys Qtile bar status icons (~/.config/qtile/icons).
+
+📁 Repository Overview
+
+.
+├── install.sh                  # ⚡ 1-Shot Automated Installer & Login Setup Script
+├── .config/                    # Application configuration files (redacted templates)
+│   ├── cava/                   # Audio visualizer config
+│   ├── dunst/                  # Notification daemon configuration
+│   ├── fish/                   # Fish shell config
+│   ├── kitty/                  # Kitty terminal emulator configuration
+│   ├── lxsession-default-apps/ # Default desktop application settings
+│   ├── neofetch/               # System fetch configuration
+│   ├── nitrogen/               # Wallpaper manager configuration
+│   ├── peaclock/               # Terminal clock configuration
+│   ├── qBittorrent/            # BitTorrent client configuration
+│   ├── qtile/                  # Qtile window manager configuration
+│   ├── rofi/                   # Rofi application launcher configurations
+│   ├── sddm/                   # Display manager configuration and themes
+│   ├── spotifyd/               # Spotify daemon configuration (template)
+│   ├── spotify-tui/            # Spotify TUI client configuration (template)
+│   └── starship.toml           # Cross-shell prompt configuration
+├── bin/                        # Executable shell utilities & custom scripts
+│   ├── changebrightness        # Backlight control script
+│   ├── changevolume            # PulseAudio/PipeWire volume control
+│   ├── extensions_installer.sh # GNOME extensions auto-installer
+│   ├── launchspt.sh            # Spotify daemon launcher
+│   ├── rofi-wifi-menu.sh       # Rofi interactive Wi-Fi manager
+│   ├── screenshot              # Screen capture script
+│   └── songnotification        # Now-playing desktop notification script
+├── assets/                     # Visual Assets & Icons
+│   └── icons/                  # Status bar icons (battery, speaker, calendar)
+└── shell/                      # Shell & X11 environment startup files
+    ├── .bashrc                 # Cleaned Bash configuration
+    ├── .zshrc                  # ArcoLinux feature-packed Zsh configuration
+    ├── .xinitrc                # X11 init configuration
+    ├── .xprofile               # X11 session environment setup
+    └── .Xresources             # X11 resource defaults
+
+🔒 Security & Privacy Architecture
+
+    All credentials entered during ./install.sh are saved ONLY on your local filesystem in ~/.config/.
+    The Git repository files in ~/dotfiles/.config/ remain 100% redacted with placeholders (YOUR_SPOTIFY_USERNAME, YOUR_SPOTIFY_CLIENT_ID), ensuring no secrets are ever committed to Git.
+    Geolocation strings in Qtile weather widgets are configurable via the WEATHER_LOCATION environment variable:
+
+    export WEATHER_LOCATION="YourCity"
+
+About
+No description, website, or topics provided.
+Resources
+Readme
+Activity
+Stars
+0 stars
+Watchers
+0 watching
+Forks
+0 forks
+Releases
+No releases published
+Create a new release
+Packages
+No packages published
+Publish your first package
+Contributors
+1 (1)
+
+    @gaminization
+    gaminizationGarv Arora
+
+Languages
+
+    QML54.5%Shell34.8%Python7.1%GLSL3.6%
+
+Suggested workflows
+
+Based on your tech stack
+
+    SLSA Generic generator logo
+    SLSA Generic generatorGenerate SLSA3 provenance for your existing release workflowsBy Open Source Security Foundation (OpenSSF)
+    Publish Python Package logo
+    Publish Python PackagePublish a Python Package to PyPI on release.By GitHub Actions
+    Python package logo
+    Python packageCreate and test a Python package on multiple Python versions.By GitHub Actions
+
+More workflows

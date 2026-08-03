@@ -1,0 +1,21 @@
+# Resume Optimization Task Checklist
+
+- [ ] Execute Phase 1 & 2: Ingest knowledge base & synthesize ATS/Recruiter research
+- [ ] Execute Phase 3 & 4: Audit & rank projects, audit & rationalize skills
+- [ ] Execute Phase 5, 9, 10, 11: Rewrite experience bullets, project descriptions, patent entry, and LG/Samsung/Wissen Baum internship entries
+- [ ] Execute Phase 6, 7, 8, 12: ATS keyword integration, 1-page layout constraints, recruiter ordering optimization, ResumeWorded score optimization
+- [ ] Create Deliverable 1 & 2: Final 1-Page Master Resume (`Garv_Arora_Resume_Master.md` & production text/LaTeX format)
+- [ ] Create Deliverable 3 - 6: Comprehensive Optimization Report (`Resume_Optimization_Report.md`) containing:
+  - [ ] ATS Parsing & Keyword Analysis
+  - [ ] ResumeWorded 95+ Score Analysis
+  - [ ] Simulated 30-Second Recruiter & Hiring Manager Reviews (FAANG, Tesla, NVIDIA, Startups, Robotics HM, ML HM)
+  - [ ] Line-by-Line Bullet Transformation Table (Original -> Rewritten -> Reason)
+  - [ ] Missing Information & Quantified Metrics Audit
+- [ ] Create Deliverable 7: 6 Specialized Role-Tailored Alternate Resume Versions:
+  - [ ] Software Engineer (SWE)
+  - [ ] ML Engineer
+  - [ ] Robotics Engineer
+  - [ ] Computer Vision Engineer
+  - [ ] Embedded Systems Engineer
+  - [ ] AI Research Engineer
+- [ ] Verify 1-page constraint, ATS plain-text parsing, and link integrity

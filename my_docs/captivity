@@ -1,0 +1,317 @@
+Project description
+🚀 Captivity
+
+Autonomous captive portal login client for WiFi networks.
+Connect → Authenticate → Online. Instantly.
+
+PyPI Version Python Versions Tests Coverage License CodeQL
+Why
+
+Every hotel, airport, and coffee shop makes you do the same thing:
+
+❌  Connect → Open browser → Wait for redirect → Find the button → Click → Wait → Maybe it works
+
+Captivity eliminates the entire process:
+
+✅  Connect → Auto-login (~150ms) → Online
+
+No browser. No clicking. No waiting. Your device connects to WiFi, Captivity detects the portal, authenticates, and gets you online before you even notice.
+Features
+🔌 Core
+
+    Automatic portal detection — HTTP 204 probing with redirect analysis
+    Plugin-based login — Modular handlers for any portal type
+    Credential vault — Encrypted storage with keyring integration
+    Network learning — Fingerprints portals, remembers successful strategies
+
+⚡ Performance
+Metric 	Value
+Portal detection 	< 50 ms
+Login execution 	< 200 ms
+Memory (Python) 	~ 15 MB
+Memory (Rust daemon) 	< 10 MB
+Background polling 	configurable (default 30s)
+🛠️ System Integration
+
+    systemd service — runs as a background daemon
+    D-Bus monitoring — reacts to NetworkManager events
+    System tray — GTK status icon with notifications
+    Web dashboard — real-time stats at localhost:8787
+
+🔒 Security
+
+    CodeQL scanning — automated on every push
+    No plaintext credentials — keyring-backed storage
+    systemd hardening — NoNewPrivileges, ProtectSystem=strict, PrivateTmp
+    Sandboxed daemon — read-only home, strict filesystem access
+
+🌐 Multi-Network
+
+    Network profiles — per-SSID portal fingerprints and strategies
+    Plugin marketplace — community-contributed portal handlers
+    Endpoint caching — skip redundant probes on known networks
+
+How It Works
+
+flowchart LR
+    A[Detect] -->|HTTP 204\nprobe| B[Parse portal]
+    B -->|HTML analysis\nform extraction| C[Login]
+    C -->|Plugin match\nauto-submit| D[Verify]
+    D -->|Re-probe\nconfirm 204| E(((Online)))
+    
+    classDef default fill:#1f2937,stroke:#3b82f6,stroke-width:2px,color:#f9fafb;
+    classDef success fill:#065f46,stroke:#10b981,stroke-width:2px,color:#f9fafb;
+    class E success
+
+    Detect — Sends a lightweight HTTP request to clients3.google.com/generate_204. A 204 means connected. A redirect means captive portal.
+    Parse — Extracts login forms, hidden fields, and action URLs from the portal page.
+    Login — Matches the portal to a plugin (or uses the generic handler), submits credentials.
+    Verify — Re-probes to confirm internet access. Caches the result for future connections.
+
+    [!NOTE] The daemon runs this pipeline continuously, reacting to network changes via D-Bus and re-authenticating when sessions expire.
+
+Installation
+Quick Install (Recommended)
+
+One command to install the package and another to set up all system integrations (background daemon, instant-reconnects, and systray UI):
+
+pip install captivity-cli
+captivity install
+
+    [!WARNING] If you use pipx to install python apps, you must use pipx install --system-site-packages captivity-cli so the system tray can access the GTK libraries installed via apt or pacman.
+
+From source
+
+git clone https://github.com/gaminization/captivity.git
+cd captivity
+pip install --upgrade pip
+pip install -e ".[dev]"
+
+Verify the installation:
+
+captivity --help
+
+Usage
+Quick Start
+
+# One-shot login (--network is required)
+captivity login --network "Airport WiFi"
+
+# Check connectivity status
+captivity status
+
+# Test connectivity probe
+captivity probe
+
+# Run as background daemon
+captivity daemon --network "Airport WiFi"
+
+Credential Management
+
+# Store credentials (prompts for username and password)
+captivity creds store "Airport WiFi"
+
+# List stored networks
+captivity creds list
+
+# Retrieve stored credentials
+captivity creds retrieve "Airport WiFi"
+
+# Delete credentials
+captivity creds delete "Airport WiFi"
+
+Configuration
+
+# Show all settings
+captivity config show
+
+# Set a value
+captivity config set probe.timeout 3
+
+# Generate default config file
+captivity config init
+
+Config file location: ~/.config/captivity/config.toml
+
+    [!TIP] Priority: Environment variables > Config file > Built-in defaults
+
+Environment override format: CAPTIVITY_SECTION_KEY (e.g., CAPTIVITY_PROBE_TIMEOUT=3)
+System Integration
+Background Service
+
+The background service (systemd) handles automatic login on boot and reconnections. It runs as a user service.
+
+# Generate and install the user systemd service
+captivity install
+
+Check status:
+
+sudo systemctl status captivity
+journalctl -u captivity -f
+
+System Tray
+
+captivity tray
+
+Shows connection status as a GTK tray icon with desktop notifications on state changes.
+Dashboard
+
+captivity dashboard
+
+Opens a local web dashboard at http://localhost:8787 showing:
+
+    Current connection status
+    Login success/failure history
+    Session uptime and bandwidth
+    Network profile statistics
+
+Plugin System
+
+Captivity uses a plugin architecture for portal-specific login handlers.
+Built-in Plugins
+
+    generic — universal form-based handler
+    pronto — Oroneto/Pronto portal networks
+
+Marketplace
+
+# Search available plugins
+captivity plugins search cisco
+
+# Install a community plugin
+pip install captivity-plugin-cisco
+
+# List installed plugins
+captivity plugins installed
+
+Writing a Plugin
+
+from captivity.plugins.base import CaptivePortalPlugin
+
+class MyPortalPlugin(CaptivePortalPlugin):
+    name = "my-portal"
+    
+    def detect(self, url: str, html: str) -> bool:
+        return "My Portal" in html
+    
+    def login(self, url: str, html: str, credentials: dict) -> bool:
+        # Submit login form
+        return True
+
+Register via entry_points in your package's pyproject.toml:
+
+[project.entry-points."captivity.plugins"]
+my-portal = "my_plugin:MyPortalPlugin"
+
+Testing and CI
+Running Tests
+
+# Python tests (377 tests)
+PYTHONPATH=src python3 -m pytest tests/python/ -v
+
+# Shell tests (40 tests)
+for f in tests/test_*.sh; do bash "$f"; done
+
+# Rust daemon tests (requires cargo)
+cd daemon-rs && cargo test
+
+CI Pipeline
+
+GitHub Actions runs on every push and PR:
+Step 	Tool 	Policy
+Lint 	pylint (errors only) 	non-blocking
+Test 	pytest + pytest-cov 	coverage report
+Security 	CodeQL 	Python analysis
+Publish 	twine 	on GitHub Release
+Security
+
+    CodeQL — automated vulnerability scanning on every push to main
+    Credential isolation — passwords stored via OS keyring, never in config files
+    systemd hardening — sandboxed with NoNewPrivileges, ProtectSystem=strict
+    No root required — runs as unprivileged user
+
+Report security issues via GitHub Security Advisories.
+Advanced
+Smart Retry
+
+Exponential backoff with jitter, configurable max attempts and ceiling. Circuit breaker pattern prevents hammering failing portals.
+State Machine
+
+Tracks connection lifecycle: IDLE → PROBING → DETECTED → LOGGING_IN → CONNECTED → SESSION_EXPIRED. Each transition emits events on the internal event bus.
+Portal Simulator
+
+# Run a simulated captive portal for testing
+captivity simulate --scenario rate_limited --port 8888
+
+9 built-in scenarios: simple, terms, redirect, session_expiry, rate_limited, flaky, slow, custom_fields, email_only.
+Network Learning
+
+Captivity fingerprints portal pages and stores successful login strategies per network. On reconnection, it skips detection and replays the known strategy.
+Architecture
+
+flowchart TD
+    NM[NetworkManager\nD-Bus events] -->|Events| DB[D-Bus Monitor]
+    DB --> EB[Event Bus]
+    EB --> P[Plugins]
+    EB --> NM2[Network Monitor\nprobe loop]
+    EB --> ST[Session Tracker\nstats, bandwidth]
+    
+    subgraph Python Daemon
+        DB
+        EB
+        P
+        NM2
+        ST
+    end
+    
+    subgraph Rust Daemon
+        RD[probe · monitor\nipc · events]
+    end
+    
+    NM2 -.->|TCP Socket IPC 127.0.0.1:8788| RD
+    RD -.->|TCP Socket IPC| NM2
+    
+    classDef default fill:#1f2937,stroke:#3b82f6,stroke-width:2px,color:#f9fafb;
+    classDef rust fill:#7c2d12,stroke:#ea580c,stroke-width:2px,color:#f9fafb;
+    class RD rust
+
+Python handles: CLI, plugins, UI, dashboard, configuration, credentials. Rust handles: low-level networking, high-frequency probing, event dispatch.
+
+    [!NOTE] Communication between Python and Rust occurs via a local TCP socket using newline-delimited JSON.
+
+Performance
+
+Measured on Ubuntu 22.04, Python 3.11, commodity hardware:
+Metric 	Value 	Method
+Portal detection 	< 50 ms 	HTTP 204 probe to clients3.google.com
+Login execution 	~100–200 ms 	Form parse + POST + verify probe
+Memory (Python daemon) 	~15 MB 	RSS via /proc/self/status
+Memory (Rust daemon) 	< 10 MB 	Release build, opt-level=s, LTO
+CPU (idle) 	~0% 	Sleeps between polls, no busy-wait
+Reconnect latency 	< 500 ms 	D-Bus event → probe → login → verify
+
+The Rust daemon targets embedded/IoT scenarios where memory budgets are strict.
+Roadmap
+
+    Rust daemon as default network core
+    Plugin ecosystem with registry API
+    macOS and Windows support
+    WPA Enterprise / 802.1X detection
+    Mobile companion (Android)
+
+See timeline.md for the full version history.
+Contributing
+
+We welcome contributions. See CONTRIBUTING.md for guidelines on:
+
+    Branch strategy (feature → dev → release → main)
+    Commit conventions (Conventional Commits)
+    Testing requirements
+    Release process
+
+License
+
+Apache 2.0 — see LICENSE.
+
+WiFi should just work. Captivity makes sure it does.
+
