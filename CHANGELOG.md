@@ -1,15 +1,15 @@
-# Flagship Resume Recruiter Font Size Upgrade & Engineering Changelog
+# Flagship Resume Work Experience & Projects Spacing Fix Changelog
 
-This document provides a comprehensive audit of the design choices, RAG evidence base, evolutionary history (V1 \(\rightarrow\) V2 \(\rightarrow\) V3 \(\rightarrow\) Commit 8 90 Score Baseline \(\rightarrow\) 10pt Recruiter Font Size Upgrade), evidence mapping, and precision fixes implemented in `resume.tex`.
+This document provides a comprehensive audit of the design choices, RAG evidence base, evolutionary history (V1 \(\rightarrow\) V2 \(\rightarrow\) V3 \(\rightarrow\) Commit 8 90 Score Baseline \(\rightarrow\) Work Experience & Projects Spacing Fix), evidence mapping, and precision fixes implemented in `resume.tex`.
 
 ---
 
-## 1. Recruiter Font Size & Legibility Upgrade
+## 1. Work Experience & Projects Spacing Calibration
 
-Upgraded document body typography for effortless recruiter scanning:
+Fixed the vertical line crowding identified in peer review:
 
-- **Upgraded Body Font Size**: Replaced 9pt (`\small`) text wrappers with full 10pt body font size (`\normalsize`) across all experience bullets, project descriptions, patent items, awards, certifications, and technical skills.
-- **Improved Contrast & Scanning**: Letterforms are noticeably larger, darker, and clearer, eliminating eye strain during 6-second recruiter reviews.
+- **Removed Negative Vertical Offsets**: Replaced squished `\vspace{-2.2pt}` offsets inside `\resumeItem` with clean `\vspace{-1.5pt}` spacing, opening up the line height within Work Experience and Projects bullet points.
+- **Harmonized Section Spacing**: Work Experience and Projects now match the open, comfortable visual spacing of Education, Patents, Certifications, and Technical Skills.
 
 ---
 
