@@ -1,7 +1,7 @@
 %-------------------------------------------------------------------------------
 % Flagship Resume in LaTeX — Garv Arora
 % Computer Science Engineer Specializing in Intelligent Robotic Systems
-% Engine: 90-Score Baseline (Restored & Calibrated for Readability)
+% Engine: 90-Score Baseline (Calibrated with Larger 10pt Recruiter Font Size)
 % License: MIT
 %-------------------------------------------------------------------------------
 
@@ -17,7 +17,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\usepackage[top=0.25in, bottom=0.25in, left=0.35in, right=0.35in]{geometry}
+\usepackage[top=0.20in, bottom=0.20in, left=0.32in, right=0.32in]{geometry}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -34,51 +34,51 @@
 
 % Section formatting
 \titleformat{\section}{
-  \vspace{-7pt}\scshape\raggedright\large\bfseries
-}{}{0em}{}[\color{black}\titlerule\vspace{-4.5pt}]
+  \vspace{-9pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule\vspace{-5.5pt}]
 
-% Custom commands
+% Custom commands (Using full 10pt body font size for recruiter readability)
 \newcommand{\resumeItem}[1]{
-  \item\small{#1 \vspace{-1.5pt}}
+  \item{#1 \vspace{-2.2pt}}
 }
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-1.5pt}\item
+  \vspace{-2pt}\item
     \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textbf{#2} \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-4pt}
+      \textit{#3} & \textit{#4} \\
+    \end{tabular*}\vspace{-4.5pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
-  \vspace{-1.5pt}\item
+  \vspace{-2pt}\item
     \begin{tabular*}{0.98\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & \textbf{#2} \\
-    \end{tabular*}\vspace{-4pt}
+      #1 & \textbf{#2} \\
+    \end{tabular*}\vspace{-4.5pt}
 }
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.8pt, parsep=0pt, topsep=0.5pt]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-3.5pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.2pt, parsep=0pt, topsep=0.2pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-4.5pt}}
 
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in, itemsep=0.8pt, parsep=0pt, topsep=0.5pt]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in, itemsep=0.2pt, parsep=0pt, topsep=0.2pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2.5pt}}
 
 %-------------------------------------------------------------------------------
 \begin{document}
 
 %----------HEADER----------
 \begin{center}
-    \textbf{\Huge \scshape Garv Arora} \\ \vspace{2pt}
-    \small \textbf{Computer Science Engineer $|$ Intelligent Robotic Systems \& Software} \\ \vspace{2pt}
+    \textbf{\Huge \scshape Garv Arora} \\ \vspace{1pt}
+    \normalsize \textbf{Computer Science Engineer $|$ Intelligent Robotic Systems \& Software} \\ \vspace{1pt}
     \small +91 88008-12254 $|$ 
     \href{mailto:garvarora0205@gmail.com}{garvarora0205@gmail.com} $|$ 
     \href{https://linkedin.com/in/gaminization}{linkedin.com/in/gaminization} $|$ 
     \href{https://github.com/gaminization}{github.com/gaminization} $|$ 
     \href{https://garvarora.vercel.app}{garvarora.vercel.app}
 \end{center}
-\vspace{-10pt}
+\vspace{-14pt}
 
 %-----------EDUCATION-----------
 \section{Education}
@@ -160,33 +160,33 @@
 
 %-----------PATENTS-----------
 \section{Patents}
-  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0.5pt]
-    \item \small{\textbf{Patent Published (App IN202641072249 A1):} \textit{Autonomous Radar-Guided Survivor Detection and Navigation System} --- Fused 24GHz FMCW mmWave radar, ultrasonic array, and IMU dead-reckoning on dual-core ESP32; formulated confidence grid decay $C = \max(0, C - \beta \Delta t)$ for survivor breathing detection under rubble. (2026)}
+  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.2pt, parsep=0pt, topsep=0.2pt]
+    \item{\textbf{Patent Published (App IN202641072249 A1):} \textit{Autonomous Radar-Guided Survivor Detection and Navigation System} --- Fused 24GHz FMCW mmWave radar, ultrasonic array, and IMU dead-reckoning on dual-core ESP32; formulated confidence grid decay $C = \max(0, C - \beta \Delta t)$ for survivor breathing detection under rubble. (2026)}
   \end{itemize}
 
 %-----------ACHIEVEMENTS \& AWARDS-----------
 \section{Achievements \& Awards}
-  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.8pt, parsep=0pt, topsep=0.5pt]
-    \item \small{\textbf{Amazon ML Summer School 2026:} Selected among Top 3,000 out of 1,30,000+ applicants across India ($\sim$2.3\% acceptance rate).}
-    \item \small{\textbf{International Rover Challenge (IRC):} Ranked \textbf{13th Globally (2025)} and \textbf{17th Globally (2026)} with Team Vyadh (SEDS VIT).}
+  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.2pt, parsep=0pt, topsep=0.2pt]
+    \item{\textbf{Amazon ML Summer School 2026:} Selected among Top 3,000 out of 1,30,000+ applicants across India ($\sim$2.3\% acceptance rate).}
+    \item{\textbf{International Rover Challenge (IRC):} Ranked \textbf{13th Globally (2025)} and \textbf{17th Globally (2026)} with Team Vyadh (SEDS VIT).}
   \end{itemize}
 
 %-----------CERTIFICATIONS-----------
 \section{Certifications}
-  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.8pt, parsep=0pt, topsep=0.5pt]
-    \item \small{\textbf{AWS Certifications:} \href{https://cp.certmetrics.com/amazon/en/public/verify/credential/c4c58cf840b94cecade967170c4e6eb1}{AWS Certified AI Practitioner} $|$ \href{https://cp.certmetrics.com/amazon/en/public/verify/credential/bc3e81176da04bd6ab3dcff612193814}{AWS Certified Cloud Practitioner}}
-    \item \small{\textbf{Oracle Cloud Certifications:} \href{https://catalog-education.oracle.com/pls/certview/sharebadge?id=C3199CDA4E4B76D94AEAE70CFCA292011795FEFB3BCD93A18A1454E57C60B0AA}{Certified Data Science Professional} $|$ \href{https://catalog-education.oracle.com/pls/certview/sharebadge?id=EF9A070356E9FB420B39ED42ACCD6CC9326E5653AE07F025C334A2F0238D4652}{Certified Generative AI Professional}}
+  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.2pt, parsep=0pt, topsep=0.2pt]
+    \item{\textbf{AWS Certifications:} \href{https://cp.certmetrics.com/amazon/en/public/verify/credential/c4c58cf840b94cecade967170c4e6eb1}{AWS Certified AI Practitioner} $|$ \href{https://cp.certmetrics.com/amazon/en/public/verify/credential/bc3e81176da04bd6ab3dcff612193814}{AWS Certified Cloud Practitioner}}
+    \item{\textbf{Oracle Cloud Certifications:} \href{https://catalog-education.oracle.com/pls/certview/sharebadge?id=C3199CDA4E4B76D94AEAE70CFCA292011795FEFB3BCD93A18A1454E57C60B0AA}{Certified Data Science Professional} $|$ \href{https://catalog-education.oracle.com/pls/certview/sharebadge?id=EF9A070356E9FB420B39ED42ACCD6CC9326E5653AE07F025C334A2F0238D4652}{Certified Generative AI Professional}}
   \end{itemize}
 
 %-----------TECHNICAL SKILLS-----------
 \section{Technical Skills}
- \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0.5pt]
-  \small{\item{
+ \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.2pt, parsep=0pt, topsep=0.2pt]
+  \item{
     \textbf{Languages}{: C, C++, Python, Rust, ARM Assembly, Java, JavaScript, SQL, Bash, Verilog} \\
     \textbf{Robotics \& Autonomous Systems}{: ROS2 (Nav2, MoveIt2), RTAB-Map (3D SLAM), Micro-ROS, EKF/UKF, PID/MPC, Sensor Fusion, mmWave Radar} \\
     \textbf{Perception \& Machine Learning}{: OpenCV, YOLOv8, MediaPipe, Intel RealSense SDK, PyTorch, TensorFlow, scikit-learn, CUDA, Transformers} \\
     \textbf{Embedded \& Systems}{: ARM Cortex-M, ESP32, FreeRTOS, I2C/SPI/UART, Bare-Metal C/Assembly, Linux Kernel/D-Bus, Docker, Git, CI/CD, AWS}
-  }}
+  }
  \end{itemize}
 
 %-------------------------------------------
