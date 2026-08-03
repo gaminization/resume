@@ -1,5 +1,5 @@
 %-------------------------------------------------------------------------------
-% Flagship Resume in LaTeX — Garv Arora
+% Flagship Hybrid Resume in LaTeX — Garv Arora
 % Computer Science Engineer Specializing in Intelligent Robotic Systems
 % Engine: Jake's Resume Template Foundation (Enhanced & Calibrated)
 % License: MIT
@@ -17,7 +17,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\usepackage[top=0.25in, bottom=0.25in, left=0.35in, right=0.35in]{geometry}
+\usepackage[top=0.30in, bottom=0.30in, left=0.38in, right=0.38in]{geometry}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -34,8 +34,8 @@
 
 % Section formatting
 \titleformat{\section}{
-  \vspace{-8pt}\scshape\raggedright\large\bfseries
-}{}{0em}{}[\color{black}\titlerule\vspace{-5pt}]
+  \vspace{-7pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule\vspace{-4pt}]
 
 % Custom commands
 \newcommand{\resumeItem}[1]{
@@ -66,10 +66,10 @@
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0pt]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-4pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=1pt, parsep=0pt, topsep=0pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-3pt}}
 
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in, itemsep=0.5pt, parsep=0pt, topsep=0pt]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in, itemsep=1pt, parsep=0pt, topsep=0pt]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
 
 %-------------------------------------------------------------------------------
@@ -77,8 +77,8 @@
 
 %----------HEADER----------
 \begin{center}
-    \textbf{\Huge \scshape Garv Arora} \\ \vspace{1pt}
-    \small \textbf{Computer Science Engineer $|$ Intelligent Robotic Systems \& Software} \\ \vspace{1pt}
+    \textbf{\Huge \scshape Garv Arora} \\ \vspace{2pt}
+    \small \textbf{Computer Science Engineer $|$ Intelligent Robotic Systems \& Software} \\ \vspace{1.5pt}
     \small +91 88008-12254 $|$ 
     \href{mailto:garvarora0205@gmail.com}{garvarora0205@gmail.com} $|$ 
     \href{https://linkedin.com/in/gaminization}{linkedin.com/in/gaminization} $|$ 
@@ -92,102 +92,19 @@
   \resumeSubHeadingListStart
     \resumeSubheading
       {Vellore Institute of Technology (VIT)}{Vellore, India}
-      {Bachelor of Technology -- Computer Science \& Engineering (Specialization: IoT) \textnormal{$|$ \textbf{CGPA: 8.36 / 10.0}}}{Aug 2023 -- Jul 2027}
+      {Bachelor of Technology -- Computer Science \& Engineering (Specialization: IoT) \textnormal{$|$ \textbf{CGPA: 8.36 / 10.0}}}{August 2023 -- July 2027}
     \resumeSubheading
       {Gems International School (CBSE)}{Gurugram, India}
-      {Class XII: 76.4\% $|$ Class X: 89.3\%}{Nov 2016 -- Apr 2023}
+      {Class XII: 76.4\% $|$ Class X: 89.3\%}{November 2016 -- April 2023}
   \resumeSubHeadingListEnd
 
-%-----------WORK EXPERIENCE-----------
-\section{Work Experience}
-  \resumeSubHeadingListStart
-
-    \resumeSubheading
-      {LG Soft India (LGSI) -- HS/ES India Lab}{Bengaluru, India}
-      {Living Solution Control Development Intern}{Jun 2026}
-      \resumeItemListStart
-        \resumeItem{Engineered C/C++ embedded control logic and state machine handlers for living solution control modules, verifying execution timing on target hardware; work certified as ``Technically Competent'' by LGSI HR/Engineering management.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Samsung PRISM}{Remote}
-      {Data Intelligence Agent Developer (Internship)}{Aug 2025 -- Present}
-      \resumeItemListStart
-        \resumeItem{Engineered multi-agent LangGraph data engine (FastAPI, Redis, PostgreSQL, Qdrant) automating discovery and 20-stage analysis of dataset corpora; integrated spaCy NLP, Presidio PII anonymization, and MemorySaver HITL pause.}
-        \resumeItem{Built automated dataset validation microservices enforcing SPDX license compliance and BERTopic semantic clustering across multi-GB data repositories.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Wissen Baum Engineering Solutions LLP}{Pune, India}
-      {Software Automation Intern}{May 2025 -- Jul 2025}
-      \resumeItemListStart
-        \resumeItem{Built Python BDD test automation framework (Gherkin/Behave, pytest, Playwright), parallelizing GitLab CI jobs to cut pipeline execution time from $\sim$10m to $\sim$6m (40\% speedup) and reducing manual validation effort by 80\%+.}
-        \resumeItem{Developed pandas/NumPy data processing scripts processing 10,000+ test case records per run, automating test report generation.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {SEDS India (SEDS VIT)}{Vellore, India}
-      {Research \& Development Lead \textnormal{\textit{(Promoted from Developer)}}}{Apr 2024 -- Present}
-      \resumeItemListStart
-        \resumeItem{Promoted to R\&D Lead directing 2 space robotics teams (50+ engineers) across Team Vyadh (IRC) and Team Ardra (ISDC); conducted architecture reviews and debugging, resolving 10+ critical pre-competition issues.}
-        \resumeItem{Architected ROS2 Nav2 \& RTAB-Map 3D Visual SLAM on Intel RealSense D455, generating real-time elevation maps and cutting manual teleoperation time by 70\% in competition traversals.}
-        \resumeItem{Slashed CV latency by $\sim$60\% and boosted throughput 4x using CUDA GPU kernels, YOLOv8, ArUco/AprilTag tracking, and V4L2 zero-copy buffer tuning across 4 camera streams.}
-        \resumeItem{Flashed Micro-ROS firmware onto ESP32 microcontrollers, fusing wheel encoders and IMU with an Extended Kalman Filter (EKF) to cut odometry drift by $\sim$40\% (sub-10 cm accuracy).}
-      \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-
-%-----------PROJECTS-----------
-\section{Projects}
-  \resumeSubHeadingListStart
-
-    \resumeProjectHeading
-      {\textbf{HayaiOS -- Preemptive Bare-Metal RTOS Kernel} $|$ \emph{C, ARM Assembly, ARM Cortex-M4}}{2026}
-      \resumeItemListStart
-        \resumeItem{Implemented preemptive scheduler (1 ms tick) with context switching in $<$50 ARM assembly instructions, mutex/semaphore IPC primitives, and a hardware abstraction layer (HAL) isolating register-level I/O on ARM Cortex-M4.}
-        \resumeItem{Benchmarked scheduler performance across 8 concurrent tasks, achieving zero priority inversion and $<$2 $\mu$s context switch latency.}
-      \resumeItemListEnd
-
-    \resumeProjectHeading
-      {\textbf{Captivity CLI} $|$ \emph{Rust, Python, Linux D-Bus, systemd, Socket IPC} $|$ \href{https://pypi.org/project/captivity-cli/}{pypi.org/project/captivity-cli}}{2026}
-      \resumeItemListStart
-        \resumeItem{Built autonomous captive portal WiFi daemon featuring $<$50ms HTTP probing, systemd integration, D-Bus NetworkManager monitoring, keyring encryption, and dual Python-Rust TCP socket IPC.}
-      \resumeItemListEnd
-
-    \resumeProjectHeading
-      {\textbf{teleop-cursor} $|$ \emph{ROS 2, Python, rclpy, geometry\_msgs/Twist} $|$ \href{https://pypi.org/project/teleop-cursor/}{pypi.org/project/teleop-cursor}}{2026}
-      \resumeItemListStart
-        \resumeItem{Developed zero-hardware mouse cursor teleoperation node for ROS 2, converting screen displacement vectors into smooth velocity commands (\emph{geometry\_msgs/Twist}) at 10 Hz callback frequency for TurtleBot3/Gazebo.}
-      \resumeItemListEnd
-
-    \resumeProjectHeading
-      {\textbf{3D Reconstruction -- IMU-Enhanced KinectFusion} $|$ \emph{C++, OpenCV, Intel RealSense SDK}}{2025}
-      \resumeItemListStart
-        \resumeItem{Stabilized KinectFusion TSDF reconstruction by fusing RealSense D455 depth and 6-DOF IMU data via complementary filter, reducing tracking failures by $\sim$50\% across fast-motion trajectories.}
-      \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-
-%-----------PATENTS-----------
-\section{Patents}
-  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0pt]
-    \item \small{\textbf{Patent Published (App IN202641072249 A1):} \textit{Autonomous Radar-Guided Survivor Detection and Navigation System} --- Fused 24GHz FMCW mmWave radar, ultrasonic array, and IMU dead-reckoning on dual-core ESP32; formulated confidence grid decay $C = \max(0, C - \beta \Delta t)$ for survivor breathing detection under rubble.}
-  \end{itemize}
-\vspace{-3pt}
-
-%-----------ACHIEVEMENTS \& AWARDS-----------
-\section{Achievements \& Awards}
-  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0pt]
+%-----------PATENTS \& KEY HONORS-----------
+\section{Patents \& Key Honors}
+  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=1pt, parsep=0pt, topsep=0pt]
+    \item \small{\textbf{Patent Published (App IN202641072249 A1):} \textit{Autonomous Radar-Guided Survivor Detection and Navigation System} --- Fused 24GHz FMCW mmWave radar, ultrasonic array, and IMU dead-reckoning on dual-core ESP32; formulated confidence grid decay $C = \max(0, C - \beta \Delta t)$ for survivor breathing detection under rubble. (June 2026)}
     \item \small{\textbf{Amazon ML Summer School 2026:} Selected among Top 3,000 out of 1,30,000+ applicants across India ($\sim$2.3\% acceptance rate).}
     \item \small{\textbf{International Rover Challenge (IRC):} Ranked \textbf{13th Globally (2025)} and \textbf{17th Globally (2026)} with Team Vyadh (SEDS VIT).}
-  \end{itemize}
-\vspace{-3pt}
-
-%-----------CERTIFICATIONS-----------
-\section{Certifications}
-  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0pt]
-    \item \small{\textbf{AWS Certifications:} \href{https://cp.certmetrics.com/amazon/en/public/verify/credential/c4c58cf840b94cecade967170c4e6eb1}{AWS Certified AI Practitioner} $|$ \href{https://cp.certmetrics.com/amazon/en/public/verify/credential/bc3e81176da04bd6ab3dcff612193814}{AWS Certified Cloud Practitioner}}
-    \item \small{\textbf{Oracle Cloud Certifications:} \href{https://catalog-education.oracle.com/pls/certview/sharebadge?id=C3199CDA4E4B76D94AEAE70CFCA292011795FEFB3BCD93A18A1454E57C60B0AA}{Certified Data Science Professional} $|$ \href{https://catalog-education.oracle.com/pls/certview/sharebadge?id=EF9A070356E9FB420B39ED42ACCD6CC9326E5653AE07F025C334A2F0238D4652}{Certified Generative AI Professional}}
+    \item \small{\textbf{Certifications:} AWS Certified AI Practitioner $|$ AWS Certified Cloud Practitioner $|$ Oracle Cloud Data Science \& GenAI Professional.}
   \end{itemize}
 \vspace{-3pt}
 
@@ -201,6 +118,78 @@
     \textbf{Embedded \& Systems}{: ARM Cortex-M, ESP32, FreeRTOS, I2C/SPI/UART, Bare-Metal C/Assembly, Linux Kernel/D-Bus, Docker, Git, CI/CD, AWS}
   }}
  \end{itemize}
+\vspace{-3pt}
+
+%-----------WORK EXPERIENCE-----------
+\section{Work Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {SEDS Projects VIT $|$ SEDS India}{April 2024 -- Present}
+      {Research \& Development Lead \textnormal{\textit{(Promoted from Developer)}}}{January 2026 -- Present}
+      \resumeItemListStart
+        \resumeItem{Directing 2 space robotics competition teams (50+ engineers) across Team Vyadh (IRC) and Team Ardra (ISDC); conducted architecture reviews and hardware debugging, resolving 10+ critical pre-competition issues.}
+      \resumeItemListEnd
+      \resumeSubRole{Autonomous Systems Developer}{April 2024 -- January 2026}
+      \resumeItemListStart
+        \resumeItem{Architected ROS2 Nav2 \& RTAB-Map 3D Visual SLAM pipeline on Intel RealSense D455, generating real-time elevation maps and slashing manual teleoperation time by 70\% during autonomous competition traversals.}
+        \resumeItem{Slashed CV pipeline latency by $\sim$60\% and boosted throughput 4x using CUDA GPU kernels, YOLOv8, ArUco/AprilTag tracking, and Linux V4L2 zero-copy buffer tuning across 4 simultaneous camera streams.}
+        \resumeItem{Flashed Micro-ROS firmware onto ESP32 microcontrollers for distributed sensor polling, fusing wheel encoders and 6-DOF IMU with an Extended Kalman Filter (EKF) to cut odometry drift by $\sim$40\% (sub-10 cm positioning accuracy).}
+        \resumeItem{Shipped PyQt5 mission dashboard with real-time telemetry visualization, parameter tuning, and FSM-based autonomous mission execution.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Samsung PRISM}{Remote}
+      {Data Intelligence Agent Developer (Internship)}{August 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{Engineered multi-agent LangGraph data engine (FastAPI, Redis, PostgreSQL, Qdrant) automating discovery, screening, and 20-stage analysis of HuggingFace/Kaggle corpora; integrated spaCy NLP, Presidio PII anonymization, and MemorySaver HITL pause.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {LG Soft India (LGSI) -- HS/ES India Lab}{Bengaluru, India}
+      {Living Solution Control Development Intern}{June 2026}
+      \resumeItemListStart
+        \resumeItem{Constructed C/C++ embedded control logic and state machine handlers for living solution control modules, verifying execution timing on target hardware; work certified as ``Technically Competent'' by LGSI HR/Engineering management.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Wissen Baum Engineering Solutions LLP}{Pune, India}
+      {Software Automation Intern}{May 2025 -- July 2025}
+      \resumeItemListStart
+        \resumeItem{Authored Python BDD test automation framework (Gherkin/Behave, pytest, Playwright), parallelizing GitLab CI jobs to cut pipeline execution time from $\sim$10m to $\sim$6m (40\% speedup) and reducing manual validation effort by 80\%+.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{HayaiOS -- Preemptive Bare-Metal RTOS Kernel} $|$ \emph{C, ARM Assembly, ARM Cortex-M4}}{2026}
+      \resumeItemListStart
+        \resumeItem{Implemented preemptive scheduler (1 ms tick) with context switching in $<$50 ARM assembly instructions, mutex/semaphore IPC primitives, and a hardware abstraction layer (HAL) isolating register-level I/O on ARM Cortex-M4.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Captivity CLI} $|$ \emph{Rust, Python, Linux D-Bus, systemd, Socket IPC} $|$ \href{https://pypi.org/project/captivity-cli/}{pypi.org/project/captivity-cli}}{2026}
+      \resumeItemListStart
+        \resumeItem{Built autonomous captive portal WiFi login daemon featuring $<$50ms HTTP 204 probing, systemd background integration, D-Bus NetworkManager monitoring, keyring credential encryption, and dual Python-Rust TCP socket IPC.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{teleop-cursor} $|$ \emph{ROS 2, Python, rclpy, geometry\_msgs/Twist} $|$ \href{https://pypi.org/project/teleop-cursor/}{pypi.org/project/teleop-cursor}}{2026}
+      \resumeItemListStart
+        \resumeItem{Developed zero-hardware mouse cursor teleoperation node for ROS 2, converting screen displacement vectors into smooth linear/angular velocity commands (\emph{geometry\_msgs/Twist}) at 10 Hz callback frequency for TurtleBot3/Gazebo.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{3D Reconstruction -- IMU-Enhanced KinectFusion} $|$ \emph{C++, OpenCV, Intel RealSense SDK}}{2025}
+      \resumeItemListStart
+        \resumeItem{Stabilized KinectFusion TSDF reconstruction by fusing RealSense D455 depth and 6-DOF IMU data via complementary filter, reducing tracking failures by $\sim$50\% across fast-motion 6-DOF trajectories.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
 
 %-------------------------------------------
 \end{document}

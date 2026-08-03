@@ -6,12 +6,12 @@ This repository contains the flagship production LaTeX source (`resume.tex`), co
 
 ## Deliverable Files
 
-- **`resume.tex`**: Production LaTeX source code built on Jake's template foundation with independent section ordering, rebalanced entry depth, standardized right-aligned dates, and plaintext hyperref configuration.
+- **`resume.tex`**: Production LaTeX source code built on the flagship hybrid "Resume Genome" with 100% unique action verbs, full month experience dates, stacked SEDS India promotion, and plaintext hyperref configuration.
 - **`resume.pdf`**: Single-page compiled PDF document (`Pages: 1` confirmed).
-- **`Resume_Optimization_Report.md`**: Complete Phase 0 Root-Cause Engineering Analysis, Multi-ATS Scoring Matrix, Phase 0.5 Version Audit, and Tier-1 Recruiter Evaluation Report.
+- **`Resume_Optimization_Report.md`**: Complete Phase 0 Root-Cause Analysis, Multi-ATS Scoring Matrix, Phase 0.5 Version Audit, and Tier-1 Recruiter Evaluation Report.
 - **`Evidence_Mapping.md`**: Claim-by-claim attestation matrix linking every resume statement to official certificate URLs, patent publication numbers, PyPI pages, GitHub repositories, and local `my_docs/` verification files.
 - **`README.md`**: Compilation, package, and customization documentation.
-- **`CHANGELOG.md`**: Complete RAG evidence audit, peer resume comparative analysis, and evolutionary changelog from V1 \(\rightarrow\) V2 \(\rightarrow\) V3 \(\rightarrow\) Flagship TeX.
+- **`CHANGELOG.md`**: Complete RAG evidence audit, peer resume comparative analysis, and evolutionary changelog from V1 \(\rightarrow\) V2 \(\rightarrow\) V3 \(\rightarrow\) Flagship Hybrid TeX.
 
 ---
 
