@@ -1,12 +1,12 @@
 # Garv Arora - Flagship LaTeX Resume Package
 
-This repository contains the flagship production LaTeX source (`resume.tex`), compiled single-page PDF (`resume.pdf`), official evidence attestation mapping (`Evidence_Mapping.md`), and comprehensive engineering report (`Resume_Optimization_Report.md`) for **Garv Arora**, engineered on the high-scoring baseline from commit `cbbe7cb` (90 score) with Samsung PRISM dates (`Apr 2026 -- Oct 2026`), simplified project dates (`2026`, `2025`), 638 total words (~610 body words), clean vertical line spacing across Work Experience and Projects, single-page fit (`Pages: 1`), and optimized for high interview conversion across **Software Engineering (SWE), Robotics, Autonomous Systems, Embedded Systems, Computer Vision, ADAS, and AI/ML Engineering**.
+This repository contains the flagship production LaTeX source (`resume.tex`), compiled single-page PDF (`resume.pdf`), official evidence attestation mapping (`Evidence_Mapping.md`), and comprehensive engineering report (`Resume_Optimization_Report.md`) for **Garv Arora**, engineered on the high-scoring baseline with HayaiOS project omitted to unlock generous vertical line spacing, spacious bullet items, 599 total words (~570 body words), single-page fit (`Pages: 1`), and optimized for high interview conversion across **Software Engineering (SWE), Robotics, Autonomous Systems, Embedded Systems, Computer Vision, ADAS, and AI/ML Engineering**.
 
 ---
 
 ## Deliverable Files
 
-- **`resume.tex`**: Production LaTeX source code built on the high-scoring baseline from commit `cbbe7cb` with restored clean line spacing across Work Experience and Projects, Samsung PRISM dates (`Apr 2026 -- Oct 2026`), single-year project dates (`2026`, `2025`), 638 total words (~610 body words), verification hyperlinks, and plaintext hyperref configuration.
+- **`resume.tex`**: Production LaTeX source code built on the high-scoring baseline from commit `cbbe7cb` with HayaiOS project omitted to provide spacious, open line spacing across all entries, Samsung PRISM dates (`Apr 2026 -- Oct 2026`), single-year project dates (`2026`, `2025`), 599 total words (~570 body words), verification hyperlinks, and plaintext hyperref configuration.
 - **`resume.pdf`**: Single-page compiled PDF document (`Pages: 1` confirmed).
 - **`Resume_Optimization_Report.md`**: Complete Phase 0 Root-Cause Analysis, Multi-ATS Scoring Matrix, Phase 0.5 Version Audit, and Tier-1 Recruiter Evaluation Report.
 - **`Evidence_Mapping.md`**: Claim-by-claim attestation matrix linking every resume statement to official certificate URLs, patent publication numbers, PyPI pages, GitHub repositories, and local `my_docs/` verification files.

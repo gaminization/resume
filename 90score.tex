@@ -1,7 +1,7 @@
 %-------------------------------------------------------------------------------
 % Flagship Resume in LaTeX — Garv Arora
 % Computer Science Engineer Specializing in Intelligent Robotic Systems
-% Engine: 90-Score Baseline (Restored & Calibrated for Readability)
+% Engine: 90-Score Baseline (Spacious Layout with HayaiOS Omitted)
 % License: MIT
 %-------------------------------------------------------------------------------
 
@@ -34,8 +34,8 @@
 
 % Section formatting
 \titleformat{\section}{
-  \vspace{-7pt}\scshape\raggedright\large\bfseries
-}{}{0em}{}[\color{black}\titlerule\vspace{-4.5pt}]
+  \vspace{-6pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule\vspace{-4pt}]
 
 % Custom commands
 \newcommand{\resumeItem}[1]{
@@ -47,22 +47,22 @@
     \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textbf{#2} \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-4pt}
+    \end{tabular*}\vspace{-3.5pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
   \vspace{-1.5pt}\item
     \begin{tabular*}{0.98\textwidth}{l@{\extracolsep{\fill}}r}
       \small#1 & \textbf{#2} \\
-    \end{tabular*}\vspace{-4pt}
+    \end{tabular*}\vspace{-3.5pt}
 }
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.8pt, parsep=0pt, topsep=0.5pt]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-3.5pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=1.0pt, parsep=0pt, topsep=0.8pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-3pt}}
 
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in, itemsep=0.8pt, parsep=0pt, topsep=0.5pt]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in, itemsep=1.0pt, parsep=0pt, topsep=0.8pt]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
 
 %-------------------------------------------------------------------------------
@@ -78,7 +78,7 @@
     \href{https://github.com/gaminization}{github.com/gaminization} $|$ 
     \href{https://garvarora.vercel.app}{garvarora.vercel.app}
 \end{center}
-\vspace{-10pt}
+\vspace{-9pt}
 
 %-----------EDUCATION-----------
 \section{Education}
@@ -139,12 +139,6 @@
       \resumeItemListEnd
 
     \resumeProjectHeading
-      {\textbf{HayaiOS -- Preemptive Bare-Metal RTOS Kernel} $|$ \emph{C, ARM Assembly, ARM Cortex-M4}}{2026}
-      \resumeItemListStart
-        \resumeItem{Implemented preemptive scheduler (1 ms tick) with context switching in $<$50 ARM assembly instructions, mutex/semaphore primitives, and a HAL isolating register I/O on ARM Cortex-M4.}
-      \resumeItemListEnd
-
-    \resumeProjectHeading
       {\textbf{Captivity CLI} $|$ \emph{Rust, Python, Linux D-Bus, systemd, Socket IPC} $|$ \href{https://pypi.org/project/captivity-cli/}{pypi.org/project/captivity-cli}}{2026}
       \resumeItemListStart
         \resumeItem{Built autonomous captive portal WiFi login daemon featuring $<$50ms HTTP 204 probing, systemd integration, D-Bus NetworkManager monitoring, keyring encryption, and dual Python-Rust TCP socket IPC.}
@@ -160,7 +154,7 @@
 
 %-----------PATENTS-----------
 \section{Patents}
-  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0.5pt]
+  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.8pt, parsep=0pt, topsep=0.5pt]
     \item \small{\textbf{Patent Published (App IN202641072249 A1):} \textit{Autonomous Radar-Guided Survivor Detection and Navigation System} --- Fused 24GHz FMCW mmWave radar, ultrasonic array, and IMU dead-reckoning on dual-core ESP32; formulated confidence grid decay $C = \max(0, C - \beta \Delta t)$ for survivor breathing detection under rubble. (2026)}
   \end{itemize}
 
