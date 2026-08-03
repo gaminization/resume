@@ -1,7 +1,7 @@
 %-------------------------------------------------------------------------------
 % Flagship Resume in LaTeX — Garv Arora
 % Computer Science Engineer Specializing in Intelligent Robotic Systems
-% Engine: Air-Padded Zero-Collision Layout (100% 1-Page Fit)
+% Engine: Calibrated Section Spacing Architecture (Strict 1-Page Fit)
 % License: MIT
 %-------------------------------------------------------------------------------
 
@@ -17,7 +17,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\usepackage[top=0.20in, bottom=0.20in, left=0.32in, right=0.32in]{geometry}
+\usepackage[top=0.18in, bottom=0.18in, left=0.32in, right=0.32in]{geometry}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -32,40 +32,40 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% Section formatting: Clean spacing around section titles
+% Section formatting: Balanced vertical gaps above section headers
 \titleformat{\section}{
-  \vspace{-6pt}\scshape\raggedright\large\bfseries
+  \vspace{-14pt}\scshape\raggedright\large\bfseries
 }{}{0em}{}[\color{black}\titlerule\vspace{-4pt}]
 
-% Custom commands — Air-Padded Zero-Collision Macro Definitions
+% Custom commands — Preserved Perfect Entry & Bullet Spacing
 \newcommand{\resumeItem}[1]{
-  \item\small{#1 \vspace{-1.2pt}}
+  \item\small{#1 \vspace{-0.2pt}}
 }
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-1.5pt}\item
+  \vspace{-1.0pt}\item
     \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textbf{#2} \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-4pt}
+    \end{tabular*}\vspace{-1.0pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
-  \vspace{-1.5pt}\item
+  \vspace{-1.0pt}\item
     \begin{tabular*}{0.98\textwidth}{l@{\extracolsep{\fill}}r}
       \small#1 & \textbf{#2} \\
-    \end{tabular*}\vspace{-4pt}
+    \end{tabular*}\vspace{-1.0pt}
 }
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-% Subheading list: Clean 1.5pt gap between company & project entries
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=1.5pt, parsep=0pt, topsep=0.8pt]}
+% Subheading list: Standard 2.5pt gap between company & project entries
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.12in, label={}, itemsep=2.5pt, parsep=0pt, topsep=0.5pt]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-3pt}}
 
-% Item list: Clean 0.5pt gap between bullet items inside an entry
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in, itemsep=0.5pt, parsep=0pt, topsep=0.5pt]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
+% Item list: Preserved 0.8pt gap between bullet items inside an entry
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in, itemsep=0.8pt, parsep=0pt, topsep=0.4pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-1pt}}
 
 %-------------------------------------------------------------------------------
 \begin{document}
@@ -80,18 +80,19 @@
     \href{https://github.com/gaminization}{github.com/gaminization} $|$ 
     \href{https://garvarora.vercel.app}{garvarora.vercel.app}
 \end{center}
-\vspace{-9pt}
+\vspace{-7pt}
 
 %-----------EDUCATION-----------
 \section{Education}
-  \resumeSubHeadingListStart
+  \begin{itemize}[leftmargin=0.12in, label={}, itemsep=1.0pt, parsep=0pt, topsep=0.5pt]
     \resumeSubheading
       {Vellore Institute of Technology (VIT)}{Vellore, India}
       {Bachelor of Technology -- Computer Science \& Engineering (Specialization: IoT) \textnormal{$|$ \textbf{CGPA: 8.36 / 10.0}}}{Aug 2023 -- Jul 2027}
     \resumeSubheading
       {Gems International School (CBSE)}{Gurugram, India}
       {Class XII: 76.4\% $|$ Class X: 89.3\%}{Nov 2016 -- Apr 2023}
-  \resumeSubHeadingListEnd
+  \end{itemize}
+  \vspace{1pt}
 
 %-----------WORK EXPERIENCE-----------
 \section{Work Experience}
@@ -135,15 +136,15 @@
   \resumeSubHeadingListStart
 
     \resumeProjectHeading
-      {\textbf{teleop-cursor} $|$ \emph{ROS 2, Python, rclpy, geometry\_msgs/Twist} $|$ \href{https://pypi.org/project/teleop-cursor/}{pypi.org/project/teleop-cursor}}{2026}
+      {\textbf{Captivity CLI} $|$ \emph{Linux D-Bus, systemd, Socket IPC} $|$ \href{https://pypi.org/project/captivity-cli/}{pypi.org/project/captivity-cli}}{2026}
       \resumeItemListStart
-        \resumeItem{Developed zero-hardware mouse cursor teleoperation node for ROS 2, converting screen displacement vectors into smooth linear/angular velocity commands (\emph{geometry\_msgs/Twist}) at 10 Hz for TurtleBot3/Gazebo.}
+        \resumeItem{Built autonomous captive portal WiFi login daemon featuring $<$50ms HTTP 204 probing, systemd integration, D-Bus NetworkManager monitoring, keyring encryption, and dual Python-Rust TCP socket IPC.}
       \resumeItemListEnd
 
     \resumeProjectHeading
-      {\textbf{Captivity CLI} $|$ \emph{Rust, Python, Linux D-Bus, systemd, Socket IPC} $|$ \href{https://pypi.org/project/captivity-cli/}{pypi.org/project/captivity-cli}}{2026}
+      {\textbf{Gesture-Controlled 5-DOF Robotic Arm} $|$ \emph{C++, Arduino, MPU6050, Flex Sensors}}{2025}
       \resumeItemListStart
-        \resumeItem{Built autonomous captive portal WiFi login daemon featuring $<$50ms HTTP 204 probing, systemd integration, D-Bus NetworkManager monitoring, keyring encryption, and dual Python-Rust TCP socket IPC.}
+        \resumeItem{Engineered a 5-DOF robotic arm driven by a sensor glove (MPU6050 IMU, flex sensors), mapping spatial gesture telemetry to multi-servo PWM angles with $<$50ms response latency and 94\% gesture accuracy.}
       \resumeItemListEnd
 
     \resumeProjectHeading
@@ -154,8 +155,8 @@
 
   \resumeSubHeadingListEnd
 
-%-----------PATENTS-----------
-\section{Patents}
+%-----------PATENTS \& PUBLICATIONS-----------
+\section{Patents \& Publications}
   \begin{itemize}[leftmargin=0.12in, label={}, itemsep=0.5pt, parsep=0pt, topsep=0.5pt]
     \item \small{\textbf{Patent Published (App IN202641072249 A1):} \textit{Autonomous Radar-Guided Survivor Detection and Navigation System} --- Fused 24GHz FMCW mmWave radar, ultrasonic array, and IMU dead-reckoning on dual-core ESP32; formulated confidence grid decay $C = \max(0, C - \beta \Delta t)$ for survivor breathing detection under rubble. (2026)}
   \end{itemize}
@@ -166,6 +167,7 @@
     \item \small{\textbf{Amazon ML Summer School 2026:} Selected among Top 3,000 out of 1,30,000+ applicants across India ($\sim$2.3\% acceptance rate).}
     \item \small{\textbf{International Rover Challenge (IRC):} Ranked \textbf{13th Globally (2025)} and \textbf{17th Globally (2026)} with Team Vyadh (SEDS VIT).}
     \item \small{\textbf{International Rover Design Challenge (IRDC 2025):} \textbf{Top 5 Finalist} with Team Vyadh (SEDS VIT).}
+    \item \small{\textbf{TEDx Speaker:} Delivered an official TEDx talk on challenging gender stereotyping and social equality.}
   \end{itemize}
 
 %-----------CERTIFICATIONS-----------
